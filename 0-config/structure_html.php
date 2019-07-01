@@ -423,13 +423,13 @@ function Script($dashboard = false) { ?>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sharrre/2.0.1/jquery.sharrre.min.js"></script>
 
-    <script type="text/javascript" src="js/generale.js"></script>
+    <script type="text/javascript" src="<?php echo URL_HOME ?>js/generale.js"></script>
     <script src="https://unpkg.com/shards-ui@latest/dist/js/shards.min.js"></script>
-    <script src="<?php echo URL_HOME ?>js/extras.1.1.0.min.js"></script>
-    <script src="<?php echo URL_HOME ?>js/shards-dashboards.1.1.0.min.js"></script>
 
     <?php
     if($dashboard == true) { ?>
+      <script src="<?php echo URL_HOME ?>js/extras.1.1.0.min.js"></script>
+      <script src="<?php echo URL_HOME ?>js/shards-dashboards.1.1.0.min.js"></script>
       <script src="<?php echo URL_HOME ?>js/app/app-blog-overview.1.1.0.js"></script>
       <script src="<?php echo URL_HOME ?>dashboard/dashboard.app.vue.js"></script>
     <?php }

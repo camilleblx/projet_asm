@@ -6,7 +6,6 @@
 <html lang="fr">
 	<?php TplHead(); ?>
 	<body id="page-top">
-		<?php TplHeader() ?>
 
 		<section id="logements">
 		<div class="container-fluid">
