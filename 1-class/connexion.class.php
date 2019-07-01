@@ -40,13 +40,11 @@ class connexion extends config_genos{
         }
     }
 
-    public static function VerifDeconnexion(){
-        if(isset($_GET["action"]) && $_GET["action"] == "deconnexion"){
-            foreach ($_SESSION as $key => $session) {
-                unset($_SESSION[$key]);
-            }
-            header("location:".URL_HOME."dashboard/connexion.php");                   
+    public static function Deconnexion(){
+        foreach ($_SESSION as $key => $session) {
+            unset($_SESSION[$key]);
         }
+        header("location:".URL_HOME."dashboard/connexion.php");                   
     }
 
     public static function Redirection(){

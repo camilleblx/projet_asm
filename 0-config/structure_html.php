@@ -97,9 +97,9 @@ function TplHeader() {  ?>
                 <li class="nav-item btn-connexion">
                   <?php 
                   if(empty($_SESSION['utilisateur'])){ ?>
-                      <a class="nav-link disabled"  href="connexion.php" >Connexion</a>
+                      <a class="nav-link disabled"  href="<?php echo URL_HOME ?>connexion.php" >Connexion</a>
                   <?php }else{ ?>
-                      <a class="nav-link disabled"  href="deconnexion.php" >Déconnexion</a>
+                      <a class="nav-link disabled"  href="<?php echo URL_HOME ?>deconnexion.php" >Déconnexion</a>
                   <?php } ?>
                 </li>
             </ul>

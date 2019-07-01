@@ -67,7 +67,6 @@
 	include(__DIR__."/../1-class/utilisateur.class.php");
 
 	// Paramètre
-	connexion::VerifDeconnexion();
 	connexion::VerifConnexion();
 
 	$langue = new langue;
