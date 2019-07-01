@@ -10,7 +10,7 @@ if(isset($_GET["cas"])){
 			$u = new utilisateur;
 			$u->LoadForm();
 			if(isset($_POST["admin"])) $u->admin = 1;
-			$u->mdp = md5($u->mdp);
+			$u->mdp = sha1($u->mdp);
 			if($u->Add() > 0) echo "1";
 			else echo "0";
 			break;		
