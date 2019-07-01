@@ -1,0 +1,44 @@
+/*--------------------
+5. Footer
+--------------------*/
+
+footer {
+    position: relative;
+    text-align: left;
+    background-color: #363635;
+    color: #ddd;  
+    margin-top: 100px;
+    address{
+        display: inline-block;
+        margin-top: 17px;
+        margin-right: 10px;
+    }
+    img{
+        margin-top: -25px;
+        margin-right: 10px;
+    }
+    a{
+        color: white;
+        font-family: Poppins-Bold;
+    }
+}
+
+footer p {
+    color: #B7B7B7;
+    margin: 0;
+    font-size: 10px;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 1.6px;
+}
+
+footer p a {
+    color: #fff;
+}
+
+footer p a span {
+    color: #FF9F46;
+    font-size: 10px;
+    letter-spacing: 1px;
+    font-weight: 700;
+}

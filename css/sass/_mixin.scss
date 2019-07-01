@@ -1,0 +1,16 @@
+@mixin transition($seconde) {
+   -webkit-transition: all $seconde ease-in-out !important;
+   -moz-transition: all $seconde ease-in-out !important;
+   -o-transition: all $seconde ease-in-out !important;
+   -ms-transition: all $seconde ease-in-out !important;
+   transition: all $seconde ease-in-out !important;
+}
+
+@mixin rounded() {
+	border-radius: 35px;
+}
+
+@mixin shadow() {
+	-webkit-box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
+	box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
+}
