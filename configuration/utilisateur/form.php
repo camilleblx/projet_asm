@@ -1,6 +1,7 @@
 <?php include("../../0-config/config-genos.php"); 
 if(!isset($_GET["action"])) header("location:index.php"); 
 else $action = $_GET["action"];
+
 ?>
 
 <!DOCTYPE html>

@@ -9,10 +9,9 @@ if(isset($_GET["cas"])){
 		case 'ajouter-utilisateur':
 			$u = new utilisateur;
 			$u->LoadForm();
-			if(isset($_POST["admin"])) $u->admin = 1;
 			$u->mdp = sha1($u->mdp);
-			if($u->Add() > 0) echo "1";
-			else echo "0";
+			$u->Add();
+			header("location:index.php");
 			break;		
 
 		case 'supprimer-utilisateur':

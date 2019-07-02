@@ -18,11 +18,18 @@
               <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
                 <h3 class="page-title">Liste des utilisateurs</h3>
               </div>
+              <br>
             </div>
             <!-- End Page Header -->
+            <div class="row">
+              <div class="col-12">
+                <a href="form.php?action=1" class="btn bg-success rounded text-white text-center box-shadow">Ajouter un utilisateur</a>
+              </div>
+            </div>
+            <br>
             <!-- Default Light Table -->
             <div class="row">
-              <div class="col">
+              <div class="col-12">
                 <div class="card card-small mb-4">
                   <div class="card-header border-bottom">
                     <h6 class="m-0">Utilisateurs administrateur</h6>
