@@ -19,7 +19,7 @@
 
 	// Database
 	if($prod == 0){
-		$DATABASE_NAME ='projet-technique';
+		$DATABASE_NAME ='bddmelun';
 		$DATABASE_HOST ='localhost';
 		$DATABASE_PORT ='';
 		$DATABASE_USER ='root';

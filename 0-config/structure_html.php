@@ -61,10 +61,10 @@ function TplHead() {  ?>
         <script async defer src="<?php echo URL_HOME ?>js/buttons.js"></script>
 
         <!-- FAVICON -->
-        <link rel="apple-touch-icon" sizes="180x180"    href="<?php echo URL_HOME ?>img/logo/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="<?php echo URL_HOME ?>img/logo/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="<?php echo URL_HOME ?>img/logo/favicon-16x16.png">
-        <link rel="manifest"                            href="<?php echo URL_HOME ?>img/logo/site.webmanifest">
+        <link rel="apple-touch-icon" sizes="180x180"    href="<?php echo URL_HOME ?>img/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="<?php echo URL_HOME ?>img/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="<?php echo URL_HOME ?>img/favicon/favicon.ico">
+        <link rel="manifest"                            href="<?php echo URL_HOME ?>img/favicon/manifest.json">
         <link rel="mask-icon"                           href="/safari-pinned-tab.svg" color="#5bbad5">
     </head>
     <?php TplLoader() ?>
@@ -79,7 +79,8 @@ function TplHeader() {  ?>
         <div class="container">
             <div class="navbar-header page-scroll">
                 <!-- <a class="navbar-brand page-scroll" href="#page-top"><img src="img/myhome.png" alt="Lattes theme logo">MyHome</a> -->
-                <a id="logo" class="navbar-brand page-scroll" href="index.php">MyWatch</a>
+                <a id="logo" class="navbar-brand page-scroll" href="index.php">Melun Val de seine</a>
+                <link rel="icon" type="image/png" sizes="16x16" href="<?php echo URL_HOME ?>img/favicon/favicon.ico">
             </div>
             <ul class="nav">
                 <li class="nav-item">
@@ -87,7 +88,9 @@ function TplHeader() {  ?>
                 </li>            
                 <?php 
                   if(!empty($_SESSION['utilisateur'])){ ?>
-                    <?php if($_SESSION['utilisateur']['typeutilisateur']) { ?><li class="nav-item"><a class="nav-link disabled mt-1"  href="<?php echo URL_HOME ?>moncompte.php" >Entrainements</a></li><?php } ?>                  
+                    <?php if($_SESSION['utilisateur']['typeutilisateur']) { ?><li class="nav-item"><a class="nav-link disabled mt-1"  href="<?php echo URL_HOME ?>moncompte.php" >Mon compte</a></li>
+                    <li><a class="nav-link disabled"  href="<?php echo URL_HOME ?>entrainements.php" >Entrainement</a></li><?php } ?> 
+
                 <?php } ?>
                 <li class="nav-item btn-connexion">
                   <?php 
