@@ -4,7 +4,7 @@ class connexion extends config_genos{
     public static function VerifConnexion(){
         $page = GetPage();
         // SESSION Utilisateur
-        connexion::Redirection();
+        //connexion::Redirection();
         if(!isset($_SESSION["utilisateur"])){
             // On réinitialise les variables sessions
             foreach ($_SESSION as $key => $session){ unset($_SESSION[$key]);}
