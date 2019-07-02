@@ -17,44 +17,47 @@ class connexion extends config_genos{
                 $u = new utilisateur;
                 $search_utilisateur          = array();
                 $search_utilisateur["login"] = $_POST["login"];
-                $search_utilisateur["mdp"]   = md5($_POST["mdp"]);
+                $search_utilisateur["mdp"]   = sha1($_POST["mdp"]);
                 $search_utilisateur["suppr"] = 0;
                 $search_utilisateur = $u->Find($search_utilisateur);
 
                 if(!empty($search_utilisateur)){
-                    $tu = new type_utilisateur;
-                    $tu->id = $search_utilisateur[0]["id_type"];
+                    $tu = new typeutilisateur;
+                    $tu->id = $search_utilisateur[0]["id_typeutilisateur"];
                     $tu->Load();
 
-                    $_SESSION["utilisateur"]["id_utilisateur"] = $search_utilisateur[0]["id"];
-                    $_SESSION["utilisateur"]["login"]          = $search_utilisateur[0]["login"];
-                    $_SESSION["utilisateur"]["id_type"]        = $search_utilisateur[0]["id_type"];
-                    $_SESSION["utilisateur"]["type"]           = $tu->intitule;
-                    $_SESSION["utilisateur"]["nom"]            = $search_utilisateur[0]["nom"];
-                    $_SESSION["utilisateur"]["prenom"]         = $search_utilisateur[0]["prenom"];
-                    $_SESSION["utilisateur"]["email"]          = $search_utilisateur[0]["email"];
-                    $_SESSION["utilisateur"]["admin"]          = $search_utilisateur[0]["admin"];
+                    $_SESSION["utilisateur"]["id_utilisateur"]   = $search_utilisateur[0]["id"];
+                    $_SESSION["utilisateur"]["nom"]              = $search_utilisateur[0]["nom"];
+                    $_SESSION["utilisateur"]["prenom"]           = $search_utilisateur[0]["prenom"];
+                    $_SESSION["utilisateur"]["dateAnniversaire"] = $search_utilisateur[0]["dateAnniversaire"];
+                    $_SESSION["utilisateur"]["login"]            = $search_utilisateur[0]["login"];
+                    $_SESSION["utilisateur"]["img"]              = $search_utilisateur[0]["img"];
+                    $_SESSION["utilisateur"]["telephone"]        = $search_utilisateur[0]["telephone"];
+                    $_SESSION["utilisateur"]["mail"]             = $search_utilisateur[0]["mail"];
+                    $_SESSION["utilisateur"]["adresse"]          = $search_utilisateur[0]["adresse"];
+                    $_SESSION["utilisateur"]["telephoneurgent"]  = $search_utilisateur[0]["telephoneurgent"];
+                    $_SESSION["utilisateur"]["nomurgent"]        = $search_utilisateur[0]["nomurgent"];
+                    $_SESSION["utilisateur"]["prenom_urgent"]    = $search_utilisateur[0]["prenom_urgent"];
+                    $_SESSION["utilisateur"]["typeutilisateur"]  = $tu->nom;
                     header("location:".URL_HOME."index.php");
                 }
             } 
         }
     }
 
-    public static function VerifDeconnexion(){
-        if(isset($_GET["action"]) && $_GET["action"] == "deconnexion"){
-            foreach ($_SESSION as $key => $session) {
-                unset($_SESSION[$key]);
-            }
-            header("location:".URL_HOME."dashboard/connexion.php");                   
+    public static function Deconnexion(){
+        foreach ($_SESSION as $key => $session) {
+            unset($_SESSION[$key]);
         }
+        header("location:".URL_HOME."connexion.php");                   
     }
 
     public static function Redirection(){
         $page = GetPage();
         if(!isset($_SESSION["utilisateur"])){
-            if($page != "connexion.php") header("location:".URL_HOME."dashboard/connexion.php");
+            if($page != "connexion.php") header("location:".URL_HOME."connexion.php");
         }else{
-            if($page == "connexion.php") header("location:".URL_HOME."dashboard/index.php");
+            if($page == "connexion.php") header("location:".URL_HOME."index.php");
         }
     }
 

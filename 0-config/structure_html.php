@@ -83,23 +83,18 @@ function TplHeader() {  ?>
             </div>
             <ul class="nav">
                 <li class="nav-item">
-                    <a class="nav-link active mt-1" href="index.php">Accueil</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled mt-1" href="contact.php">Contact</a>
-                </li>                
-                <li class="nav-item">
-                  <?php 
-                    if(!empty($_SESSION['utilisateur'])){ ?>
-                        <a class="nav-link disabled mt-1"  href="moncompte.php" >Mon compte</a>
-                    <?php } ?>
-                </li>
+                    <a class="nav-link active mt-1" href="<?php echo URL_HOME ?>index.php">Accueil</a>
+                </li>            
+                <?php 
+                  if(!empty($_SESSION['utilisateur'])){ ?>
+                    <?php if($_SESSION['utilisateur']['typeutilisateur']) { ?><li class="nav-item"><a class="nav-link disabled mt-1"  href="<?php echo URL_HOME ?>moncompte.php" >Entrainements</a></li><?php } ?>                  
+                <?php } ?>
                 <li class="nav-item btn-connexion">
                   <?php 
                   if(empty($_SESSION['utilisateur'])){ ?>
-                      <a class="nav-link disabled"  href="connexion.php" >Connexion</a>
+                      <a class="nav-link disabled"  href="<?php echo URL_HOME ?>connexion.php" >Connexion</a>
                   <?php }else{ ?>
-                      <a class="nav-link disabled"  href="deconnexion.php" >Déconnexion</a>
+                      <a class="nav-link disabled"  href="<?php echo URL_HOME ?>deconnexion.php" >Déconnexion</a>
                   <?php } ?>
                 </li>
             </ul>
@@ -423,13 +418,13 @@ function Script($dashboard = false) { ?>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sharrre/2.0.1/jquery.sharrre.min.js"></script>
 
-    <script type="text/javascript" src="js/generale.js"></script>
+    <script type="text/javascript" src="<?php echo URL_HOME ?>js/generale.js"></script>
     <script src="https://unpkg.com/shards-ui@latest/dist/js/shards.min.js"></script>
-    <script src="<?php echo URL_HOME ?>js/extras.1.1.0.min.js"></script>
-    <script src="<?php echo URL_HOME ?>js/shards-dashboards.1.1.0.min.js"></script>
 
     <?php
     if($dashboard == true) { ?>
+      <script src="<?php echo URL_HOME ?>js/extras.1.1.0.min.js"></script>
+      <script src="<?php echo URL_HOME ?>js/shards-dashboards.1.1.0.min.js"></script>
       <script src="<?php echo URL_HOME ?>js/app/app-blog-overview.1.1.0.js"></script>
       <script src="<?php echo URL_HOME ?>dashboard/dashboard.app.vue.js"></script>
     <?php }

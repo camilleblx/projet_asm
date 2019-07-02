@@ -41,7 +41,6 @@ $(document).ready(function(){
     $("#loader-container").hide();
     $( ".intro-animated" ).css("display","inline-block");
     $( ".intro-animated" ).animateCss('fadeInUp');
-    // $( "#maps" ).animateCss('bounce');
   });
 
   $( document ).ajaxStart(function() {

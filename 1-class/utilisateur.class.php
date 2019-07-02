@@ -1,24 +1,40 @@
 <?php
 class utilisateur extends config_genos {
     public $id;
-    public $id_type;
-    public $login;
-    public $mdp;
     public $nom;
     public $prenom;
-    public $email;
-    public $admin;
- 
+    public $dateAnniversaire;
+    public $login;
+    public $mdp;
+    public $img;
+    public $telephone;
+    public $mail;
+    public $adresse;
+    public $telephoneurgent;
+    public $nomurgent;
+    public $prenomurgent;
+    public $id_categorie;
+    public $id_typeutilisateur;
+    public $id_typearbitre;
+
     public function __construct (){
         parent::__construct();
-        $this->id      = 0;
-        $this->id_type = 0;
-        $this->login   = "";
-        $this->mdp     = "";
-        $this->nom     = "";
-        $this->prenom  = "";
-        $this->email   = "";
-        $this->admin   = 0;
+        $this->id                      = 0;
+        $this->nom                     = 0;
+        $this->prenom                  = 0;
+        $this->dateAnniversaire        = 0;
+        $this->login                   = 0;
+        $this->mdp                     = 0;
+        $this->img                     = 0;
+        $this->telephone               = 0;
+        $this->mail                    = 0;
+        $this->adresse                 = 0;
+        $this->telephoneurgent         = 0;
+        $this->nomurgent               = 0;
+        $this->prenomurgent            = 0;
+        $this->id_categorie            = 0;
+        $this->id_typeutilisateur      = 0;
+        $this->id_typearbitre          = 0;
     } 
 
 

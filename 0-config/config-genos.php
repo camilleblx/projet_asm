@@ -19,7 +19,7 @@
 
 	// Database
 	if($prod == 0){
-		$DATABASE_NAME ='projet-annuel';
+		$DATABASE_NAME ='projet-technique';
 		$DATABASE_HOST ='localhost';
 		$DATABASE_PORT ='';
 		$DATABASE_USER ='root';
@@ -55,19 +55,12 @@
 
 	// Class
 	include(__DIR__."/../1-class/connexion.class.php");
-	include(__DIR__."/../1-class/ged.class.php");
-	include(__DIR__."/../1-class/ged_categorie.class.php");
-	include(__DIR__."/../1-class/magasin.class.php");
-	include(__DIR__."/../1-class/magasin_utilisateur.class.php");
-	include(__DIR__."/../1-class/materiel.class.php");
-	include(__DIR__."/../1-class/pubs.class.php");
-	include(__DIR__."/../1-class/type_materiel.class.php");
-	include(__DIR__."/../1-class/type_pubs.class.php");
-	include(__DIR__."/../1-class/type_utilisateur.class.php");
+	include(__DIR__."/../1-class/typeutilisateur.class.php");
 	include(__DIR__."/../1-class/utilisateur.class.php");
+	// include(__DIR__."/../1-class/ged.class.php");
+	// include(__DIR__."/../1-class/ged_categorie.class.php");
 
 	// Paramètre
-	connexion::VerifDeconnexion();
 	connexion::VerifConnexion();
 
 	$langue = new langue;
