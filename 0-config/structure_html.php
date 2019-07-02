@@ -405,6 +405,7 @@ function Script($dashboard = false) { ?>
     <script type="text/javascript" src="<?php echo URL_HOME ?>js/vue.js"></script>
     <script type="text/javascript" src="<?php echo URL_HOME ?>js/filtre/booleanCroix.filter.js"></script>
     <script type="text/javascript" src="<?php echo URL_HOME ?>js/filtre/ko.filter.js"></script>
+    <script type="text/javascript" src="<?php echo URL_HOME ?>js/filtre/email.filter.js"></script>
     <script type="text/javascript" src="<?php echo URL_HOME ?>js/composants/ged-synthese/ged-synthese.comp.js"></script>
 
     <!-- Chart -->
