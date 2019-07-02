@@ -1,59 +1,85 @@
 new Vue({
 	el:"#app",
 	data:{
-		liste_utilisateur_entreprise:[],
-		liste_utilisateur_magasin:[],
-		rech_utilisateur_entreprise:'',
-		rech_utilisateur_magasin:'',
+		liste_utilisateur_administrateur:[],
+		liste_utilisateur_maitrearme:[],
+		liste_utilisateur:[],
+		rech_utilisateur_administrateur:'',
+		rech_utilisateur_maitrearme:'',
+		rech_utilisateur:'',
 	},
 	computed:{
-		listeUtilisateurEntrepriseFiltre:function(){
-			var elems = this.liste_utilisateur_entreprise;
+		listeUtilisateurAdministrateurFiltre:function(){
+			var elems = this.liste_utilisateur_administrateur;
 			return elems.filter(elem =>{
-				return (elem.nom.toLowerCase().indexOf(this.rech_utilisateur_entreprise.toLowerCase()) > -1) ||
-				(elem.prenom.toLowerCase().indexOf(this.rech_utilisateur_entreprise.toLowerCase()) > -1) ||
-				(elem.login.toLowerCase().indexOf(this.rech_utilisateur_entreprise.toLowerCase()) > -1) ||
-				(elem.admin.toLowerCase().indexOf(this.rech_utilisateur_entreprise.toLowerCase()) > -1)
+				return (elem.nom.toLowerCase().indexOf(this.rech_utilisateur_administrateur.toLowerCase()) > -1) ||
+				(elem.prenom.toLowerCase().indexOf(this.rech_utilisateur_administrateur.toLowerCase()) > -1) ||
+				(elem.login.toLowerCase().indexOf(this.rech_utilisateur_administrateur.toLowerCase()) > -1) ||
+				(elem.admin.toLowerCase().indexOf(this.rech_utilisateur_administrateur.toLowerCase()) > -1)
 			});
 		},		
-		listeUtilisateurMagasinFiltre:function(){
-			var elems = this.liste_utilisateur_magasin;
+		listeUtilisateurMaitrearmeFiltre:function(){
+			var elems = this.liste_utilisateur_maitrearme;
 			return elems.filter(elem =>{
-				return (elem.nom.toLowerCase().indexOf(this.rech_utilisateur_magasin.toLowerCase()) > -1) ||
-				(elem.prenom.toLowerCase().indexOf(this.rech_utilisateur_magasin.toLowerCase()) > -1) ||
-				(elem.login.toLowerCase().indexOf(this.rech_utilisateur_magasin.toLowerCase()) > -1) ||
-				(elem.admin.toLowerCase().indexOf(this.rech_utilisateur_magasin.toLowerCase()) > -1)
+				return (elem.nom.toLowerCase().indexOf(this.rech_utilisateur_maitrearme.toLowerCase()) > -1) ||
+				(elem.prenom.toLowerCase().indexOf(this.rech_utilisateur_maitrearme.toLowerCase()) > -1) ||
+				(elem.login.toLowerCase().indexOf(this.rech_utilisateur_maitrearme.toLowerCase()) > -1) ||
+				(elem.admin.toLowerCase().indexOf(this.rech_utilisateur_maitrearme.toLowerCase()) > -1)
+			});
+		},		
+		listeUtilisateurFiltre:function(){
+			var elems = this.liste_utilisateur;
+			return elems.filter(elem =>{
+				return (elem.nom.toLowerCase().indexOf(this.rech_utilisateur.toLowerCase()) > -1) ||
+				(elem.prenom.toLowerCase().indexOf(this.rech_utilisateur.toLowerCase()) > -1) ||
+				(elem.login.toLowerCase().indexOf(this.rech_utilisateur.toLowerCase()) > -1) ||
+				(elem.admin.toLowerCase().indexOf(this.rech_utilisateur.toLowerCase()) > -1)
 			});
 		},
 	},
 	ready:function(){
-		this.GetListeUtilisateurEntreprise();
-		this.GetListeUtilisateurMagasin();
+		this.GetListeUtilisateurAdministrateur();
+		this.GetListeUtilisateurMaitrearme();
+		this.GetListeUtilisateur();
 		var scope = this;
 	},
 	methods:{
-		GetListeUtilisateurEntreprise:function(){
+		GetListeUtilisateurAdministrateur:function(){
 			var scope = this;
 			$.ajax({
-			    url:"data.php?cas=liste-utilisateur-entreprise",
+			    url:"data.php?cas=liste-utilisateur-administrateur",
 			    type:"POST",
 			    data:{},
 			    success:function(res){
-					scope.liste_utilisateur_entreprise = JSON.parse(res);
+					scope.liste_utilisateur_administrateur = JSON.parse(res);
 			    },
 			    error:function(){
 			
 			    }
 			});
 		},		
-		GetListeUtilisateurMagasin:function(){
+		GetListeUtilisateurMaitrearme:function(){
 			var scope = this;
 			$.ajax({
-			    url:"data.php?cas=liste-utilisateur-magasin",
+			    url:"data.php?cas=liste-utilisateur-maitrearme",
 			    type:"POST",
 			    data:{},
 			    success:function(res){
-					scope.liste_utilisateur_magasin = JSON.parse(res);
+					scope.liste_utilisateur_maitrearme = JSON.parse(res);
+			    },
+			    error:function(){
+			
+			    }
+			});
+		},		
+		GetListeUtilisateur:function(){
+			var scope = this;
+			$.ajax({
+			    url:"data.php?cas=liste-utilisateur",
+			    type:"POST",
+			    data:{},
+			    success:function(res){
+					scope.liste_utilisateur = JSON.parse(res);
 			    },
 			    error:function(){
 			
@@ -70,8 +96,8 @@ new Vue({
 			    success:function(res){
 			    	if(res == "1") Notify("success","L'utilisateur à été ajouté");
 			    	else Notify("danger","L'utilisateur n'a pas été ajouté");
-					scope.GetListeUtilisateurEntreprise();
-					scope.GetListeUtilisateurMagasin();
+					scope.GetListeUtilisateurAdministrateur();
+					scope.GetListeUtilisateurMaitrearme();
 					$("#form-ajout-utilisateur").trigger("reset");
 			    },
 			    error:function(){
@@ -92,8 +118,8 @@ new Vue({
 				    	res = JSON.parse(res);
 				    	if(res == "1") Notify("success","L'utilisateur à été supprimé");
 				    	else Notify("danger","L'utilisateur n'a pas été supprimé");
-						scope.GetListeUtilisateurEntreprise();
-						scope.GetListeUtilisateurMagasin();
+						scope.GetListeUtilisateurAdministrateur();
+						scope.GetListeUtilisateurMaitrearme();
 				    },
 				    error:function(){
 						Notify("danger","Erreur Ajax");

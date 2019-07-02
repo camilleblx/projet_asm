@@ -1,4 +1,4 @@
-<?php include("../../../0-config/config-genos.php"); 
+<?php include("../../0-config/config-genos.php"); 
 
 $id_utilisateur = (isset($_POST['id_utilisateur']) && !empty($_POST['id_utilisateur'])) ? $_POST['id_utilisateur'] : 0;
 

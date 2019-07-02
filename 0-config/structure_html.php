@@ -149,23 +149,23 @@ function TplDashboardConfiguration($page) {
         <div class="nav-wrapper">
           <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link <?php if($page == "utilisateur") echo 'active' ?>" href="<?php echo URL_HOME ?>dashboard/configuration/utilisateur/index.php">
+                <a class="nav-link <?php if($page == "utilisateur") echo 'active' ?>" href="<?php echo URL_HOME ?>configuration/utilisateur/index.php">
                   <i class="material-icons">edit</i>
                   <span>Utilisateurs</span>
                 </a>
               </li>                  
               <li class="nav-item">
-                <a class="nav-link <?php if($page == "magasin") echo 'active' ?>" href="<?php echo URL_HOME ?>dashboard/configuration/magasin/index.php">
+                <a class="nav-link <?php if($page == "entrainement") echo 'active' ?>" href="<?php echo URL_HOME ?>configuration/entrainement/index.php">
                   <i class="material-icons">edit</i>
-                  <span>Magasins</span>
-                </a>
-              </li>                 
-              <li class="nav-item">
-                <a class="nav-link <?php if($page == "ged") echo 'active' ?>" href="<?php echo URL_HOME ?>dashboard/configuration/ged/index.php">
-                  <i class="material-icons">edit</i>
-                  <span>GED</span>
+                  <span>Entrainements</span>
                 </a>
               </li>          
+              <li class="nav-item">
+                <a class="nav-link <?php if($page == "competition") echo 'active' ?>" href="<?php echo URL_HOME ?>configuration/competition/index.php">
+                  <i class="material-icons">edit</i>
+                  <span>Compétitions</span>
+                </a>
+              </li>                 
           </ul>
         </div>
     </aside>
@@ -382,6 +382,17 @@ function TplBackTop(){ ?>
 
 <?php }
 
+function TplDashboardAlert(){ ?>
+
+  <div class="alert alert-accent alert-dismissible fade show mb-0" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">×</span>
+    </button>
+    <i class="fa fa-info mx-2"></i>
+    <strong>Espace configuration</strong> Administrateur
+  </div>
+
+<?php }
 
 function Script($dashboard = false) { ?>
 

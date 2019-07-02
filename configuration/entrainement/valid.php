@@ -1,4 +1,4 @@
-<?php include("../../../0-config/config-genos.php"); 
+<?php include("../../0-config/config-genos.php"); 
 
 $id_magasin = (isset($_POST['id_magasin']) && !empty($_POST['id_magasin'])) ? $_POST['id_magasin'] : 0;
 

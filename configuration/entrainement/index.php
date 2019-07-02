@@ -1,4 +1,4 @@
-<?php include("../../../0-config/config-genos.php"); ?>
+<?php include("../../0-config/config-genos.php"); ?>
 
 <!DOCTYPE html>
 <html lang="fr">
