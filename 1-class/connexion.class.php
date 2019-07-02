@@ -38,7 +38,7 @@ class connexion extends config_genos{
                     $_SESSION["utilisateur"]["telephoneurgent"]  = $search_utilisateur[0]["telephoneurgent"];
                     $_SESSION["utilisateur"]["nomurgent"]        = $search_utilisateur[0]["nomurgent"];
                     $_SESSION["utilisateur"]["prenom_urgent"]    = $search_utilisateur[0]["prenom_urgent"];
-                    $_SESSION["utilisateur"]["typeutilisateur"]  = $tu->nom;
+                    $_SESSION["utilisateur"]["typeutilisateur"]  = strtolower($tu->nom);
                     header("location:".URL_HOME."index.php");
                 }
             } 
