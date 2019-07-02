@@ -56,6 +56,8 @@
 	// Class
 	include(__DIR__."/../1-class/connexion.class.php");
 	include(__DIR__."/../1-class/typeutilisateur.class.php");
+	include(__DIR__."/../1-class/typeentrainement.class.php");
+	include(__DIR__."/../1-class/typearbitre.class.php");
 	include(__DIR__."/../1-class/utilisateur.class.php");
 	// include(__DIR__."/../1-class/ged.class.php");
 	// include(__DIR__."/../1-class/ged_categorie.class.php");

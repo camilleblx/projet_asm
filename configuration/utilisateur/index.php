@@ -23,7 +23,7 @@
             <!-- End Page Header -->
             <div class="row">
               <div class="col-12">
-                <a href="form.php?action=1" class="btn bg-success rounded text-white text-center box-shadow">Ajouter un utilisateur</a>
+                <a href="form.php?action=1" class="btn bg-success rounded text-white text-center box-shadow"><i class="material-icons">add</i> Ajouter un utilisateur</a>
               </div>
             </div>
             <br>

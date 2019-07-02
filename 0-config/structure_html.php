@@ -31,7 +31,7 @@ function TplHead() {  ?>
                   <?php break;
 
               default: ?>
-                  <title>Projet annuel</title>
+                  <title>Projet technique</title>
               <?php
           }  
         ?>

@@ -1,5 +1,5 @@
 <?php include("0-config/config-genos.php"); 
-var_dump($_SESSION);
+// var_dump($_SESSION);
 ?>
 
 

@@ -118,10 +118,28 @@ class utilisateur extends config_genos {
                 </div>
                 <div class="form-row">
                   <div class="form-group col-md-6">
-                    <input type="text" class="form-control" name="nom" placeholder="nom" aria-label="nom" aria-describedby="basic-addon1"> 
+                    <input type="text" class="form-control" name="nom" placeholder="nom"> 
                   </div>                        
                   <div class="form-group col-md-6">
-                    <input type="text" class="form-control" name="prenom" placeholder="prenom" aria-label="prenom" aria-describedby="basic-addon1"> 
+                    <input type="text" class="form-control" name="prenom" placeholder="prenom"> 
+                  </div>                  
+                  <div class="form-group col-md-6">
+                    <input type="text" class="form-control" name="telephone" placeholder="telephone"> 
+                  </div>                  
+                  <div class="form-group col-md-6">
+                    <input type="mail" class="form-control" name="mail" placeholder="email"> 
+                  </div>                  
+                  <div class="form-group col-md-12">
+                    <textarea class="form-control" name="adresse"  rows="3" placeholder="Adresse..."></textarea> 
+                  </div>                  
+                  <div class="form-group col-md-6">
+                    <input type="text" class="form-control" name="telephoneurgent" placeholder="Télephone urgent"> 
+                  </div>                  
+                  <div class="form-group col-md-6">
+                    <input type="text" class="form-control" name="nomurgent" placeholder="Nom urgent"> 
+                  </div>                  
+                  <div class="form-group col-md-6">
+                    <input type="text" class="form-control" name="prenomurgent" placeholder="Prenom urgent"> 
                   </div>
                 </div>
                 <div class="form-group">
@@ -132,8 +150,43 @@ class utilisateur extends config_genos {
                     $tu = new typeutilisateur;
                     $conf = array();
                     $conf["sql"] = "SELECT * FROM typeutilisateur WHERE suppr = 0";
-                    $conf["class"] = "form-control";
+                    $conf["class"] = "form-control col-6";
+                    $conf["preselect"] = "Sélectionnez un type d'utilisateur";
+                    $conf["preselectval"] = 0;
                     $tu->SelectList("id_typeutilisateur","id","nom",$conf); 
+                  ?>
+                </div>                
+                <div class="form-group">
+                  <?php 
+                    $tu = new typeentrainement;
+                    $conf = array();
+                    $conf["sql"] = "SELECT * FROM typeentrainement WHERE suppr = 0";
+                    $conf["class"] = "form-control col-6";
+                    $conf["preselect"] = "Sélectionnez un type d'entrainement";
+                    $conf["preselectval"] = 0;
+                    $tu->SelectList("id_typeentrainement","id","nom",$conf); 
+                  ?>
+                </div>                
+                <div class="form-group">
+                  <?php 
+                    $tu = new typearbitre;
+                    $conf = array();
+                    $conf["sql"] = "SELECT * FROM typearbitre WHERE suppr = 0";
+                    $conf["class"] = "form-control col-6";
+                    $conf["preselect"] = "Sélectionnez un type d'entrainement";
+                    $conf["preselectval"] = 0;
+                    $tu->SelectList("id_typearbitre","id","nom",$conf); 
+                  ?>
+                </div>                
+                <div class="form-group">
+                  <?php 
+                    $tu = new categorie;
+                    $conf = array();
+                    $conf["sql"] = "SELECT * FROM categorie WHERE suppr = 0";
+                    $conf["class"] = "form-control col-6";
+                    $conf["preselect"] = "Sélectionnez une catégorie";
+                    $conf["preselectval"] = 0;
+                    $tu->SelectList("id_categorie","id","nom",$conf); 
                   ?>
                 </div>
 <!--                 <div class="custom-control custom-toggle custom-toggle-sm mb-1">
