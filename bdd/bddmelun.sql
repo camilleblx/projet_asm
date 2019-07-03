@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 03 juil. 2019 à 07:31
--- Version du serveur :  5.7.21
--- Version de PHP :  7.2.4
+-- Généré le :  mer. 03 juil. 2019 à 11:49
+-- Version du serveur :  5.7.19
+-- Version de PHP :  7.1.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,11 +25,11 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `abscence`
+-- Structure de la table `absence`
 --
 
-DROP TABLE IF EXISTS `abscence`;
-CREATE TABLE IF NOT EXISTS `abscence` (
+DROP TABLE IF EXISTS `absence`;
+CREATE TABLE IF NOT EXISTS `absence` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_utilisateur` int(11) NOT NULL,
   `date_entrainement` date NOT NULL,
@@ -65,7 +65,6 @@ CREATE TABLE IF NOT EXISTS `competition` (
   `datecompete` date NOT NULL,
   `heurecompete` time NOT NULL,
   `lieux` varchar(555) NOT NULL,
-  `id_utilisateur` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
@@ -73,8 +72,8 @@ CREATE TABLE IF NOT EXISTS `competition` (
 -- Déchargement des données de la table `competition`
 --
 
-INSERT INTO `competition` (`id`, `nom`, `datecompete`, `heurecompete`, `lieux`, `id_utilisateur`) VALUES
-(1, 'Challenge Revenu', '2019-04-06', '13:00:00', 'Melun', 0);
+INSERT INTO `competition` (`id`, `nom`, `datecompete`, `heurecompete`, `lieux`) VALUES
+(1, 'Challenge Revenu', '2019-04-06', '13:00:00', 'Melun');
 
 -- --------------------------------------------------------
 
@@ -91,7 +90,7 @@ CREATE TABLE IF NOT EXISTS `entrainement` (
   `heureDebEnt` time NOT NULL,
   `heureFinEnt` time NOT NULL,
   `id_typeentrainement` int(11) NOT NULL,
-  `id_categorie` int(11) NOT NULL,
+  `id_groupe` int(11) NOT NULL,
   `id_utilisateur` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
@@ -100,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `entrainement` (
 -- Déchargement des données de la table `entrainement`
 --
 
-INSERT INTO `entrainement` (`id`, `nom`, `details`, `dateEnt`, `heureDebEnt`, `heureFinEnt`, `id_typeentrainement`, `id_categorie`, `id_utilisateur`) VALUES
+INSERT INTO `entrainement` (`id`, `nom`, `details`, `dateEnt`, `heureDebEnt`, `heureFinEnt`, `id_typeentrainement`, `id_groupe`, `id_utilisateur`) VALUES
 (1, 'Entrainement M7-1', 'Entrainement du Mardi soir pour la catégorie M7-1 en Loisir', '2019-07-02', '18:30:00', '20:00:00', 2, 2, 3);
 
 -- --------------------------------------------------------
@@ -120,11 +119,11 @@ CREATE TABLE IF NOT EXISTS `entrainemeutilisateur` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `groupes`
+-- Structure de la table `groupe`
 --
 
-DROP TABLE IF EXISTS `groupes`;
-CREATE TABLE IF NOT EXISTS `groupes` (
+DROP TABLE IF EXISTS `groupe`;
+CREATE TABLE IF NOT EXISTS `groupe` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(555) NOT NULL,
   `details` varchar(5555) NOT NULL,
@@ -132,10 +131,10 @@ CREATE TABLE IF NOT EXISTS `groupes` (
 ) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `groupes`
+-- Déchargement des données de la table `groupe`
 --
 
-INSERT INTO `groupes` (`id`, `nom`, `details`) VALUES
+INSERT INTO `groupe` (`id`, `nom`, `details`) VALUES
 (1, 'M5', '2014'),
 (2, 'M7-1', '2013'),
 (3, 'M7-2', '2012'),
@@ -178,6 +177,19 @@ INSERT INTO `objectif` (`id`, `nom`, `details`, `id_utilisateur`) VALUES
 (1, 'Amélioration Débordement', 'Amélioration de l\'action de débordement', 2),
 (2, 'Amélioration Débordement', 'Amélioration de l\'action de débordement', 1),
 (3, 'Amélioration Débordement', 'Amélioration de l\'action de débordement', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `participantcompetition`
+--
+
+DROP TABLE IF EXISTS `participantcompetition`;
+CREATE TABLE IF NOT EXISTS `participantcompetition` (
+  `id` int(11) NOT NULL,
+  `id_utilisateur` int(11) NOT NULL,
+  `id_competition` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -263,20 +275,23 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `login` varchar(555) NOT NULL,
   `mdp` varchar(555) NOT NULL,
   `img` varchar(55555) NOT NULL,
-  `id_categorie` int(11) NOT NULL,
+  `id_groupe` int(11) NOT NULL,
   `id_typeutilisateur` int(11) NOT NULL,
   `id_typearbitre` int(11) NOT NULL,
+  `id_typeentrainement` int(11) NOT NULL DEFAULT '0',
+  `commentaire` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `utilisateur`
 --
 
-INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `dateAnniversaire`, `login`, `mdp`, `img`, `id_categorie`, `id_typeutilisateur`, `id_typearbitre`) VALUES
-(1, 'Blaix', 'Camille', '1997-01-16', 'blaixc', 'd033e22ae348aeb5660fc2140aec35850c4da997', '', 13, 2, 3),
-(2, 'Marivint', 'Yvann', '1996-11-15', 'marivinty', 'd033e22ae348aeb5660fc2140aec35850c4da997', '', 13, 1, 0),
-(3, 'Ripeau', 'Gabrielle', '1996-05-10', 'ripeaug', 'd033e22ae348aeb5660fc2140aec35850c4da997', '', 13, 3, 4);
+INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `dateAnniversaire`, `login`, `mdp`, `img`, `id_groupe`, `id_typeutilisateur`, `id_typearbitre`, `id_typeentrainement`, `commentaire`) VALUES
+(1, 'Blaix', 'Camille', '1997-01-16', 'blaixc', 'd033e22ae348aeb5660fc2140aec35850c4da997', '', 13, 2, 3, 0, ''),
+(2, 'Marivint', 'Yvann', '1996-11-15', 'marivinty', 'd033e22ae348aeb5660fc2140aec35850c4da997', '', 13, 1, 0, 0, ''),
+(3, 'Ripeau', 'Gabrielle', '1996-05-10', 'ripeaug', 'd033e22ae348aeb5660fc2140aec35850c4da997', '', 13, 3, 4, 0, ''),
+(4, '4', '4', '0000-00-00', 'test4', '25dde040b016d12e56b9957d422cf85506fc00ac', '', 1, 1, 1, 1, '44');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -54,7 +54,7 @@
 	include(__DIR__."/structure_html.php");
 
 	// Class
-	include(__DIR__."/../1-class/categorie.class.php");
+	include(__DIR__."/../1-class/groupe.class.php");
 	include(__DIR__."/../1-class/connexion.class.php");
 	include(__DIR__."/../1-class/entrainement.class.php");
 	include(__DIR__."/../1-class/typearbitre.class.php");
