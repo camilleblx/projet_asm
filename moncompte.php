@@ -24,7 +24,7 @@
 			</nav>
 			<div class="tab-content">
   				<div class="tab-pane active" id="p1">Mes objectifs
-  					<ul id="example-1">
+  					<ul>
   						<li v-for="item in objectifs">
     						{{ item.objectifs }}
   						</li>
