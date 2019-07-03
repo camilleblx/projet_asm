@@ -17,13 +17,7 @@ class commentaire extends config_genos {
 
     public static function liste_commentaire(){
       $u = new utilisateur;
-      $req = "SELECT u.*
-              FROM utilisateur u, objectif o, commentaire c
-              INNER JOIN type_utilisateur tu ON u.id = tu.id
-              INNER JOIN commentaire c ON u.id = c.id
-              INNER JOIN objectif o ON u.id = o.id
-              WHERE tu.intitule = :intitule
-              AND u.suppr = 0";
+      $req = "SELECT commentaires FROM commentaires c, utilisateur u WHERE c.id_utilisateur=u.id";
       $champs            = $u->FieldList();
       $binds             = array("intitule" => "commentaire");
       $liste_commentaire = $u->StructList($req,$champs,$binds);
