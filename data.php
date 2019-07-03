@@ -5,7 +5,7 @@ $id_utilisateur = (isset($_POST['id_utilisateur']) && !empty($_POST['id_utilisat
 if(isset($_GET["cas"])){
 	$cas = $_GET["cas"];
 	switch ($cas) {
-		case 'liste-objectif-commentaire':
+		case 'liste-commentaire':
 			echo json_encode(commentaire::Listecommentaire());
 			break;				
 

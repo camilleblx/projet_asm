@@ -18,7 +18,7 @@
 	</div>
 		<div>
 			<nav class="nav nav-tabs">
-  				<a class="nav-item nav-link active" href="#p1" data-toggle="tab">Mes Objectifs</a>
+  				<a class="nav-item nav-link active" href="#p1" data-toggle="tab">Mes Objectifs <?php echo ?></a>
   				<a class="nav-item nav-link" href="#p2" data-toggle="tab">Objectifs Maître d'arme</a>
    				<a class="nav-item nav-link" href="#p3" data-toggle="tab">Performance</a>
 			</nav>
