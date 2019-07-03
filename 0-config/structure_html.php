@@ -89,7 +89,7 @@ function TplHeader() {  ?>
                 <?php 
                   if(!empty($_SESSION['utilisateur'])){ ?>
                     <?php if($_SESSION['utilisateur']['typeutilisateur']) { ?><li class="nav-item"><a class="nav-link disabled mt-1"  href="<?php echo URL_HOME ?>moncompte.php" >Mon compte</a></li>
-                    <li><a class="nav-link disabled"  href="<?php echo URL_HOME ?>entrainements.php" >Entrainement</a></li><?php } ?> 
+                    <li><a class="nav-link disabled"  href="<?php echo URL_HOME ?>entrainements.php" >Entrainement</a></li> <li><a class="nav-link disabled"  href="<?php echo URL_HOME ?>competition.php" >Compétition</a></li><?php } ?> 
 
                 <?php } ?>
                 <li class="nav-item btn-connexion">

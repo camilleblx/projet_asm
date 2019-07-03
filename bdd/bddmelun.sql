@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 01 juil. 2019 à 13:49
+-- Généré le :  mer. 03 juil. 2019 à 07:31
 -- Version du serveur :  5.7.21
 -- Version de PHP :  7.2.4
 
@@ -21,46 +21,36 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `bddmelun`
 --
-CREATE DATABASE IF NOT EXISTS `bddmelun` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `bddmelun`;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `categorie`
+-- Structure de la table `abscence`
 --
 
-DROP TABLE IF EXISTS `categorie`;
-CREATE TABLE IF NOT EXISTS `categorie` (
+DROP TABLE IF EXISTS `abscence`;
+CREATE TABLE IF NOT EXISTS `abscence` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(555) NOT NULL,
-  `details` varchar(5555) NOT NULL,
+  `id_utilisateur` int(11) NOT NULL,
+  `date_entrainement` date NOT NULL,
+  `id_entrainement` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
 
 --
--- Déchargement des données de la table `categorie`
+-- Structure de la table `commentaires`
 --
 
-INSERT INTO `categorie` (`id`, `nom`, `details`) VALUES
-(1, 'M5', '2014'),
-(2, 'M7-1', '2013'),
-(3, 'M7-2', '2012'),
-(4, 'M9-1', '2011'),
-(5, 'M9-2', '2010'),
-(6, 'M11-1', '2009'),
-(7, 'M11-2', '2008'),
-(8, 'M13-1', '2007'),
-(9, 'M13-2', '2006'),
-(10, 'M15', '2005-2004'),
-(11, 'M17', '2003-2002'),
-(12, 'M20', '2001-1999'),
-(13, 'senior', '1980-1998'),
-(14, 'veteran-1', '1970-1979'),
-(15, 'veteran-2', '1960-1969'),
-(16, 'veteran-3', '1950-1959'),
-(17, 'veteran-4', '1949-Et avant'),
-(18, 'Baby-Escrime', '2013-Et après');
+DROP TABLE IF EXISTS `commentaires`;
+CREATE TABLE IF NOT EXISTS `commentaires` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `commentaires` varchar(5555) NOT NULL,
+  `id_utilisateur` int(11) NOT NULL,
+  `id_objectif` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -130,6 +120,44 @@ CREATE TABLE IF NOT EXISTS `entrainemeutilisateur` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `groupes`
+--
+
+DROP TABLE IF EXISTS `groupes`;
+CREATE TABLE IF NOT EXISTS `groupes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(555) NOT NULL,
+  `details` varchar(5555) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `groupes`
+--
+
+INSERT INTO `groupes` (`id`, `nom`, `details`) VALUES
+(1, 'M5', '2014'),
+(2, 'M7-1', '2013'),
+(3, 'M7-2', '2012'),
+(4, 'M9-1', '2011'),
+(5, 'M9-2', '2010'),
+(6, 'M11-1', '2009'),
+(7, 'M11-2', '2008'),
+(8, 'M13-1', '2007'),
+(9, 'M13-2', '2006'),
+(10, 'M15', '2005-2004'),
+(11, 'M17', '2003-2002'),
+(12, 'M20', '2001-1999'),
+(13, 'senior', '1980-1998'),
+(14, 'veteran-1', '1970-1979'),
+(15, 'veteran-2', '1960-1969'),
+(16, 'veteran-3', '1950-1959'),
+(17, 'veteran-4', '1949-Et avant'),
+(18, 'Baby-Escrime', '2013-Et après');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `objectif`
 --
 
@@ -140,14 +168,16 @@ CREATE TABLE IF NOT EXISTS `objectif` (
   `details` varchar(555) NOT NULL,
   `id_utilisateur` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `objectif`
 --
 
 INSERT INTO `objectif` (`id`, `nom`, `details`, `id_utilisateur`) VALUES
-(1, 'Amélioration Débordement', 'Amélioration de l\'action de débordement', 2);
+(1, 'Amélioration Débordement', 'Amélioration de l\'action de débordement', 2),
+(2, 'Amélioration Débordement', 'Amélioration de l\'action de débordement', 1),
+(3, 'Amélioration Débordement', 'Amélioration de l\'action de débordement', 3);
 
 -- --------------------------------------------------------
 
@@ -233,12 +263,6 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `login` varchar(555) NOT NULL,
   `mdp` varchar(555) NOT NULL,
   `img` varchar(55555) NOT NULL,
-  `telephone` int(11) NOT NULL,
-  `mail` varchar(555) NOT NULL,
-  `adresse` varchar(555) NOT NULL,
-  `telephoneurgent` int(11) NOT NULL,
-  `nomurgent` varchar(555) NOT NULL,
-  `prenomurgent` varchar(555) NOT NULL,
   `id_categorie` int(11) NOT NULL,
   `id_typeutilisateur` int(11) NOT NULL,
   `id_typearbitre` int(11) NOT NULL,
@@ -249,10 +273,10 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
 -- Déchargement des données de la table `utilisateur`
 --
 
-INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `dateAnniversaire`, `login`, `mdp`, `img`, `telephone`, `mail`, `adresse`, `telephoneurgent`, `nomurgent`, `prenomurgent`, `id_categorie`, `id_typeutilisateur`, `id_typearbitre`) VALUES
-(1, 'Blaix', 'Camille', '1997-01-16', 'blaixc', 'user', '', 630508070, 'blaix.camille@gmail.com', 'Meudon', 633538373, 'Maman1', 'Maman1', 13, 2, 3),
-(2, 'Marivint', 'Yvann', '1996-11-15', 'marivinty', 'user', '', 631518171, 'marivint.yvann@gmail.com', 'Vanves', 632528272, 'Maman1', 'Maman1', 13, 1, 0),
-(3, 'Ripeau', 'Gabrielle', '1996-05-10', 'ripeaug', 'user', '', 632528176, 'ripeau.gabrielle@gmail.com', 'Malakoff', 632528171, 'Papa1', 'Papa1', 13, 3, 4);
+INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `dateAnniversaire`, `login`, `mdp`, `img`, `id_categorie`, `id_typeutilisateur`, `id_typearbitre`) VALUES
+(1, 'Blaix', 'Camille', '1997-01-16', 'blaixc', 'd033e22ae348aeb5660fc2140aec35850c4da997', '', 13, 2, 3),
+(2, 'Marivint', 'Yvann', '1996-11-15', 'marivinty', 'd033e22ae348aeb5660fc2140aec35850c4da997', '', 13, 1, 0),
+(3, 'Ripeau', 'Gabrielle', '1996-05-10', 'ripeaug', 'd033e22ae348aeb5660fc2140aec35850c4da997', '', 13, 3, 4);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
