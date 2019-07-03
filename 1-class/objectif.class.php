@@ -41,21 +41,14 @@ class commentaire extends config_genos {
       $u = new utilisateur;
       $req = "SELECT u.*
               FROM utilisateur u, objectif o, commentaire c
-              INNER JOIN type_utilisateur tu ON u.id_type = tu.id
+              INNER JOIN type_utilisateur tu ON u.id = tu.id
+              INNER JOIN commentaire c ON u.id = c.id
+              INNER JOIN objectif o ON u.id = o.id
               WHERE tu.intitule = :intitule
               AND u.suppr = 0";
       $champs            = $u->FieldList();
       $binds             = array("intitule" => "commentaire");
-      $liste_utilisateur = $u->StructList($req,$champs,$binds);
+      $liste_commentaire = $u->StructList($req,$champs,$binds);
       return $liste_commentaire;
     }  
-
-
-    public static function Listeobjectif(){
-      
-      $req = "SELECT *
-              FROM objectif";
-      $liste_ojectif = StructList($req);
-      return $liste_objectif;
-    }
 }
