@@ -85,7 +85,7 @@ function TplHeader() {  ?>
             <ul class="nav">
                 <li class="nav-item">
                     <a class="nav-link active mt-1" href="<?php echo URL_HOME ?>index.php">Accueil</a>
-                </li>                       
+                </li>                    
                 <?php 
                   if(!empty($_SESSION['utilisateur'])){ ?>
                     <li class="nav-item">
@@ -104,6 +104,9 @@ function TplHeader() {  ?>
                       <a class="nav-link disabled"  href="<?php echo URL_HOME ?>deconnexion.php" >Déconnexion</a>
                   <?php } ?>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link active mt-1" href="<?php echo URL_HOME ?>adherent-cemvs/index.php">Adhérent CEMVS</a>
+                </li>                       
             </ul>
         </div>
     </nav>
@@ -352,7 +355,7 @@ function TplFooter() {  ?>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-6 offset-md-1">
-                    <a href="https://www.hitema.fr/"><img width="191" height="51" src="img/logo/hitema.png"></a>
+                    <a href="https://www.hitema.fr/"><img width="191" height="51" src="<?php echo URL_HOME ?>img/logo/hitema.png"></a>
                     <address>
                         <a id="url-vlis" href="https://www.hitema.fr/" target="blank">HITEMA</a> ©<br>
                         <a id="url-vlis" href="https://www.hitema.fr/" target="blank">Tous droits réservés</a> | <a id="url-vlis" href="https://www.hitema.fr/" target="blank">Mentions Légales</a>

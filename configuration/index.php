@@ -1,28 +1,4 @@
-<?php include("../0-config/config-genos.php"); 
-
-  // if(isset($_GET["action"])) $action = $_GET["action"];
-  // else $action = 0;
-
-  // $m = new magasin;
-  
-  // if($_SESSION["utilisateur"]["id_type"] != 1){
-  //   $magasin_utilisateur = magasin_utilisateur::ListeMagasinUtilisateur($_SESSION["utilisateur"]["id_utilisateur"]);
-  //   $m->id = $magasin_utilisateur[0]["id"];
-  //   $m->Load();
-  //   var_dump($m);
-  //   // if($m->id != null) header("location:".URL_HOME."dashboard/index.php?magasin=".$m->id);
-  //   // else header("location:".URL_HOME."dashboard/index.php?magasin=0");
-  // }
-
-  // if($action == 1 && !empty($_POST)){
-  //   $m->intitule    .= $_POST["intitule"];
-  //   $m->commentaire = $_POST["commentaire"];
-  //   $m->Add();
-  //   magasin_utilisateur::AffecterMagasinUtilisateur($m->id, $_SESSION["utilisateur"]["id_utilisateur"]);
-  //   header("location:".URL_HOME."dashboard/entreprise.php");
-  // }
-
- ?>
+<?php include("../0-config/config-genos.php"); ?>
 
 <!DOCTYPE html>
 <html lang="fr">

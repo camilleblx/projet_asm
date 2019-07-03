@@ -76,7 +76,7 @@ class utilisateur extends config_genos {
       $champs            = $u->FieldList();
       $champs[]          = "nom_type_arbitre";
       $champs[]          = "nom_groupe";
-      $binds             = array("nom" => "utilisateur");
+      $binds             = array("nom" => "tireur");
       $liste_utilisateur = $u->StructList($req,$champs,$binds);
       return $liste_utilisateur;
     }
