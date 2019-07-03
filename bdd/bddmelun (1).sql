@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 03 juil. 2019 à 07:31
+-- Généré le :  mer. 03 juil. 2019 à 10:41
 -- Version du serveur :  5.7.21
 -- Version de PHP :  7.2.4
 
@@ -65,7 +65,6 @@ CREATE TABLE IF NOT EXISTS `competition` (
   `datecompete` date NOT NULL,
   `heurecompete` time NOT NULL,
   `lieux` varchar(555) NOT NULL,
-  `id_utilisateur` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
@@ -73,8 +72,8 @@ CREATE TABLE IF NOT EXISTS `competition` (
 -- Déchargement des données de la table `competition`
 --
 
-INSERT INTO `competition` (`id`, `nom`, `datecompete`, `heurecompete`, `lieux`, `id_utilisateur`) VALUES
-(1, 'Challenge Revenu', '2019-04-06', '13:00:00', 'Melun', 0);
+INSERT INTO `competition` (`id`, `nom`, `datecompete`, `heurecompete`, `lieux`) VALUES
+(1, 'Challenge Revenu', '2019-04-06', '13:00:00', 'Melun');
 
 -- --------------------------------------------------------
 
@@ -178,6 +177,19 @@ INSERT INTO `objectif` (`id`, `nom`, `details`, `id_utilisateur`) VALUES
 (1, 'Amélioration Débordement', 'Amélioration de l\'action de débordement', 2),
 (2, 'Amélioration Débordement', 'Amélioration de l\'action de débordement', 1),
 (3, 'Amélioration Débordement', 'Amélioration de l\'action de débordement', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `participant-competition`
+--
+
+DROP TABLE IF EXISTS `participant-competition`;
+CREATE TABLE IF NOT EXISTS `participant-competition` (
+  `id` int(11) NOT NULL,
+  `id_utilisateur` int(11) NOT NULL,
+  `id_competition` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 

@@ -61,10 +61,10 @@ function TplHead() {  ?>
         <script async defer src="<?php echo URL_HOME ?>js/buttons.js"></script>
 
         <!-- FAVICON -->
-        <link rel="apple-touch-icon" sizes="180x180"    href="<?php echo URL_HOME ?>img/logo/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="<?php echo URL_HOME ?>img/logo/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="<?php echo URL_HOME ?>img/logo/favicon-16x16.png">
-        <link rel="manifest"                            href="<?php echo URL_HOME ?>img/logo/site.webmanifest">
+        <link rel="apple-touch-icon" sizes="180x180"    href="<?php echo URL_HOME ?>img/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="<?php echo URL_HOME ?>img/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="<?php echo URL_HOME ?>img/favicon/favicon.ico">
+        <link rel="manifest"                            href="<?php echo URL_HOME ?>img/favicon/manifest.json">
         <link rel="mask-icon"                           href="/safari-pinned-tab.svg" color="#5bbad5">
     </head>
     <?php TplLoader() ?>
@@ -79,7 +79,8 @@ function TplHeader() {  ?>
         <div class="container">
             <div class="navbar-header page-scroll">
                 <!-- <a class="navbar-brand page-scroll" href="#page-top"><img src="img/myhome.png" alt="Lattes theme logo">MyHome</a> -->
-                <a id="logo" class="navbar-brand page-scroll" href="index.php">CEMVS</a>
+                <a id="logo" class="navbar-brand page-scroll" href="index.php">Melun Val de seine</a>
+                <link rel="icon" type="image/png" sizes="16x16" href="<?php echo URL_HOME ?>img/favicon/favicon.ico">
             </div>
             <ul class="nav">
                 <li class="nav-item">
@@ -348,11 +349,6 @@ function TplFooter() {  ?>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-6 offset-md-1">
-                    <a href="index.php"><img width="45" height="51" src="img/logo/logo-genos-seul.png"></a>
-                    <address>
-                        Powered by Genos.<br>
-                        Licence sous <a id="url-license" href="https://opensource.org/licenses/MIT" target="blank">MIT license</a>.<br>
-                    </address>
                     <a href="https://www.hitema.fr/"><img width="191" height="51" src="img/logo/hitema.png"></a>
                     <address>
                         <a id="url-vlis" href="https://www.hitema.fr/" target="blank">HITEMA</a> ©<br>
@@ -360,7 +356,7 @@ function TplFooter() {  ?>
                     </address>
                 </div>
                 <div id="newsletter" class="col-md-5">
-                    <p>Suivez l'actualité de MyHome</p>
+                    <p>Suivez l'actualité de l'association</p>
                     <div class="input-group mb-3">
                         <input type="text" class="form-control col-6" placeholder="Inscrivez votre adresse mail" aria-label="Recipient's username" aria-describedby="button-addon2">
                         <div class="input-group-append">

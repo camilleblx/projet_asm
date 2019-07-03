@@ -520,9 +520,10 @@
 	"buffers":
 	[
 		{
-			"file": "1-class/utilisateur.class.php",
+			"file": "index.php",
 			"settings":
 			{
+<<<<<<< HEAD
 				"buffer_size": 12790,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
@@ -560,6 +561,9 @@
 			{
 				"buffer_size": 251,
 				"encoding": "UTF-8",
+=======
+				"buffer_size": 472,
+>>>>>>> moncompte
 				"line_ending": "Windows"
 			}
 		},
@@ -667,6 +671,7 @@
 	"expanded_folders":
 	[
 		"/C/wamp64/www/projet-technique-m1-web",
+<<<<<<< HEAD
 		"/C/wamp64/www/projet-technique-m1-web/0-config",
 		"/C/wamp64/www/projet-technique-m1-web/configuration",
 		"/C/wamp64/www/projet-technique-m1-web/configuration/utilisateur"
@@ -715,6 +720,13 @@
 		"/C/wamp64/www/projet-technique-m1-web/css/sass/_footer.scss",
 		"/C/wamp64/www/projet-technique-m1-web/css/sass/_connexion.scss",
 		"/C/wamp64/www/projet-technique-m1-web/css/sass/_dashboard.scss",
+=======
+		"/C/wamp64/www/projet-technique-m1-web/0-config"
+	],
+	"file_history":
+	[
+		"/C/wamp64/www/projet-technique-m1-web/1-class/utilisateur.class.php",
+>>>>>>> moncompte
 		"/C/wamp64/www/projet-annuel-m1/dashboard/mon-compte.php",
 		"/C/wamp64/www/projet-annuel-m1/2-template/structure_html.php",
 		"/C/wamp64/www/projet-annuel-m1/dashboard/index.php",
@@ -800,11 +812,60 @@
 		"/C/wamp64/www/genos-front-office/css/sass/style.scss",
 		"/C/wamp64/www/genos-front-office/js/jquery.min.js",
 		"/C/wamp64/www/genos-front-office/index.php",
+<<<<<<< HEAD
 		"/C/wamp64/www/a2rsoft/index.php"
 	],
 	"find":
 	{
 		"height": 41.0
+=======
+		"/C/wamp64/www/a2rsoft/index.php",
+		"/C/wamp64/www/horizon-vitrine/en/espagne.php",
+		"/C/wamp64/www/horizon-vitrine/en/cambodge.php",
+		"/C/wamp64/www/horizon-vitrine/en/france.php",
+		"/C/wamp64/www/horizon-vitrine/en/grece.php",
+		"/C/wamp64/www/pdf-jasper-report/README.md",
+		"/C/wamp64/www/pdf-jasper-php-genos/index.php",
+		"/C/wamp64/www/pdf-jasper-report/composer.json",
+		"/C/wamp64/www/horizon-vitrine/0-config/code-affichage.php",
+		"/C/wamp64/www/horizon-vitrine/mentions.php",
+		"/C/wamp64/www/horizon-vitrine/en/index.php",
+		"/C/wamp64/www/horizon-vitrine/en/mentions.php",
+		"/C/wamp64/www/horizon-vitrine/css/sass/_mentions.scss",
+		"/C/wamp64/www/horizon-vitrine/css/sass/style.scss",
+		"/C/wamp64/www/horizon-vitrine/portugal.php",
+		"/C/wamp64/www/pdfreport/GESTION_AXL",
+		"/C/wamp64/www/pdfreport/facture_ligne.sql",
+		"/C/wamp64/www/horizon-vitrine/0-config/config.php",
+		"/C/wamp64/www/horizon-vitrine/en/config.php",
+		"/C/wamp64/www/horizon-vitrine/css/sass/_index.scss",
+		"/C/wamp64/www/horizon-vitrine/js/general.js",
+		"/C/wamp64/www/horizon-vitrine/bien.php",
+		"/C/wamp64/www/genos-front-office/0-config/code-affichage.php",
+		"/C/wamp64/www/genos-front-office/css/sass/_footer.scss",
+		"/C/wamp64/www/horizon-vitrine/BO-admin/1-module/logement/form.php",
+		"/C/wamp64/www/horizon-vitrine/BO-admin/1-module/logement/index.php",
+		"/C/wamp64/www/horizon-vitrine/BO-admin/1-class/logement.class.php",
+		"/C/wamp64/www/horizon-vitrine/belgique.php",
+		"/C/wamp64/www/horizon-vitrine/en/belgique.php",
+		"/C/wamp64/www/horizon-vitrine/data.php",
+		"/C/wamp64/www/horizon-vitrine/js/map.js",
+		"/C/wamp64/www/horizon-vitrine/0-config/fonctions.php",
+		"/C/Users/ymarivint/Desktop/BACKUP(YVANN)/map.js",
+		"/C/Users/ymarivint/Desktop/BACKUP(YVANN)/horizon-vitrine 01 02/js/map.js",
+		"/C/wamp64/www/horizon-vitrine/implantations.php",
+		"/C/wamp64/www/horizon-vitrine/en/implantations.php",
+		"/C/wamp64/www/horizon-vitrine/css/sass/_maps.scss",
+		"/C/wamp64/www/horizon-vitrine/accompagnement.php",
+		"/C/wamp64/www/horizon-vitrine/css/sass/_accompagnement.scss",
+		"/C/wamp64/www/horizon-vitrine/1-class/logement.class.php",
+		"/C/wamp64/www/horizon-vitrine/BO-admin/1-module/logement/data.php",
+		"/C/wamp64/www/horizon-vitrine/BO-admin/index.php"
+	],
+	"find":
+	{
+		"height": 27.0
+>>>>>>> moncompte
 	},
 	"find_in_files":
 	{
@@ -979,29 +1040,39 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "1-class/utilisateur.class.php",
+					"file": "index.php",
 					"semi_transient": false,
 					"settings":
 					{
+<<<<<<< HEAD
 						"buffer_size": 12790,
+=======
+						"buffer_size": 472,
+>>>>>>> moncompte
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
+<<<<<<< HEAD
 								2005,
 								2010
+=======
+								134,
+								143
+>>>>>>> moncompte
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
+<<<<<<< HEAD
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true,
 							"typescript_plugin_format_options":
@@ -1160,13 +1231,27 @@
 					},
 					"stack_index": 2,
 					"type": "text"
+=======
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+>>>>>>> moncompte
 				}
 			]
 		}
 	],
 	"incremental_find":
 	{
+<<<<<<< HEAD
 		"height": 28.0
+=======
+		"height": 27.0
+>>>>>>> moncompte
 	},
 	"input":
 	{
@@ -1211,7 +1296,11 @@
 	"project": "WORKSPACE.sublime-project",
 	"replace":
 	{
+<<<<<<< HEAD
 		"height": 73.0
+=======
+		"height": 50.0
+>>>>>>> moncompte
 	},
 	"save_all_on_build": true,
 	"select_file":
