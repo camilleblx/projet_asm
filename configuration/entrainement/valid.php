@@ -24,7 +24,7 @@ if(isset($_GET["cas"])){
 
 		case 'supprimer-entrainement':
 			$u = new entrainement;
-			$u->id = $id_utilisateur;
+			$u->id = $id_entrainement;
 			if($u->Delete() > 0) echo "1";
 			else echo "0";
 			break;		
