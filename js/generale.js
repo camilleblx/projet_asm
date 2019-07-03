@@ -34,8 +34,6 @@ $.fn.extend({
 /***************************/
 $(document).ready(function(){
 
-	// TweenLite.to("#header-side", 2, {backgroundColor:"red"});
-
   // Loader
   $("#loader-container").animateCss('fadeOut',function(){
     $("#loader-container").hide();

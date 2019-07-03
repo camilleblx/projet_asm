@@ -1,4 +1,4 @@
-<?php include("../../0-config/config-genos.php"); 
+<?php include("../0-config/config-genos.php"); 
 
   // if(isset($_GET["action"])) $action = $_GET["action"];
   // else $action = 0;

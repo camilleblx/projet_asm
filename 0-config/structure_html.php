@@ -31,7 +31,7 @@ function TplHead() {  ?>
                   <?php break;
 
               default: ?>
-                  <title>Projet annuel</title>
+                  <title>Projet technique</title>
               <?php
           }  
         ?>
@@ -79,15 +79,18 @@ function TplHeader() {  ?>
         <div class="container">
             <div class="navbar-header page-scroll">
                 <!-- <a class="navbar-brand page-scroll" href="#page-top"><img src="img/myhome.png" alt="Lattes theme logo">MyHome</a> -->
-                <a id="logo" class="navbar-brand page-scroll" href="index.php">MyWatch</a>
+                <a id="logo" class="navbar-brand page-scroll" href="index.php">CEMVS</a>
             </div>
             <ul class="nav">
                 <li class="nav-item">
                     <a class="nav-link active mt-1" href="<?php echo URL_HOME ?>index.php">Accueil</a>
-                </li>            
+                </li>                               
                 <?php 
                   if(!empty($_SESSION['utilisateur'])){ ?>
-                    <?php if($_SESSION['utilisateur']['typeutilisateur']) { ?><li class="nav-item"><a class="nav-link disabled mt-1"  href="<?php echo URL_HOME ?>moncompte.php" >Entrainements</a></li><?php } ?>                  
+                    <?php if($_SESSION['utilisateur']['typeutilisateur'] != "administrateur") { ?><li class="nav-item"><a class="nav-link disabled mt-1"  href="<?php echo URL_HOME ?>entrainement.php" >Entrainements</a></li><?php } ?>                  
+                    <?php if($_SESSION['utilisateur']['typeutilisateur'] == "administrateur") { ?><li class="nav-item"><a class="nav-link disabled mt-1"  href="<?php echo URL_HOME ?>configuration/index.php" >Configuration</a></li><?php } ?>                  
+                    <?php if($_SESSION['utilisateur']['typeutilisateur'] == "utilisateur") { ?><li class="nav-item"><a class="nav-link disabled mt-1"  href="<?php echo URL_HOME ?>moncompte.php" >Compétitions</a></li><?php } ?>                  
+                    <?php if($_SESSION['utilisateur']['typeutilisateur'] == "maitrearme") { ?><li class="nav-item"><a class="nav-link disabled mt-1"  href="<?php echo URL_HOME ?>moncompte.php" >Tireurs</a></li><?php } ?>                  
                 <?php } ?>
                 <li class="nav-item btn-connexion">
                   <?php 
@@ -146,23 +149,23 @@ function TplDashboardConfiguration($page) {
         <div class="nav-wrapper">
           <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link <?php if($page == "utilisateur") echo 'active' ?>" href="<?php echo URL_HOME ?>dashboard/configuration/utilisateur/index.php">
+                <a class="nav-link <?php if($page == "utilisateur") echo 'active' ?>" href="<?php echo URL_HOME ?>configuration/utilisateur/index.php">
                   <i class="material-icons">edit</i>
                   <span>Utilisateurs</span>
                 </a>
               </li>                  
               <li class="nav-item">
-                <a class="nav-link <?php if($page == "magasin") echo 'active' ?>" href="<?php echo URL_HOME ?>dashboard/configuration/magasin/index.php">
+                <a class="nav-link <?php if($page == "entrainement") echo 'active' ?>" href="<?php echo URL_HOME ?>configuration/entrainement/index.php">
                   <i class="material-icons">edit</i>
-                  <span>Magasins</span>
-                </a>
-              </li>                 
-              <li class="nav-item">
-                <a class="nav-link <?php if($page == "ged") echo 'active' ?>" href="<?php echo URL_HOME ?>dashboard/configuration/ged/index.php">
-                  <i class="material-icons">edit</i>
-                  <span>GED</span>
+                  <span>Entrainements</span>
                 </a>
               </li>          
+              <li class="nav-item">
+                <a class="nav-link <?php if($page == "competition") echo 'active' ?>" href="<?php echo URL_HOME ?>configuration/competition/index.php">
+                  <i class="material-icons">edit</i>
+                  <span>Compétitions</span>
+                </a>
+              </li>                 
           </ul>
         </div>
     </aside>
@@ -379,6 +382,17 @@ function TplBackTop(){ ?>
 
 <?php }
 
+function TplDashboardAlert(){ ?>
+
+  <div class="alert alert-accent alert-dismissible fade show mb-0" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">×</span>
+    </button>
+    <i class="fa fa-info mx-2"></i>
+    <strong>Espace configuration</strong> Administrateur
+  </div>
+
+<?php }
 
 function Script($dashboard = false) { ?>
 
@@ -402,6 +416,7 @@ function Script($dashboard = false) { ?>
     <script type="text/javascript" src="<?php echo URL_HOME ?>js/vue.js"></script>
     <script type="text/javascript" src="<?php echo URL_HOME ?>js/filtre/booleanCroix.filter.js"></script>
     <script type="text/javascript" src="<?php echo URL_HOME ?>js/filtre/ko.filter.js"></script>
+    <script type="text/javascript" src="<?php echo URL_HOME ?>js/filtre/email.filter.js"></script>
     <script type="text/javascript" src="<?php echo URL_HOME ?>js/composants/ged-synthese/ged-synthese.comp.js"></script>
 
     <!-- Chart -->

@@ -6,10 +6,10 @@ class config_genos {
 		Delete 	as Erase;
 	}
 	
-	public $suppr;
+	// public $suppr;
 
 	public function __construct (){
-		$this->suppr = 0;
+		// $this->suppr = 0;
 	}
 
 	public function Add(){
@@ -21,8 +21,8 @@ class config_genos {
 	}
 
 	public function Delete(){
-		$this->suppr = 1;
-		return $this->Update();
+		// $this->suppr = 1;
+		return $this->Erase();
 	}
 	
 	public static function Cesure(){

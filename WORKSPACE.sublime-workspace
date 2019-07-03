@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"strto",
+				"strtolower"
+			],
+			[
 				"sh",
 				"search"
 			],
@@ -510,10 +514,6 @@
 			[
 				"nom",
 				"nom_fichier"
-			],
-			[
-				"exp",
-				"explode"
 			]
 		]
 	},
@@ -523,8 +523,53 @@
 			"file": "1-class/utilisateur.class.php",
 			"settings":
 			{
-				"buffer_size": 1490,
+				"buffer_size": 12790,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "configuration/utilisateur/valid.php",
+			"settings":
+			{
+				"buffer_size": 554,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "index.php",
+			"settings":
+			{
+				"buffer_size": 496,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "1-class/typearbitre.class.php",
+			"settings":
+			{
+				"buffer_size": 246,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "1-class/typeentrainement.class.php",
+			"settings":
+			{
+				"buffer_size": 251,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "0-config/config-genos.php",
+			"settings":
+			{
+				"buffer_size": 2164,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -536,16 +581,20 @@
 	"command_palette":
 	{
 		"height": 137.0,
-		"last_filter": "remove",
+		"last_filter": "",
 		"selected_items":
 		[
 			[
-				"remove",
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"remo",
 				"Package Control: Remove Package"
 			],
 			[
-				"install",
-				"Package Control: Install Package"
+				"remove",
+				"Package Control: Remove Package"
 			],
 			[
 				"re",
@@ -562,10 +611,6 @@
 			[
 				"ins",
 				"Package Control: Install Package"
-			],
-			[
-				"remo",
-				"Package Control: Remove Package"
 			],
 			[
 				"Package Control: ",
@@ -621,13 +666,55 @@
 	},
 	"expanded_folders":
 	[
-		"/C/wamp64/www/projet-annuel-m1",
-		"/C/wamp64/www/projet-annuel-m1/0-config",
-		"/C/wamp64/www/projet-annuel-m1/DATAS",
-		"/C/wamp64/www/projet-annuel-m1/DATAS/33"
+		"/C/wamp64/www/projet-technique-m1-web",
+		"/C/wamp64/www/projet-technique-m1-web/0-config",
+		"/C/wamp64/www/projet-technique-m1-web/configuration",
+		"/C/wamp64/www/projet-technique-m1-web/configuration/utilisateur"
 	],
 	"file_history":
 	[
+		"/C/wamp64/www/projet-technique-m1-web/0-config/structure_html.php",
+		"/C/wamp64/www/projet-technique-m1-web/configuration/utilisateur/form.php",
+		"/C/wamp64/www/projet-technique-m1-web/configuration/utilisateur/index.php",
+		"/C/wamp64/www/projet-technique-m1-web/css/sass/_notify.scss",
+		"/C/wamp64/www/projet-technique-m1-web/js/notify.js",
+		"/C/wamp64/www/projet-technique-m1-web/css/sass/style.scss",
+		"/C/wamp64/www/projet-technique-m1-web/configuration/utilisateur/data.php",
+		"/C/wamp64/www/projet-technique-m1-web/configuration/utilisateur/valid.php",
+		"/C/wamp64/www/projet-technique-m1-web/bdd/modification ymarivint.sql",
+		"/E/Google Drive/TRAVAIL/HITEMA/M1/SCRIPT/export-hitema/script-a2/1-modules/configuration/enseigne/index.php",
+		"/C/wamp64/www/projet-technique-m1-web/1-class/utilisateur.class.php",
+		"/E/Google Drive/TRAVAIL/HITEMA/M1/SCRIPT/export-hitema/script-a2/1-modules/configuration/enseigne/form.php",
+		"/E/Google Drive/TRAVAIL/HITEMA/M1/SCRIPT/export-hitema/script-a2/1-modules/configuration/cout_utilisateur/form.php",
+		"/E/Google Drive/TRAVAIL/HITEMA/M1/SCRIPT/export-hitema/script-a2/js/filtre/email.filter.js",
+		"/C/wamp64/www/projet-technique-m1-web/js/filtre/email.filter.js",
+		"/C/wamp64/www/projet-technique-m1-web/configuration/utilisateur/index.app.vue.js",
+		"/C/wamp64/www/projet-technique-m1-web/0-config/langue.class.php",
+		"/C/Users/Yvann/AppData/Roaming/Sublime Text 3/Packages/User/auto_save.sublime-settings",
+		"/C/Users/Yvann/AppData/Roaming/Sublime Text 3/Packages/auto-save/auto_save.sublime-settings",
+		"/C/Users/Yvann/AppData/Roaming/Sublime Text 3/Packages/auto-save/README.md",
+		"/C/wamp64/www/projet-technique-m1-web/configuration/index.php",
+		"/C/wamp64/www/projet-technique-m1-web/configuration/magasin/index.php",
+		"/C/wamp64/www/projet-technique-m1-web/configuration/magasin/data.php",
+		"/C/wamp64/www/projet-technique-m1-web/configuration/magasin/valid.php",
+		"/C/wamp64/www/projet-technique-m1-web/0-config/config-genos.php",
+		"/C/wamp64/www/projet-technique-m1-web/index.php",
+		"/C/wamp64/www/projet-technique-m1-web/js/generale.js",
+		"/C/wamp64/www/projet-technique-m1-web/0-config/function.php",
+		"/C/wamp64/www/projet-technique-m1-web/1-class/connexion.class.php",
+		"/C/wamp64/www/projet-technique-m1-web/1-class/typeutilisateur.class.php",
+		"/C/wamp64/www/projet-technique-m1-web/connexion.php",
+		"/C/wamp64/www/projet-technique-m1-web/0-config/genos.class.php",
+		"/C/wamp64/www/projet-technique-m1-web/dashboard/configuration/ged/valid.php",
+		"/C/wamp64/www/projet-technique-m1-web/dashboard/configuration/utilisateur/valid.php",
+		"/C/wamp64/www/projet-technique-m1-web/dashboard/valid.php",
+		"/C/wamp64/www/projet-technique-m1-web/deconnexion.php",
+		"/C/wamp64/www/projet-annuel-m1/deconnexion.php",
+		"/C/wamp64/www/projet-annuel-m1/dashboard/connexion.php",
+		"/C/wamp64/www/projet-technique-m1-web/css/sass/_header.scss",
+		"/C/wamp64/www/projet-technique-m1-web/css/sass/_footer.scss",
+		"/C/wamp64/www/projet-technique-m1-web/css/sass/_connexion.scss",
+		"/C/wamp64/www/projet-technique-m1-web/css/sass/_dashboard.scss",
 		"/C/wamp64/www/projet-annuel-m1/dashboard/mon-compte.php",
 		"/C/wamp64/www/projet-annuel-m1/2-template/structure_html.php",
 		"/C/wamp64/www/projet-annuel-m1/dashboard/index.php",
@@ -713,59 +800,19 @@
 		"/C/wamp64/www/genos-front-office/css/sass/style.scss",
 		"/C/wamp64/www/genos-front-office/js/jquery.min.js",
 		"/C/wamp64/www/genos-front-office/index.php",
-		"/C/wamp64/www/a2rsoft/index.php",
-		"/C/wamp64/www/horizon-vitrine/en/espagne.php",
-		"/C/wamp64/www/horizon-vitrine/en/cambodge.php",
-		"/C/wamp64/www/horizon-vitrine/en/france.php",
-		"/C/wamp64/www/horizon-vitrine/en/grece.php",
-		"/C/wamp64/www/pdf-jasper-report/README.md",
-		"/C/wamp64/www/pdf-jasper-php-genos/index.php",
-		"/C/wamp64/www/pdf-jasper-report/composer.json",
-		"/C/wamp64/www/horizon-vitrine/0-config/code-affichage.php",
-		"/C/wamp64/www/horizon-vitrine/mentions.php",
-		"/C/wamp64/www/horizon-vitrine/en/index.php",
-		"/C/wamp64/www/horizon-vitrine/en/mentions.php",
-		"/C/wamp64/www/horizon-vitrine/css/sass/_mentions.scss",
-		"/C/wamp64/www/horizon-vitrine/css/sass/style.scss",
-		"/C/wamp64/www/horizon-vitrine/portugal.php",
-		"/C/wamp64/www/pdfreport/GESTION_AXL",
-		"/C/wamp64/www/pdfreport/facture_ligne.sql",
-		"/C/wamp64/www/horizon-vitrine/0-config/config.php",
-		"/C/wamp64/www/horizon-vitrine/en/config.php",
-		"/C/wamp64/www/horizon-vitrine/css/sass/_index.scss",
-		"/C/wamp64/www/horizon-vitrine/js/general.js",
-		"/C/wamp64/www/horizon-vitrine/bien.php",
-		"/C/wamp64/www/genos-front-office/0-config/code-affichage.php",
-		"/C/wamp64/www/genos-front-office/css/sass/_footer.scss",
-		"/C/wamp64/www/horizon-vitrine/BO-admin/1-module/logement/form.php",
-		"/C/wamp64/www/horizon-vitrine/BO-admin/1-module/logement/index.php",
-		"/C/wamp64/www/horizon-vitrine/BO-admin/1-class/logement.class.php",
-		"/C/wamp64/www/horizon-vitrine/belgique.php",
-		"/C/wamp64/www/horizon-vitrine/en/belgique.php",
-		"/C/wamp64/www/horizon-vitrine/data.php",
-		"/C/wamp64/www/horizon-vitrine/js/map.js",
-		"/C/wamp64/www/horizon-vitrine/0-config/fonctions.php",
-		"/C/Users/ymarivint/Desktop/BACKUP(YVANN)/map.js",
-		"/C/Users/ymarivint/Desktop/BACKUP(YVANN)/horizon-vitrine 01 02/js/map.js",
-		"/C/wamp64/www/horizon-vitrine/implantations.php",
-		"/C/wamp64/www/horizon-vitrine/en/implantations.php",
-		"/C/wamp64/www/horizon-vitrine/css/sass/_maps.scss",
-		"/C/wamp64/www/horizon-vitrine/accompagnement.php",
-		"/C/wamp64/www/horizon-vitrine/css/sass/_accompagnement.scss",
-		"/C/wamp64/www/horizon-vitrine/1-class/logement.class.php",
-		"/C/wamp64/www/horizon-vitrine/BO-admin/1-module/logement/data.php",
-		"/C/wamp64/www/horizon-vitrine/BO-admin/index.php",
-		"/C/wamp64/www/horizon-vitrine/css/sass/_bien.scss"
+		"/C/wamp64/www/a2rsoft/index.php"
 	],
 	"find":
 	{
-		"height": 47.0
+		"height": 41.0
 	},
 	"find_in_files":
 	{
 		"height": 134.0,
 		"where_history":
 		[
+			"C:\\wamp64\\www\\projet-technique-m1-web",
+			"C:\\wamp64\\www\\projet-technique-m1-web\\css\\sass",
 			"C:\\wamp64\\www\\projet-annuel-m1\\ressource",
 			"C:\\wamp64\\www\\projet-annuel-m1"
 		]
@@ -775,6 +822,120 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"id_typeentrainement",
+			"typeutilisateur",
+			"();\n",
+			"typeutilisateur",
+			"class",
+			"mail",
+			"email",
+			"label",
+			"\">\n",
+			"prenomurgent",
+			"ari",
+			"label",
+			"describe",
+			"addon1",
+			"basic",
+			"addon1",
+			"basic",
+			"describedby",
+			"email",
+			"prenomurgent",
+			"Commentaire",
+			"commentaire",
+			"Projet annue",
+			"email",
+			"telephone",
+			"prenom",
+			"materi",
+			"id_typearbitre",
+			"Ajouter",
+			"div",
+			"button",
+			"form",
+			"id_contact",
+			"utilisateur",
+			"app",
+			"enseigne",
+			"control",
+			"input",
+			"utilisateur",
+			"mail",
+			"Catégorie",
+			"nom_type_arbitre",
+			"id_typearbitre",
+			"typearbitre",
+			"id_typeutilisateur",
+			"typeutilisateur",
+			"INNER",
+			"typeutilisateur",
+			"utilisateur",
+			"Arbitre",
+			"Téléhone",
+			"Admin",
+			"Modifier",
+			"Admin",
+			"Login",
+			"listeUtilisateurFiltre",
+			"mail",
+			"nom_categorie",
+			"}}</",
+			"nom_type_arbitre",
+			"telephone",
+			"nom_type_arbitre",
+			"nom_categorie",
+			"nom_type_arbitre",
+			"telephone",
+			"utilisateur",
+			"telephone",
+			"login",
+			"dashboard/entreprise",
+			"dashboard",
+			"GetListeUtilisateurMaitrearme",
+			"GetListeUtilisateur",
+			"id_type",
+			"intitule ",
+			"type_utilisateur",
+			"intitule",
+			"type_utilisateur",
+			"rech_utilisateur_maitrearme",
+			"Magasin",
+			"entreprise",
+			"dashboard",
+			"index",
+			"Accueil",
+			"dashboard",
+			"0",
+			"details",
+			"nom",
+			"intitule",
+			"id",
+			"id_typearbitre",
+			"id_typeutilisateur",
+			"id_categorie",
+			"id_type",
+			"nomurgent",
+			"telephoneurgent",
+			"adrese",
+			"mail",
+			"elephone",
+			"img",
+			"login",
+			"md5",
+			"generale",
+			"Deconnexion",
+			"deconnexion",
+			"header",
+			"poppin",
+			"loader",
+			"genera",
+			"intro-animated",
+			"#menu{",
+			"changed",
+			"footer",
+			"$horizon_group\"",
+			"$blanc",
 			"2",
 			"connexion",
 			"id",
@@ -788,68 +949,7 @@
 			"pubs",
 			"visuels",
 			"ged",
-			"active",
-			"dashboard",
-			"DesignRevision",
-			"images/",
-			"img",
-			"Search for something...",
-			"search for som",
-			"actif",
-			"img/",
-			"js",
-			"olfactive",
-			"sonore",
-			"Psts",
-			"blog-overview-date-range",
-			"jquery",
-			"new Chart",
-			"chart",
-			"index.vue.js",
-			"images/",
-			"scripts",
-			"canvas",
-			"TplHead",
-			"switcher",
-			"Footer",
-			"Header",
-			"page",
-			"GetPage",
-			"res",
-			"login",
-			"URL_HOME",
-			"source_sans_pro",
-			"SESSION",
-			"VerifDeconnexion",
-			"ffunctrion",
-			"utilisateur",
-			"res",
-			"tab",
-			"resultat",
-			"pwd",
-			"index2",
-			"recherche",
-			"recherche_uti",
-			"Get(",
-			"email",
-			"Get(",
-			"suppr",
-			"get",
-			"set",
-			"get",
-			"par",
-			"set",
-			"private",
-			"_SESSION",
-			"id",
-			"suppr",
-			"Suppr",
-			"nom",
-			"Suppr",
-			"false",
-			"convert_util_path",
-			"date_modif",
-			"suppr"
+			"active"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -857,6 +957,11 @@
 		"regex": false,
 		"replace_history":
 		[
+			"typeutilisateur",
+			"maitrearme",
+			"administrateur",
+			"sha1",
+			"$white",
 			"Rechercher dans le magasin...",
 			"<?php echo URL_HOME ?>img/",
 			"Rechercher sur le dashboard...",
@@ -883,42 +988,185 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1490,
+						"buffer_size": 12790,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								529,
-								529
+								2005,
+								2010
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
 							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": true,
+							"typescript_plugin_format_options":
+							{
+								"convertTabsToSpaces": true,
+								"indentSize": 2,
+								"tabSize": 2
+							}
 						},
 						"translation.x": 0.0,
-						"translation.y": 43.0,
+						"translation.y": 345.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"file": "DATAS/33/51VjK5YAggL.jpg",
+					"buffer": 1,
+					"file": "configuration/utilisateur/valid.php",
 					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 554,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								339,
+								339
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
 					"stack_index": 0,
-					"type": "image"
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "index.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 496,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								51,
+								51
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "1-class/typearbitre.class.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 246,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								246
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "1-class/typeentrainement.class.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 251,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								249,
+								249
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "0-config/config-genos.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2164,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1875,
+								1875
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
 				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 34.0
+		"height": 28.0
 	},
 	"input":
 	{
@@ -963,7 +1211,7 @@
 	"project": "WORKSPACE.sublime-project",
 	"replace":
 	{
-		"height": 64.0
+		"height": 73.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -972,6 +1220,18 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"uti",
+				"1-class\\utilisateur.class.php"
+			],
+			[
+				"util",
+				"1-class\\utilisateur.class.php"
+			],
+			[
+				"type",
+				"1-class\\typeutilisateur.class.php"
+			],
 			[
 				"pub",
 				"1-class\\pubs.class.php"
@@ -1471,18 +1731,6 @@
 			[
 				"devlis",
 				"0-class\\devis_ligne.class.php"
-			],
-			[
-				"interventinde",
-				"intervention\\index.php"
-			],
-			[
-				"client.app",
-				"client\\client.app.js"
-			],
-			[
-				"venteindex",
-				"vente\\index.php"
 			]
 		],
 		"width": 0.0
