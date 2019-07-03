@@ -1,22 +1,31 @@
 <?php include("../../0-config/config-genos.php"); 
 
-$id_magasin = (isset($_POST['id_magasin']) && !empty($_POST['id_magasin'])) ? $_POST['id_magasin'] : 0;
+$id_entrainement = (isset($_POST['id_entrainement']) && !empty($_POST['id_entrainement'])) ? $_POST['id_entrainement'] : 0;
 
 if(isset($_GET["cas"])){
 	$cas = $_GET["cas"];
 	switch ($cas) {
 
-		case 'ajouter-magasin':
-			$m = new magasin;
-			$m->LoadForm();
-			if($m->Add() > 0) echo "1";
-			else echo "0";
+		case 'ajouter-entrainement':
+			$e = new entrainement;
+			$e->LoadForm();
+			$e->Add();
+			header("location:index.php");
 			break;		
 
-		case 'supprimer-magasin':
-			$m = new magasin;
-			$m->id = $id_magasin;
-			if($m->Delete() > 0) echo "1";
+		case 'modifier-entrainement':
+			$e = new entrainement;
+			$e->id = intval($id_entrainement);
+			$e->Load();
+			$e->LoadForm();
+			$e->Update();
+			header("location:index.php");
+			break;		
+
+		case 'supprimer-entrainement':
+			$u = new entrainement;
+			$u->id = $id_utilisateur;
+			if($u->Delete() > 0) echo "1";
 			else echo "0";
 			break;		
 	}
