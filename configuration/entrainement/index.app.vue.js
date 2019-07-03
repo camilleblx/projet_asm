@@ -35,11 +35,11 @@ new Vue({
 			var scope = this;
 			var rep = confirm("Etes-vous sur de vouloir supprimer l'entrainement ?");
 			if(rep === true){
-				var id_pub = elem.id;
+				var id_entrainement = elem.id;
 				$.ajax({
 				    url:"valid.php?cas=supprimer-entrainement",
 				    type:"POST",
-				    data:{id_pub:id_pub},
+				    data:{id_entrainement:id_entrainement},
 				    success:function(res){
 				    	res = JSON.parse(res);
 				    	if(res == "1") Notify("success","La compétition à été supprimé");

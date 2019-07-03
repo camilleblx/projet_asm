@@ -22,7 +22,7 @@ class config_genos {
 
 	public function Delete(){
 		// $this->suppr = 1;
-		return $this->DeleteGenos();
+		return $this->Erase();
 	}
 	
 	public static function Cesure(){
