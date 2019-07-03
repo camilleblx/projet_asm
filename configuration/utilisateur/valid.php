@@ -9,8 +9,22 @@ if(isset($_GET["cas"])){
 		case 'ajouter-utilisateur':
 			$u = new utilisateur;
 			$u->LoadForm();
+			// nouveau mot de passe
 			$u->mdp = sha1($u->mdp);
 			$u->Add();
+			header("location:index.php");
+			break;		
+
+		case 'modifier-utilisateur':
+			$u = new utilisateur;
+			// nouveau mot de pase ?
+			if(empty($_POST["mdp"])) unset($_POST["mdp"]);
+			$u->id = intval($id_utilisateur);
+			$u->Load();
+			$u->LoadForm();
+			// nouveau mot de passe ?
+			if(isset($_POST["mdp"])) $u->mdp = sha1($u->mdp);
+			$u->Update();
 			header("location:index.php");
 			break;		
 
