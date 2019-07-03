@@ -49,11 +49,11 @@ new Vue({
 		GetListeObjectif:function(){
 			var scope = this;
 			$.ajax({
-			    url:"data.php?cas=liste-utilisateur-magasin",
+			    url:"data.php?cas=liste-objectif",
 			    type:"POST",
 			    data:{},
 			    success:function(res){
-					scope.liste_utilisateur_magasin = JSON.parse(res);
+					scope.liste_objectif = JSON.parse(res);
 			    },
 			    error:function(){
 			
@@ -62,16 +62,16 @@ new Vue({
 		},
 		AjouterCommentaire:function(){
 			var scope = this;
-			var datas = $("#form-ajout-utilisateur").serialize();
+			var datas = $("#form-ajout-commentaire").serialize();
 			$.ajax({
-			    url:"valid.php?cas=ajouter-utilisateur",
+			    url:"valid.php?cas=ajouter-commentaire",
 			    type:"POST",
 			    data:datas,
 			    success:function(res){
-			    	if(res == "1") Notify("success","L'utilisateur à été ajouté");
-			    	else Notify("danger","L'utilisateur n'a pas été ajouté");
-					scope.GetListeUtilisateurEntreprise();
-					scope.GetListeUtilisateurMagasin();
+			    	if(res == "1") Notify("success","Le commentaire à été ajouté");
+			    	else Notify("danger","Le commentaire n'a pas été ajouté");
+					scope.GetListeObjectif();
+					scope.GetListeCommentaire();
 					$("#form-ajout-commentaire").trigger("reset");
 			    },
 			    error:function(){

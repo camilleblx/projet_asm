@@ -18,12 +18,18 @@
 	</div>
 		<div>
 			<nav class="nav nav-tabs">
-  				<a class="nav-item nav-link active" href="#p1" data-toggle="tab">Mes Objectifs <?php echo ?></a>
+  				<a class="nav-item nav-link active" href="#p1" data-toggle="tab">Mes Objectifs </a>
   				<a class="nav-item nav-link" href="#p2" data-toggle="tab">Objectifs Maître d'arme</a>
    				<a class="nav-item nav-link" href="#p3" data-toggle="tab">Performance</a>
 			</nav>
 			<div class="tab-content">
-  				<div class="tab-pane active" id="p1">Mes objectifs</div>
+  				<div class="tab-pane active" id="p1">Mes objectifs
+  					<ul id="example-1">
+  						<li v-for="item in objectifs">
+    						{{ item.objectifs }}
+  						</li>
+					</ul>
+				</div>
   				<div class="tab-pane" id="p2">Objectifs fixé par le Maître d'arme</div>
   				<div class="tab-pane" id="p3">Performance</div>
 			</div>
