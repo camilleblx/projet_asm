@@ -7,13 +7,7 @@ class utilisateur extends config_genos {
     public $login;
     public $mdp;
     public $img;
-    public $telephone;
-    public $mail;
-    public $adresse;  
-    public $telephoneurgent;
-    public $nomurgent;
-    public $prenomurgent;
-    public $id_categorie;
+    public $id_groupe;
     public $id_typeutilisateur;
     public $id_typearbitre;
     public $id_typeentrainement;
@@ -28,13 +22,7 @@ class utilisateur extends config_genos {
         $this->login               = "";
         $this->mdp                 = "";
         $this->img                 = "";
-        $this->telephone           = "";
-        $this->mail                = "";
-        $this->adresse             = "";
-        $this->telephoneurgent     = "";
-        $this->nomurgent           = "";
-        $this->prenomurgent        = "";
-        $this->id_categorie        = 0;
+        $this->id_groupe        = 0;
         $this->id_typeutilisateur  = 0;
         $this->id_typearbitre      = 0;
         $this->id_typeentrainement = 0;
@@ -44,17 +32,16 @@ class utilisateur extends config_genos {
 
     public static function ListeUtilisateurAdministrateur(){
       $u = new utilisateur;
-      $req = "SELECT u.*, ta.nom AS nom_type_arbitre, c.nom AS nom_categorie
+      $req = "SELECT u.*, ta.nom AS nom_type_arbitre, g.nom AS nom_groupe
               FROM utilisateur u
               INNER JOIN typeutilisateur tu ON u.id_typeutilisateur = tu.id
               LEFT JOIN typearbitre ta ON u.id_typearbitre = ta.id
-              LEFT JOIN categorie c ON u.id_categorie = c.id
+              LEFT JOIN groupe g ON u.id_groupe = g.id
               WHERE tu.nom = :nom
-              AND u.suppr = 0
               ORDER BY u.nom ASC";
       $champs            = $u->FieldList();
       $champs[]          = "nom_type_arbitre";
-      $champs[]          = "nom_categorie";
+      $champs[]          = "nom_groupe";
       $binds             = array("nom" => "administrateur");
       $liste_utilisateur = $u->StructList($req,$champs,$binds);
       return $liste_utilisateur;
@@ -62,17 +49,16 @@ class utilisateur extends config_genos {
 
     public static function ListeUtilisateurMaitrearme(){
       $u = new utilisateur;
-      $req = "SELECT u.*, ta.nom AS nom_type_arbitre, c.nom AS nom_categorie
+      $req = "SELECT u.*, ta.nom AS nom_type_arbitre, g.nom AS nom_groupe
               FROM utilisateur u
               INNER JOIN typeutilisateur tu ON u.id_typeutilisateur = tu.id
               LEFT JOIN typearbitre ta ON u.id_typearbitre = ta.id
-              LEFT JOIN categorie c ON u.id_categorie = c.id
+              LEFT JOIN groupe g ON u.id_groupe = g.id
               WHERE tu.nom = :nom
-              AND u.suppr = 0
               ORDER BY u.nom ASC";
       $champs            = $u->FieldList();
       $champs[]          = "nom_type_arbitre";
-      $champs[]          = "nom_categorie";
+      $champs[]          = "nom_groupe";
       $binds             = array("nom" => "maitrearme");
       $liste_utilisateur = $u->StructList($req,$champs,$binds);
       return $liste_utilisateur;
@@ -80,17 +66,16 @@ class utilisateur extends config_genos {
 
     public static function ListeUtilisateurUtilisateur(){
       $u = new utilisateur;
-      $req = "SELECT u.*, ta.nom AS nom_type_arbitre, c.nom AS nom_categorie
+      $req = "SELECT u.*, ta.nom AS nom_type_arbitre, g.nom AS nom_groupe
               FROM utilisateur u
               INNER JOIN typeutilisateur tu ON u.id_typeutilisateur = tu.id
               LEFT JOIN typearbitre ta ON u.id_typearbitre = ta.id
-              LEFT JOIN categorie c ON u.id_categorie = c.id
+              LEFT JOIN groupe g ON u.id_groupe = g.id
               WHERE tu.nom = :nom
-              AND u.suppr = 0
               ORDER BY u.nom ASC";
       $champs            = $u->FieldList();
       $champs[]          = "nom_type_arbitre";
-      $champs[]          = "nom_categorie";
+      $champs[]          = "nom_groupe";
       $binds             = array("nom" => "utilisateur");
       $liste_utilisateur = $u->StructList($req,$champs,$binds);
       return $liste_utilisateur;
@@ -127,25 +112,7 @@ class utilisateur extends config_genos {
                   </div>                        
                   <div class="form-group col-md-6">
                     <input type="text" class="form-control" name="prenom" placeholder="prenom"> 
-                  </div>                  
-                  <div class="form-group col-md-12">
-                    <input type="mail" class="form-control" name="mail" placeholder="email"> 
-                  </div>                  
-                  <div class="form-group col-md-6">
-                    <input type="text" class="form-control" name="telephone" placeholder="telephone"> 
-                  </div>                  
-                  <div class="form-group col-md-6">
-                    <input type="text" class="form-control" name="telephoneurgent" placeholder="Télephone urgent"> 
-                  </div>                  
-                  <div class="form-group col-md-6">
-                    <input type="text" class="form-control" name="nomurgent" placeholder="Nom urgent"> 
-                  </div>                  
-                  <div class="form-group col-md-6">
-                    <input type="text" class="form-control" name="prenomurgent" placeholder="Prenom urgent"> 
-                  </div>
-                  <div class="form-group col-md-12">
-                    <textarea class="form-control" name="adresse"  rows="3" placeholder="Adresse..."></textarea> 
-                  </div>                  
+                  </div>                                
                 </div>
                 <div class="form-group">
                   <textarea class="form-control" name="commentaire"  rows="3" placeholder="Commentaire..."></textarea> 
@@ -154,7 +121,7 @@ class utilisateur extends config_genos {
                   <?php 
                     $tu = new typeutilisateur;
                     $conf = array();
-                    $conf["sql"] = "SELECT * FROM typeutilisateur WHERE suppr = 0";
+                    $conf["sql"] = "SELECT * FROM typeutilisateur";
                     $conf["class"] = "form-control col-6";
                     $conf["preselect"] = "Sélectionnez un type d'utilisateur";
                     $conf["preselectval"] = 0;
@@ -165,7 +132,7 @@ class utilisateur extends config_genos {
                   <?php 
                     $te = new typeentrainement;
                     $conf = array();
-                    $conf["sql"] = "SELECT * FROM typeentrainement WHERE suppr = 0";
+                    $conf["sql"] = "SELECT * FROM typeentrainement";
                     $conf["class"] = "form-control col-6";
                     $conf["preselect"] = "Sélectionnez un type d'entrainement";
                     $conf["preselectval"] = 0;
@@ -176,7 +143,7 @@ class utilisateur extends config_genos {
                   <?php 
                     $ta = new typearbitre;
                     $conf = array();
-                    $conf["sql"] = "SELECT * FROM typearbitre WHERE suppr = 0";
+                    $conf["sql"] = "SELECT * FROM typearbitre";
                     $conf["class"] = "form-control col-6";
                     $conf["preselect"] = "Sélectionnez un type d'entrainement";
                     $conf["preselectval"] = 0;
@@ -185,13 +152,13 @@ class utilisateur extends config_genos {
                 </div>                
                 <div class="form-group">
                   <?php 
-                    $c = new categorie;
+                    $g = new groupe;
                     $conf = array();
-                    $conf["sql"] = "SELECT * FROM categorie WHERE suppr = 0";
+                    $conf["sql"] = "SELECT * FROM groupe";
                     $conf["class"] = "form-control col-6";
                     $conf["preselect"] = "Sélectionnez une catégorie";
                     $conf["preselectval"] = 0;
-                    $c->SelectList("id_categorie","id","nom",$conf); 
+                    $g->SelectList("id_groupe","id","nom",$conf); 
                   ?>
                 </div>
 <!--                 <div class="custom-control custom-toggle custom-toggle-sm mb-1">
@@ -242,25 +209,7 @@ class utilisateur extends config_genos {
                   </div>                        
                   <div class="form-group col-md-6">
                     <input type="text" class="form-control" name="prenom" value="<?php echo $u->prenom ?>" placeholder="prenom"> 
-                  </div>                  
-                  <div class="form-group col-md-12">
-                    <input type="mail" class="form-control" name="mail" value="<?php echo $u->mail ?>" placeholder="email"> 
-                  </div>                  
-                  <div class="form-group col-md-6">
-                    <input type="text" class="form-control" name="telephone" value="<?php echo $u->telephone ?>" placeholder="telephone"> 
-                  </div>                  
-                  <div class="form-group col-md-6">
-                    <input type="text" class="form-control" name="telephoneurgent" value="<?php echo $u->telephoneurgent ?>" placeholder="Télephone urgent"> 
-                  </div>                  
-                  <div class="form-group col-md-6">
-                    <input type="text" class="form-control" name="nomurgent" value="<?php echo $u->nomurgent ?>" placeholder="Nom urgent"> 
-                  </div>                  
-                  <div class="form-group col-md-6">
-                    <input type="text" class="form-control" name="prenomurgent" value="<?php echo $u->prenomurgent ?>" placeholder="Prenom urgent"> 
-                  </div>
-                  <div class="form-group col-md-12">
-                    <textarea class="form-control" name="adresse" rows="3" placeholder="Adresse..."><?php echo $u->adresse ?></textarea> 
-                  </div>                  
+                  </div>                                   
                 </div>
                 <div class="form-group">
                   <textarea class="form-control" name="commentaire" rows="3" placeholder="Commentaire..."><?php echo $u->commentaire ?></textarea> 
@@ -269,7 +218,7 @@ class utilisateur extends config_genos {
                   <?php 
                     $tu = new typeutilisateur;
                     $conf = array();
-                    $conf["sql"] = "SELECT * FROM typeutilisateur WHERE suppr = 0";
+                    $conf["sql"] = "SELECT * FROM typeutilisateur ";
                     $conf["class"] = "form-control col-6";
                     $conf["preselect"] = "Sélectionnez un type d'utilisateur";
                     $conf["preselectval"] = 0;
@@ -280,7 +229,7 @@ class utilisateur extends config_genos {
                   <?php 
                     $te = new typeentrainement;
                     $conf = array();
-                    $conf["sql"] = "SELECT * FROM typeentrainement WHERE suppr = 0";
+                    $conf["sql"] = "SELECT * FROM typeentrainement ";
                     $conf["class"] = "form-control col-6";
                     $conf["preselect"] = "Sélectionnez un type d'entrainement";
                     $conf["preselectval"] = 0;
@@ -291,7 +240,7 @@ class utilisateur extends config_genos {
                   <?php 
                     $ta = new typearbitre;
                     $conf = array();
-                    $conf["sql"] = "SELECT * FROM typearbitre WHERE suppr = 0";
+                    $conf["sql"] = "SELECT * FROM typearbitre ";
                     $conf["class"] = "form-control col-6";
                     $conf["preselect"] = "Sélectionnez un type d'entrainement";
                     $conf["preselectval"] = 0;
@@ -300,13 +249,13 @@ class utilisateur extends config_genos {
                 </div>                
                 <div class="form-group">
                   <?php 
-                    $c = new categorie;
+                    $g = new groupe;
                     $conf = array();
-                    $conf["sql"] = "SELECT * FROM categorie WHERE suppr = 0";
+                    $conf["sql"] = "SELECT * FROM groupe ";
                     $conf["class"] = "form-control col-6";
                     $conf["preselect"] = "Sélectionnez une catégorie";
                     $conf["preselectval"] = 0;
-                    $c->SelectList("id_categorie","id","nom",$conf,intval($u->id_categorie)); 
+                    $g->SelectList("id_groupe","id","nom",$conf,intval($u->id_groupe)); 
                   ?>
                 </div>
 <!--                 <div class="custom-control custom-toggle custom-toggle-sm mb-1">

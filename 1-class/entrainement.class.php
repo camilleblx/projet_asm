@@ -7,30 +7,30 @@ class entrainement extends config_genos {
     public $heureDebEnt;
     public $heureFinEnt;
     public $id_typeentrainement;
-    public $id_categorie;
+    public $id_groupe;
  
     public function __construct (){
-        parent::__construct();
-		$this->id                  = 0;
-		$this->nom                 = 0;
-		$this->details             = "";
-		$this->dateEnt             = "";
-		$this->heureDebEnt         = "";
-		$this->heureFinEnt         = "";
-		$this->id_typeentrainement = "";
-		$this->id_categorie        = "";
+      parent::__construct();
+      $this->id                  = 0;
+      $this->nom                 = 0;
+      $this->details             = "";
+      $this->dateEnt             = "";
+      $this->heureDebEnt         = "";
+      $this->heureFinEnt         = "";
+      $this->id_typeentrainement = "";
+      $this->id_groupe           = "";
     } 
 
     public static function ListeEntrainement(){
       $e = new entrainement;
-      $req = "SELECT e.*, te.nom AS nom_type_entrainement, c.nom AS nom_categorie
+      $req = "SELECT e.*, te.nom AS nom_type_entrainement, g.nom AS nom_groupe
               FROM entrainement e
               LEFT JOIN typeentrainement te ON e.id_typeentrainement = te.id
-              LEFT JOIN categorie c ON e.id_categorie = c.id
+              LEFT JOIN groupe g ON e.id_groupe = g.id
               ORDER BY e.nom ASC";
       $champs            = $e->FieldList();
       $champs[]          = "nom_type_entrainement";
-      $champs[]          = "nom_categorie";
+      $champs[]          = "nom_groupe";
       return $e->StructList($req,$champs);
     }   
 
@@ -72,7 +72,7 @@ class entrainement extends config_genos {
                   <?php 
                     $te = new typeentrainement;
                     $conf = array();
-                    $conf["sql"] = "SELECT * FROM typeentrainement WHERE suppr = 0";
+                    $conf["sql"] = "SELECT * FROM typeentrainement ";
                     $conf["class"] = "form-control col-6";
                     $conf["preselect"] = "Sélectionnez un type d'entrainement";
                     $conf["preselectval"] = 0;
@@ -81,13 +81,13 @@ class entrainement extends config_genos {
                 </div>                            
                 <div class="form-group">
                   <?php 
-                    $c = new categorie;
+                    $g = new groupe;
                     $conf = array();
-                    $conf["sql"] = "SELECT * FROM categorie WHERE suppr = 0";
+                    $conf["sql"] = "SELECT * FROM groupe ";
                     $conf["class"] = "form-control col-6";
-                    $conf["preselect"] = "Sélectionnez une catégorie";
+                    $conf["preselect"] = "Sélectionnez un groupe";
                     $conf["preselectval"] = 0;
-                    $c->SelectList("id_categorie","id","nom",$conf); 
+                    $g->SelectList("id_groupe","id","nom",$conf); 
                   ?>
                 </div>
                 <br>
@@ -141,7 +141,7 @@ class entrainement extends config_genos {
                   <?php 
                     $te = new typeentrainement;
                     $conf = array();
-                    $conf["sql"] = "SELECT * FROM typeentrainement WHERE suppr = 0";
+                    $conf["sql"] = "SELECT * FROM typeentrainement ";
                     $conf["class"] = "form-control col-6";
                     $conf["preselect"] = "Sélectionnez un type d'entrainement";
                     $conf["preselectval"] = 0;
@@ -150,13 +150,13 @@ class entrainement extends config_genos {
                 </div>                            
                 <div class="form-group">
                   <?php 
-                    $c = new categorie;
+                    $g = new groupe;
                     $conf = array();
-                    $conf["sql"] = "SELECT * FROM categorie WHERE suppr = 0";
+                    $conf["sql"] = "SELECT * FROM groupe ";
                     $conf["class"] = "form-control col-6";
-                    $conf["preselect"] = "Sélectionnez une catégorie";
+                    $conf["preselect"] = "Sélectionnez un groupe";
                     $conf["preselectval"] = 0;
-                    $c->SelectList("id_categorie","id","nom",$conf,intval($e->id_categorie)); 
+                    $g->SelectList("id_groupe","id","nom",$conf,intval($e->id_groupe)); 
                   ?>
                 </div>
                 <br>

@@ -18,7 +18,6 @@ class connexion extends config_genos{
                 $search_utilisateur          = array();
                 $search_utilisateur["login"] = $_POST["login"];
                 $search_utilisateur["mdp"]   = sha1($_POST["mdp"]);
-                $search_utilisateur["suppr"] = 0;
                 $search_utilisateur = $u->Find($search_utilisateur);
 
                 if(!empty($search_utilisateur)){
@@ -32,12 +31,6 @@ class connexion extends config_genos{
                     $_SESSION["utilisateur"]["dateAnniversaire"] = $search_utilisateur[0]["dateAnniversaire"];
                     $_SESSION["utilisateur"]["login"]            = $search_utilisateur[0]["login"];
                     $_SESSION["utilisateur"]["img"]              = $search_utilisateur[0]["img"];
-                    $_SESSION["utilisateur"]["telephone"]        = $search_utilisateur[0]["telephone"];
-                    $_SESSION["utilisateur"]["mail"]             = $search_utilisateur[0]["mail"];
-                    $_SESSION["utilisateur"]["adresse"]          = $search_utilisateur[0]["adresse"];
-                    $_SESSION["utilisateur"]["telephoneurgent"]  = $search_utilisateur[0]["telephoneurgent"];
-                    $_SESSION["utilisateur"]["nomurgent"]        = $search_utilisateur[0]["nomurgent"];
-                    $_SESSION["utilisateur"]["prenom_urgent"]    = $search_utilisateur[0]["prenom_urgent"];
                     $_SESSION["utilisateur"]["typeutilisateur"]  = strtolower($tu->nom);
                     header("location:".URL_HOME."index.php");
                 }

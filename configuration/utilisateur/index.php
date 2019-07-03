@@ -44,10 +44,8 @@
                           <th scope="col" class="border-0">Nom</th>
                           <th scope="col" class="border-0">Prénom</th>
                           <th scope="col" class="border-0">Login</th>
-                          <th scope="col" class="border-0">Téléhone</th>
                           <th scope="col" class="border-0">Arbitre</th>
-                          <th scope="col" class="border-0">Catégorie</th>
-                          <th scope="col" class="border-0">Mail</th>
+                          <th scope="col" class="border-0">Groupe</th>
                           <th scope="col" class="border-0">Modifier</th>
                           <th scope="col" class="border-0">Supprimer</th>
                         </tr>
@@ -58,10 +56,8 @@
                           <td>{{utilisateur.nom}}</td>  
                           <td>{{utilisateur.prenom}}</td>
                           <td>{{utilisateur.login}}</td>
-                          <td>{{utilisateur.telephone}}</td>
                           <td>{{utilisateur.nom_type_arbitre}}</td>
-                          <td>{{utilisateur.nom_categorie}}</td>
-                          <td>{{{utilisateur.mail | email}}}</td>
+                          <td>{{utilisateur.nom_groupe}}</td>
                           <td><a href="form.php?action=2&id={{utilisateur.id}}" class="btn btn-info btn-sm"><i class="fa fa-edit text-white"></i></a></td>
                           <td><button href="#" @click="SupprimerUtilisateur(utilisateur)" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button></td>
                         </tr>
@@ -83,10 +79,8 @@
                           <th scope="col" class="border-0">Nom</th>
                           <th scope="col" class="border-0">Prénom</th>
                           <th scope="col" class="border-0">Login</th>
-                          <th scope="col" class="border-0">Téléhone</th>
                           <th scope="col" class="border-0">Arbitre</th>
-                          <th scope="col" class="border-0">Catégorie</th>
-                          <th scope="col" class="border-0">Mail</th>
+                          <th scope="col" class="border-0">Groupe</th>
                           <th scope="col" class="border-0">Modifier</th>
                           <th scope="col" class="border-0">Supprimer</th>
                         </tr>
@@ -97,10 +91,8 @@
                           <td>{{utilisateur.nom}}</td>
                           <td>{{utilisateur.prenom}}</td>
                           <td>{{utilisateur.login}}</td>
-                          <td>{{utilisateur.telephone}}</td>
                           <td>{{utilisateur.nom_type_arbitre}}</td>
-                          <td>{{utilisateur.nom_categorie}}</td>
-                          <td>{{{utilisateur.mail | email}}}</td>
+                          <td>{{utilisateur.nom_groupe}}</td>
                           <td><a href="form.php?action=2&id={{utilisateur.id}}" class="btn btn-info btn-sm"><i class="fa fa-edit text-white"></i></a></td>
                           <td><button href="#" @click="SupprimerUtilisateur(utilisateur)" class="btn btn-danger btn-sm" @click="Supprimer(elem)"><i class="fa fa-trash"></i></button></td>
                         </tr>
@@ -122,10 +114,8 @@
                           <th scope="col" class="border-0">Nom</th>
                           <th scope="col" class="border-0">Prénom</th>
                           <th scope="col" class="border-0">Login</th>
-                          <th scope="col" class="border-0">Téléhone</th>
                           <th scope="col" class="border-0">Arbitre</th>
-                          <th scope="col" class="border-0">Catégorie</th>
-                          <th scope="col" class="border-0">Mail</th>
+                          <th scope="col" class="border-0">Groupe</th>
                           <th scope="col" class="border-0">Modifier</th>
                           <th scope="col" class="border-0">Supprimer</th>
                         </tr>
@@ -136,10 +126,8 @@
                           <td>{{utilisateur.nom}}</td>
                           <td>{{utilisateur.prenom}}</td>
                           <td>{{utilisateur.login}}</td>
-                          <td>{{utilisateur.telephone}}</td>
                           <td>{{utilisateur.nom_type_arbitre}}</td>
-                          <td>{{utilisateur.nom_categorie}}</td>
-                          <td>{{{utilisateur.mail | email}}}</td>
+                          <td>{{utilisateur.nom_groupe}}</td>
                           <td><a href="form.php?action=2&id={{utilisateur.id}}" class="btn btn-info btn-sm"><i class="fa fa-edit text-white"></i></a></td>
                           <td><button href="#" @click="SupprimerUtilisateur(utilisateur)" class="btn btn-danger btn-sm" @click="Supprimer(elem)"><i class="fa fa-trash"></i></button></td>
                         </tr>

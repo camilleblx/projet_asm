@@ -1,5 +1,5 @@
 <?php
-class categorie extends config_genos {
+class groupe extends config_genos {
     public $id;
     public $nom;
     public $details;

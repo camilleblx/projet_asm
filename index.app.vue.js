@@ -8,21 +8,17 @@ new Vue({
 	},
 	computed:{
 		listeCommentaireFiltre:function(){
-			var elems = this.liste_utilisateur_entreprise;
+			var elems = this.liste_commentaire;
 			return elems.filter(elem =>{
-				return (elem.nom.toLowerCase().indexOf(this.rech_utilisateur_entreprise.toLowerCase()) > -1) ||
-				(elem.prenom.toLowerCase().indexOf(this.rech_utilisateur_entreprise.toLowerCase()) > -1) ||
-				(elem.login.toLowerCase().indexOf(this.rech_utilisateur_entreprise.toLowerCase()) > -1) ||
-				(elem.admin.toLowerCase().indexOf(this.rech_utilisateur_entreprise.toLowerCase()) > -1)
+				return (elem.commentaire.toLowerCase().indexOf(this.rech_commentaire.toLowerCase()) > -1)
 			});
 		},		
 		listeObjectifFiltre:function(){
-			var elems = this.liste_utilisateur_magasin;
+			var elems = this.liste_objectif;
 			return elems.filter(elem =>{
-				return (elem.nom.toLowerCase().indexOf(this.rech_utilisateur_magasin.toLowerCase()) > -1) ||
-				(elem.prenom.toLowerCase().indexOf(this.rech_utilisateur_magasin.toLowerCase()) > -1) ||
-				(elem.login.toLowerCase().indexOf(this.rech_utilisateur_magasin.toLowerCase()) > -1) ||
-				(elem.admin.toLowerCase().indexOf(this.rech_utilisateur_magasin.toLowerCase()) > -1)
+				return (elem.nom.toLowerCase().indexOf(this.rech_objectif.toLowerCase()) > -1) ||
+				(elem.details.toLowerCase().indexOf(this.rech_objectif.toLowerCase()) > -1)
+				
 			});
 		},
 	},

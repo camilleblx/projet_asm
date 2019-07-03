@@ -85,9 +85,12 @@ function TplHeader() {  ?>
             <ul class="nav">
                 <li class="nav-item">
                     <a class="nav-link active mt-1" href="<?php echo URL_HOME ?>index.php">Accueil</a>
-                </li>                               
+                </li>                       
                 <?php 
                   if(!empty($_SESSION['utilisateur'])){ ?>
+                    <li class="nav-item">
+                        <a class="nav-link active mt-1" href="<?php echo URL_HOME ?>moncompte.php">Mon compte</a>
+                    </li>                               
                     <?php if($_SESSION['utilisateur']['typeutilisateur'] != "administrateur") { ?><li class="nav-item"><a class="nav-link disabled mt-1"  href="<?php echo URL_HOME ?>entrainement.php" >Entrainements</a></li><?php } ?>                  
                     <?php if($_SESSION['utilisateur']['typeutilisateur'] == "administrateur") { ?><li class="nav-item"><a class="nav-link disabled mt-1"  href="<?php echo URL_HOME ?>configuration/index.php" target="_blank">Configuration</a></li><?php } ?>                  
                     <?php if($_SESSION['utilisateur']['typeutilisateur'] == "utilisateur") { ?><li class="nav-item"><a class="nav-link disabled mt-1"  href="<?php echo URL_HOME ?>moncompte.php" >Compétitions</a></li><?php } ?>                  
