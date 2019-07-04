@@ -34,3 +34,7 @@ INSERT INTO `annee` (`id`, `annee`) VALUES
 (2, '2020'),
 (3, '2021'),
 (4, '2018');
+
+ALTER TABLE `entrainement` ADD `jour` INT(1) NOT NULL DEFAULT '0' AFTER `nom`;
+
+ALTER TABLE `entrainement` DROP `dateEnt`;
