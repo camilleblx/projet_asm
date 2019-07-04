@@ -62,6 +62,11 @@
 	include(__DIR__."/../1-class/typeutilisateur.class.php");
 	include(__DIR__."/../1-class/utilisateur.class.php");
 	include(__DIR__."/../1-class/competition.class.php");
+	include(__DIR__."/../1-class/code.class.php");
+	include(__DIR__."/../1-class/participantcompetition.class.php");
+	include(__DIR__."/../1-class/participantentrainement.class.php");
+	include(__DIR__."/../1-class/objectif.class.php");
+	include(__DIR__."/../1-class/annee.class.php");
 	// include(__DIR__."/../1-class/ged.class.php");
 	// include(__DIR__."/../1-class/ged_categorie.class.php");
 

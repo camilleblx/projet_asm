@@ -38,6 +38,15 @@ class connexion extends config_genos{
         }
     }
 
+    public static function CheckCode($code){
+        $c = new code;
+        $search_code          = array();
+        $search_code["code"] = $code;
+        $search_code = $c->Find($search_code);   
+        if(!empty($search_code)) return 1;
+        else return 0;              
+    }    
+
     public static function Deconnexion(){
         foreach ($_SESSION as $key => $session) {
             unset($_SESSION[$key]);

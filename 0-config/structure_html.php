@@ -85,16 +85,15 @@ function TplHeader() {  ?>
             <ul class="nav">
                 <li class="nav-item">
                     <a class="nav-link active mt-1" href="<?php echo URL_HOME ?>index.php">Accueil</a>
-                </li>                       
+                </li>                    
                 <?php 
-                  if(!empty($_SESSION['utilisateur'])){ ?>
-                    <li class="nav-item">
-                        <a class="nav-link active mt-1" href="<?php echo URL_HOME ?>moncompte.php">Mon compte</a>
-                    </li>                               
-                    <?php if($_SESSION['utilisateur']['typeutilisateur'] != "administrateur") { ?><li class="nav-item"><a class="nav-link disabled mt-1"  href="<?php echo URL_HOME ?>entrainement.php" >Entrainements</a></li><?php } ?>                  
+                  if(!empty($_SESSION['utilisateur'])){ ?>                           
                     <?php if($_SESSION['utilisateur']['typeutilisateur'] == "administrateur") { ?><li class="nav-item"><a class="nav-link disabled mt-1"  href="<?php echo URL_HOME ?>configuration/index.php" target="_blank">Configuration</a></li><?php } ?>                  
                     <?php if($_SESSION['utilisateur']['typeutilisateur'] == "utilisateur") { ?><li class="nav-item"><a class="nav-link disabled mt-1"  href="<?php echo URL_HOME ?>moncompte.php" >Compétitions</a></li><?php } ?>                  
-                    <?php if($_SESSION['utilisateur']['typeutilisateur'] == "maitrearme") { ?><li class="nav-item"><a class="nav-link disabled mt-1"  href="<?php echo URL_HOME ?>moncompte.php" >Tireurs</a></li><?php } ?>                  
+                    <?php if($_SESSION['utilisateur']['typeutilisateur'] == "maitrearme") { ?><li class="nav-item"><a class="nav-link disabled mt-1"  href="<?php echo URL_HOME ?>tireurs.php" >Tireurs</a></li><?php } ?>                  
+                    <li class="nav-item">
+                        <a class="nav-link active mt-1" href="<?php echo URL_HOME ?>moncompte.php">Mon compte</a>
+                    </li>    
                 <?php } ?>
                 <li class="nav-item btn-connexion">
                   <?php 
@@ -104,6 +103,9 @@ function TplHeader() {  ?>
                       <a class="nav-link disabled"  href="<?php echo URL_HOME ?>deconnexion.php" >Déconnexion</a>
                   <?php } ?>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link active mt-1" target="_blank" href="<?php echo URL_HOME ?>adherent-cemvs/index.php">Adhérent CEMVS</a>
+                </li>                       
             </ul>
         </div>
     </nav>
@@ -168,6 +170,12 @@ function TplDashboardConfiguration($page) {
                 <a class="nav-link <?php if($page == "competition") echo 'active' ?>" href="<?php echo URL_HOME ?>configuration/competition/index.php">
                   <i class="material-icons">edit</i>
                   <span>Compétitions</span>
+                </a>
+              </li>               
+              <li class="nav-item">
+                <a class="nav-link <?php if($page == "annee") echo 'active' ?>" href="<?php echo URL_HOME ?>configuration/annee/index.php">
+                  <i class="material-icons">edit</i>
+                  <span>Annee</span>
                 </a>
               </li>                 
           </ul>
@@ -352,7 +360,7 @@ function TplFooter() {  ?>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-6 offset-md-1">
-                    <a href="https://www.hitema.fr/"><img width="191" height="51" src="img/logo/hitema.png"></a>
+                    <a href="https://www.hitema.fr/"><img width="191" height="51" src="<?php echo URL_HOME ?>img/logo/hitema.png"></a>
                     <address>
                         <a id="url-vlis" href="https://www.hitema.fr/" target="blank">HITEMA</a> ©<br>
                         <a id="url-vlis" href="https://www.hitema.fr/" target="blank">Tous droits réservés</a> | <a id="url-vlis" href="https://www.hitema.fr/" target="blank">Mentions Légales</a>
