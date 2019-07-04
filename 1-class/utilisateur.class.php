@@ -29,19 +29,19 @@ class utilisateur extends config_genos {
         $this->commentaire         = "";
     } 
 
-    public static function ListeUtilisateurEntrainement($id_entrainement,$id_typeentrainement){
+    public static function ListeUtilisateurEntrainement($id_planningentrainement,$id_typeentrainement){
       // Liste participant
       $u = new utilisateur;
       $req = "SELECT u.*, COALESCE(pe.presence,0) AS presence
               FROM utilisateur u
               INNER JOIN typeentrainement te ON u.id_typeentrainement = te.id
-              LEFT JOIN participantentrainement pe ON pe.id_utilisateur = u.id AND pe.id_entrainement = :id_entrainement
+              LEFT JOIN participantentrainement pe ON pe.id_utilisateur = u.id AND pe.id_planningentrainement = :id_planningentrainement
               WHERE te.id = :id_typeentrainement";
       $champs = $u->FieldList();
       $champs[] = "nom";
       $champs[] = "prenom";
       $champs[] = "presence";
-      $binds = array("id_entrainement" => $id_entrainement, "id_typeentrainement" => $id_typeentrainement);
+      $binds = array("id_planningentrainement" => $id_planningentrainement, "id_typeentrainement" => $id_typeentrainement);
       $liste_participant = $u->StructList($req,$champs,$binds);
       return $liste_participant;
     }  

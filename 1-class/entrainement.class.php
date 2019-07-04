@@ -4,6 +4,7 @@ class entrainement extends config_genos {
     public $nom;
     public $details;
     public $jour;
+    public $id_annee;
     public $heureDebEnt;
     public $heureFinEnt;
     public $id_typeentrainement;
@@ -14,19 +15,35 @@ class entrainement extends config_genos {
       $this->id                  = 0;
       $this->nom                 = 0;
       $this->details             = "";
-      $this->jour             = "";
+      $this->jour                = "";
+      $this->id_annee            = 0;
       $this->heureDebEnt         = "";
       $this->heureFinEnt         = "";
       $this->id_typeentrainement = "";
       $this->id_groupe           = "";
     } 
 
-    public static function GetEntrainementDuJour(){
-      $e = new entrainement;
-      $search_entrainement            = array();
-      $search_entrainement["dateEnt"] = date("Y-m-d");
-      return $e->Find($search_entrainement);
-    }   
+    public function Add(){
+      $id_entrainement = parent::Add();
+      // Charger l'année
+      $a = new annee;
+      $a->id = $this->id_annee;
+      $a->Load();
+      // Créer les entrainements du planing
+      $date_debut = strtotime($a->annee.'-01-01');
+      $date_fin = strtotime(date('Y') . '-12-31');
+      while($date_debut <= $date_fin)
+      {
+        $pe                       = new planningentrainement;
+        $pe->id_entrainement      = $id_entrainement;
+        $pe->date                 = date('Y-m-d',$date_debut);
+        $pe->heure_debut          = $this->heureDebEnt;
+        $pe->heure_fin            = $this->heureFinEnt;
+        $pe->id_type_entrainement = $this->id_typeentrainement;
+        $pe->Add();
+        $date_debut          = strtotime("+1 day", $date_debut);
+      }
+    }  
 
     public static function ListeEntrainement(){
       $e = new entrainement;
@@ -70,7 +87,18 @@ class entrainement extends config_genos {
                     <option value="4">Jeudi</option>
                     <option value="5">Vendredi</option>
                   </select>
-                </div>                    
+                </div>  
+                <div class="form-group col-md-6">
+                  <?php 
+                    $a = new annee;
+                    $conf = array();
+                    $conf["sql"] = "SELECT * FROM annee ";
+                    $conf["class"] = "form-control";
+                    $conf["preselect"] = "Sélectionnez une année";
+                    $conf["preselectval"] = 0;
+                    $a->SelectList("id_annee","id","annee",$conf); 
+                  ?>
+                </div>                      
                   <div class="form-group col-md-6">
                     <input type="time" class="form-control" name="heureDebEnt" placeholder="Heure de début"> 
                   </div>                      
@@ -81,7 +109,7 @@ class entrainement extends config_genos {
                     <textarea class="form-control" name="details" rows="3" placeholder="Détail..."></textarea> 
                   </div>                           
                 </div>
-                  
+                                
                 <div class="form-group">
                   <?php 
                     $te = new typeentrainement;

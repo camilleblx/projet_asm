@@ -38,3 +38,28 @@ INSERT INTO `annee` (`id`, `annee`) VALUES
 ALTER TABLE `entrainement` ADD `jour` INT(1) NOT NULL DEFAULT '0' AFTER `nom`;
 
 ALTER TABLE `entrainement` DROP `dateEnt`;
+
+DROP TABLE IF EXISTS `planningentrainement`;
+CREATE TABLE IF NOT EXISTS `planningentrainement` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_entrainement` int(11) NOT NULL,
+  `date` date NOT NULL DEFAULT '0000-00-00',
+  `heure_debut` time NOT NULL DEFAULT '00:00:00',
+  `heure_fin` time NOT NULL DEFAULT '00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+ALTER TABLE `entrainement` DROP `id_utilisateur`;
+
+ALTER TABLE `planningentrainement` ADD `id_type_entrainement` INT(11) NOT NULL DEFAULT '0' AFTER `heure_fin`;
+
+ALTER TABLE `planningentrainement` CHANGE `id_entrainement` `id_planningentrainement` INT(11) NOT NULL;
+
+DROP TABLE IF EXISTS `participantentrainement`;
+CREATE TABLE IF NOT EXISTS `participantentrainement` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_utilisateur` int(11) NOT NULL DEFAULT '0',
+  `id_planningentrainement` int(11) NOT NULL DEFAULT '0',
+  `presence` tinyint(4) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
