@@ -14,7 +14,7 @@ Import Google Fonts
   src: url('../fonts/poppins/Poppins-Regular.ttf'); 
 }
 
-@font-face {
+@font-face { 
   font-family: Poppins-Medium;
   src: url('../fonts/poppins/Poppins-Medium.ttf'); 
 }
@@ -37,6 +37,7 @@ $white :  #fff;
 @import 'header'; 
 @import 'dashboard'; 
 @import 'notify'; 
+@import 'connexion';
 
 
 /*--------------------

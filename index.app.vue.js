@@ -33,6 +33,12 @@ new Vue({
 				return (elem.nom.toLowerCase().indexOf(this.rech_tireurs.toLowerCase()) > -1) 
 			});
 		},
+		listeTireursFiltre:function(){
+			var elems = this.liste_tireurs;
+			return elems.filter(elem =>{
+				return (elem.nom.toLowerCase().indexOf(this.rech_tireurs.toLowerCase()) > -1) 
+			});
+		},
 	},
 	methods:{
 		GetListeCommentaire:function(){

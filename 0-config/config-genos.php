@@ -73,4 +73,4 @@
 	// Paramètre
 	connexion::VerifConnexion();
 
-	$langue = new langue;
+	// $langue = new langue;

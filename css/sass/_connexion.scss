@@ -1,0 +1,36 @@
+#h-connexion {
+    background-image: url(../img/photoconnexion.jpg);
+    background-repeat: none;
+    width: 100%;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+
+    text-align: center;
+    color: #fff;
+    opacity: 0.8;
+    min-height: 850px;
+    .intro-text{
+        padding-top: 150px;
+        text-color: #FFFFFF;
+        .intro-lead-in {
+            font-family: Poppins-Bold;
+            font-style: italic;
+            font-size: 22px;
+            line-height: 22px;
+            margin-bottom: 25px;
+        }
+        .intro-heading {
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 50px;
+            line-height: 50px;
+            margin-bottom: 25px;
+        .text-color {
+            text-color: #FFFFFF;
+        }
+        }
+    }
+}
