@@ -7,12 +7,14 @@ new Vue({
         liste_objectifs_commentaires:[],
         liste_news:[],
         liste_compet:[],
+        liste_prescence:[],
         rech_commentaires:'',
         rech_tireurs:'',
         rech_objectif:'',
         rech_objectifs_commentaires:'',
         rech_news:'',
         rech_compet:'',
+        rech_presence'',
     },
     ready:function(){
         this.GetListeCommentaires();
@@ -21,6 +23,7 @@ new Vue({
         this.GetListeObjectifsCommentaires();
         this.GetListeNews();
         this.GetListeCompet();
+        this.GetListePrescence();
         var scope = this;
     },
     computed:{
@@ -59,6 +62,12 @@ new Vue({
             var elems = this.liste_compet;
             return elems.filter(elem =>{
                 return (elem.nom.toLowerCase().indexOf(this.rech_compet.toLowerCase()) > -1)
+            });
+        },
+        listePrescence:function(){
+            var elems = this.liste_prescence;
+            return elems.filter(elem =>{
+                return (elem.nom.toLowerCase().indexOf(this.rech_presence.toLowerCase()) > -1)
             });
         },
     },
@@ -141,6 +150,20 @@ new Vue({
                 data:{},
                 success:function(res){
                     scope.liste_compet = JSON.parse(res);
+                },
+                error:function(){
+           
+                }
+            });
+        },
+        GetListeCompet:function(){
+            var scope = this;
+            $.ajax({
+                url:"data.php?cas=liste-presence",
+                type:"POST",
+                data:{},
+                success:function(res){
+                    scope.liste_prescence = JSON.parse(res);
                 },
                 error:function(){
            

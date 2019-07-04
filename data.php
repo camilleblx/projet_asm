@@ -30,6 +30,14 @@ if(isset($_GET["cas"])){
         case 'liste-competition' : 
             echo json_encode(competition::ListeCompetition());
             break ;
+
+        case 'liste-presence' : 
+            echo json_encode(statistique::ListePresence());
+            break ;
+            
+        case 'liste-count' : 
+            echo json_encode(statistique::ListeCount());
+            break ;
     }
 }
 }

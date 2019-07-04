@@ -30,6 +30,7 @@ $tu->Load();
       <a class="nav-item nav-link active" href="#profil">Profil</a>
       <a class="nav-item nav-link" href="#objectif">Objectifs</a>
       <a class="nav-item nav-link" href="#historique">Historique</a>
+      <a class="nav-item nav-link" href="#performance">Performance</a>
     </nav>
  
     <div class="tab-content">
@@ -67,18 +68,40 @@ $tu->Load();
       </div>
  
         <!-- /////////////////////// HISTORIQUE /////////////////////// -->
-        <div class="tab-pane" id="historique">Tous l'historique</div>
+        <div class="tab-pane" id="historique">Tous l'historique
+        <div class="accordion" id="accordionExample" v-for="entrainement in listePresence">
+          <div class="card">
+              <div class="card-header" id="headingThree">
+                {{entrainement.nom}}
+              </div>
+            </div>
+        </div>
+   </div>
+    
+
+  <!-- /////////////////////// PERFORMANCE /////////////////////// -->
+        <div class="tab-pane" id="performance">Vos performances
+         <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                <div class="card card-small h-100">
+                  <div class="card-header border-bottom">
+                    <h6 class="m-0">Votre Assiduité</h6>
+                  </div>
+                  <div class="card-body d-flex py-0">
+                    <canvas height="220" class="blog-users-by-device m-auto"></canvas>
+                  </div>
+                </div>
+              </div>
+    
     </div>
-    <hr>
-  </main>
- 
- 
+  
    
-  </div>
     <?php TplBackTop() ?>
     <?php TplFooter() ?>
     <?php Script() ?>
     <script src="index.app.vue.js"></script>
+    </main>
+   </div></div>
+  </div>
   </body>
 </html>
  

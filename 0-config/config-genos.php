@@ -69,6 +69,7 @@
     include(__DIR__."/../1-class/objectif.class.php");
     include(__DIR__."/../1-class/commentaire.class.php");
     include(__DIR__."/../1-class/news.class.php");
+    include(__DIR__."/../1-class/statistique.class.php");
 
 	// include(__DIR__."/../1-class/ged.class.php");
 	// include(__DIR__."/../1-class/ged_categorie.class.php");
