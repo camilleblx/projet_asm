@@ -520,58 +520,26 @@
 	"buffers":
 	[
 		{
-			"file": "moncompte.php",
+			"file": "configuration/annee/form.php",
 			"settings":
 			{
-				"buffer_size": 3010,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "adherent-cemvs/index.php",
-			"settings":
-			{
-				"buffer_size": 2475,
-				"encoding": "UTF-8",
+				"buffer_size": 951,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "adherent-cemvs/index.app.vue.js",
+			"file": "configuration/entrainement/form.php",
 			"settings":
 			{
-				"buffer_size": 2289,
-				"encoding": "UTF-8",
+				"buffer_size": 972,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "adherent-cemvs/data.php",
-			"settings":
-			{
-				"buffer_size": 493,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "<?php\nclass entrainement extends config_genos {\n    public $id;\n    public $nom;\n    public $details;\n    public $dateEnt;\n    public $heureDebEnt;\n    public $heureFinEnt;\n    public $id_typeentrainement;\n    public $id_groupe;\n \n    public function __construct (){\n      parent::__construct();\n      $this->id                  = 0;\n      $this->nom                 = 0;\n      $this->details             = \"\";\n      $this->dateEnt             = \"\";\n      $this->heureDebEnt         = \"\";\n      $this->heureFinEnt         = \"\";\n      $this->id_typeentrainement = \"\";\n      $this->id_groupe           = \"\";\n    } \n\n    public static function GetEntrainement(){\n              $u = new utilisateur;\n            $search_utilisateur          = array();\n            $search_utilisateur[\"login\"] = $_POST[\"login\"];\n            $search_utilisateur[\"mdp\"]   = sha1($_POST[\"mdp\"]);\n            $search_utilisateur = $u->Find($search_utilisateur);\n\n    }   \n    public static function ListeEntrainement(){\n      $e = new entrainement;\n      $req = \"SELECT e.*, te.nom AS nom_type_entrainement, g.nom AS nom_groupe\n              FROM entrainement e\n              LEFT JOIN typeentrainement te ON e.id_typeentrainement = te.id\n              LEFT JOIN groupe g ON e.id_groupe = g.id\n              ORDER BY e.nom ASC\";\n      $champs            = $e->FieldList();\n      $champs[]          = \"nom_type_entrainement\";\n      $champs[]          = \"nom_groupe\";\n      return $e->StructList($req,$champs);\n    }   \n\n    public static function FormAjout(){ ?>\n        <!-- Page Header -->\n        <div class=\"page-header row no-gutters py-4\">\n          <div class=\"col-12 col-sm-4 text-center text-sm-left mb-0\">\n            <span class=\"text-uppercase page-subtitle\">Entrainement</span>\n            <h3 class=\"page-title\">Ajouter un entrainement</h3>\n          </div>\n        </div>\n        <!-- End Page Header -->            \n        <div class=\"card card-small mb-4 col-md-6 \">\n          <div class=\"card-header border-bottom\">\n            <h6 class=\"m-0\">Formulaire <span class=\"badge badge-success text-right\">Ajout</span></h6>\n          </div>\n          <ul class=\"list-group list-group-flush\">\n            <li class=\"list-group-item p-3\">\n              <strong class=\"text-muted d-block mb-2\">Informations</strong>\n              <form id=\"form-ajout-entrainement\" action=\"valid.php?cas=ajouter-entrainement\" method=\"POST\">\n                <div class=\"form-row\">\n                  <div class=\"form-group col-md-6\">\n                    <input type=\"text\" class=\"form-control\" name=\"nom\" placeholder=\"nom\"> \n                  </div>                    \n                  <div class=\"form-group col-md-6\">\n                    <input type=\"date\" class=\"form-control\" name=\"dateEnt\" placeholder=\"date\"> \n                  </div>                    \n                  <div class=\"form-group col-md-6\">\n                    <input type=\"time\" class=\"form-control\" name=\"heureDebEnt\" placeholder=\"Heure de début\"> \n                  </div>                      \n                  <div class=\"form-group col-md-6\">\n                    <input type=\"time\" class=\"form-control\" name=\"heureFinEnt\" placeholder=\"Heure de fin\"> \n                  </div>                           \n                  <div class=\"form-group col-md-6\">\n                    <textarea class=\"form-control\" name=\"details\" rows=\"3\" placeholder=\"Détail...\"></textarea> \n                  </div>                           \n                </div>\n                <div class=\"form-group\">\n                  <?php \n                    $te = new typeentrainement;\n                    $conf = array();\n                    $conf[\"sql\"] = \"SELECT * FROM typeentrainement \";\n                    $conf[\"class\"] = \"form-control col-6\";\n                    $conf[\"preselect\"] = \"Sélectionnez un type d'entrainement\";\n                    $conf[\"preselectval\"] = 0;\n                    $te->SelectList(\"id_typeentrainement\",\"id\",\"nom\",$conf); \n                  ?>\n                </div>                            \n                <div class=\"form-group\">\n                  <?php \n                    $g = new groupe;\n                    $conf = array();\n                    $conf[\"sql\"] = \"SELECT * FROM groupe \";\n                    $conf[\"class\"] = \"form-control col-6\";\n                    $conf[\"preselect\"] = \"Sélectionnez un groupe\";\n                    $conf[\"preselectval\"] = 0;\n                    $g->SelectList(\"id_groupe\",\"id\",\"nom\",$conf); \n                  ?>\n                </div>\n                <br>\n                <button type=\"submit\" class=\"btn bg-success rounded text-white text-center\" style=\"box-shadow: inset 0 0 5px rgba(0,0,0,.2);\">Ajouter</button>\n              </form>\n            </li>\n          </ul>\n        </div>\n    <?php }    \n\n    public static function FormModif(){ \n      $e = new entrainement;\n      $e->id = $_GET[\"id\"];\n      $e->Load();\n      ?>\n        <!-- Page Header -->\n        <div class=\"page-header row no-gutters py-4\">\n          <div class=\"col-12 col-sm-4 text-center text-sm-left mb-0\">\n            <span class=\"text-uppercase page-subtitle\">Entrainement</span>\n            <h3 class=\"page-title\">Modifier un entrainement</h3>\n          </div>\n        </div>\n        <!-- End Page Header -->            \n        <div class=\"card card-small mb-4 col-md-6 \">\n          <div class=\"card-header border-bottom\">\n            <h6 class=\"m-0\">Formulaire <span class=\"badge badge-info text-right\">Modifier</span></h6>\n          </div>\n          <ul class=\"list-group list-group-flush\">\n            <li class=\"list-group-item p-3\">\n              <strong class=\"text-muted d-block mb-2\">Informations</strong>\n              <form id=\"form-modifier-entrainement\" action=\"valid.php?cas=modifier-entrainement\" method=\"POST\">\n                <input type=\"hidden\" class=\"form-control\" name=\"id_entrainement\" value=\"<?php echo $e->id ?>\"> \n                <div class=\"form-row\">\n                  <div class=\"form-group col-md-6\">\n                    <input type=\"text\" class=\"form-control\" name=\"nom\" value=\"<?php echo $e->nom ?>\" placeholder=\"nom\"> \n                  </div>                    \n                  <div class=\"form-group col-md-6\">\n                    <input type=\"date\" class=\"form-control\" name=\"dateEnt\" value=\"<?php echo $e->DateDatabase($e->dateEnt) ?>\" placeholder=\"date\"> \n                  </div>                    \n                  <div class=\"form-group col-md-6\">\n                    <input type=\"time\" class=\"form-control\" name=\"heureDebEnt\" value=\"<?php echo $e->heureDebEnt ?>\" placeholder=\"Heure de début\"> \n                  </div>                      \n                  <div class=\"form-group col-md-6\">\n                    <input type=\"time\" class=\"form-control\" name=\"heureFinEnt\" value=\"<?php echo $e->heureFinEnt ?>\" placeholder=\"Heure de fin\"> \n                  </div>                           \n                  <div class=\"form-group col-md-6\">\n                    <textarea class=\"form-control\" name=\"details\" rows=\"3\" placeholder=\"Détail...\"><?php echo $e->details ?></textarea> \n                  </div>                           \n                </div>\n                <div class=\"form-group\">\n                  <?php \n                    $te = new typeentrainement;\n                    $conf = array();\n                    $conf[\"sql\"] = \"SELECT * FROM typeentrainement \";\n                    $conf[\"class\"] = \"form-control col-6\";\n                    $conf[\"preselect\"] = \"Sélectionnez un type d'entrainement\";\n                    $conf[\"preselectval\"] = 0;\n                    $te->SelectList(\"id_typeentrainement\",\"id\",\"nom\",$conf,intval($e->id_typeentrainement)); \n                  ?>\n                </div>                            \n                <div class=\"form-group\">\n                  <?php \n                    $g = new groupe;\n                    $conf = array();\n                    $conf[\"sql\"] = \"SELECT * FROM groupe \";\n                    $conf[\"class\"] = \"form-control col-6\";\n                    $conf[\"preselect\"] = \"Sélectionnez un groupe\";\n                    $conf[\"preselectval\"] = 0;\n                    $g->SelectList(\"id_groupe\",\"id\",\"nom\",$conf,intval($e->id_groupe)); \n                  ?>\n                </div>\n                <br>\n                <button type=\"submit\" class=\"btn bg-info rounded text-white text-center\" style=\"box-shadow: inset 0 0 5px rgba(0,0,0,.2);\">Modifier</button>\n              </form>\n            </li>\n          </ul>\n        </div>\n    <?php }\n\n}",
 			"file": "1-class/entrainement.class.php",
-			"file_size": 8441,
-			"file_write_time": 132067143895295450,
 			"settings":
 			{
-				"buffer_size": 8531,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "1-class/connexion.class.php",
-			"settings":
-			{
-				"buffer_size": 3294,
+				"buffer_size": 8887,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -673,35 +641,44 @@
 		"/C/wamp64/www/projet-technique-m1-web",
 		"/C/wamp64/www/projet-technique-m1-web/0-config",
 		"/C/wamp64/www/projet-technique-m1-web/1-class",
-		"/C/wamp64/www/projet-technique-m1-web/adherent-cemvs",
-		"/C/wamp64/www/projet-technique-m1-web/bdd"
+		"/C/wamp64/www/projet-technique-m1-web/configuration",
+		"/C/wamp64/www/projet-technique-m1-web/configuration/annee",
+		"/C/wamp64/www/projet-technique-m1-web/configuration/entrainement"
 	],
 	"file_history":
 	[
-		"/C/wamp64/www/projet-technique-m1-web/1-class/participantcompetition.class.php",
-		"/C/wamp64/www/projet-technique-m1-web/adherent-cemvs/index.php",
-		"/C/wamp64/www/projet-technique-m1-web/adherent-cemvs/index.app.vue.js",
-		"/C/wamp64/www/projet-technique-m1-web/adherent-cemvs/valid.php",
-		"/C/wamp64/www/projet-technique-m1-web/1-class/objectif.class.php",
+		"/C/wamp64/www/projet-technique-m1-web/configuration/annee/form.php",
+		"/C/wamp64/www/projet-technique-m1-web/configuration/annee/valid.php",
+		"/C/wamp64/www/projet-technique-m1-web/1-class/entrainement.class.php",
+		"/C/wamp64/www/projet-technique-m1-web/1-class/annee.class.php",
+		"/C/wamp64/www/projet-technique-m1-web/configuration/annee/index.app.vue.js",
+		"/C/wamp64/www/projet-technique-m1-web/configuration/annee/index.php",
+		"/C/wamp64/www/projet-technique-m1-web/configuration/annee/data.php",
 		"/C/wamp64/www/projet-technique-m1-web/0-config/config-genos.php",
-		"/C/wamp64/www/projet-technique-m1-web/index.app.vue.js",
 		"/C/wamp64/www/projet-technique-m1-web/0-config/structure_html.php",
+		"/C/wamp64/www/projet-technique-m1-web/adherent-cemvs/index.app.vue.js",
+		"/C/wamp64/www/projet-technique-m1-web/configuration/entrainement/index.php",
+		"/C/wamp64/www/projet-technique-m1-web/adherent-cemvs/index.php",
+		"/C/wamp64/www/projet-technique-m1-web/adherent-cemvs/data.php",
+		"/C/wamp64/www/projet-technique-m1-web/configuration/entrainement/form.php",
+		"/C/wamp64/www/projet-technique-m1-web/1-class/participantentrainement.class.php",
+		"/C/wamp64/www/projet-technique-m1-web/1-class/utilisateur.class.php",
+		"/C/wamp64/www/projet-technique-m1-web/adherent-cemvs/valid.php",
+		"/C/wamp64/www/projet-technique-m1-web/1-class/connexion.class.php",
+		"/C/wamp64/www/projet-technique-m1-web/css/sass/_header.scss",
+		"/C/wamp64/www/projet-technique-m1-web/index.app.vue.js",
+		"/C/wamp64/www/projet-technique-m1-web/moncompte.php",
+		"/C/wamp64/www/projet-technique-m1-web/1-class/participantcompetition.class.php",
+		"/C/wamp64/www/projet-technique-m1-web/1-class/objectif.class.php",
 		"/C/wamp64/www/projet-technique-m1-web/data.php",
 		"/C/wamp64/www/projet-technique-m1-web/bdd/modification ymarivint.sql",
-		"/C/wamp64/www/projet-technique-m1-web/1-class/utilisateur.class.php",
-		"/C/wamp64/www/projet-technique-m1-web/adherent-cemvs/data.php",
 		"/C/wamp64/www/projet-technique-m1-web/1-class/code.class.php",
 		"/C/wamp64/www/projet-technique-m1-web/1-class/competition.class.php",
-		"/C/wamp64/www/projet-technique-m1-web/1-class/connexion.class.php",
 		"/C/wamp64/www/projet-technique-m1-web/connexion.php",
-		"/C/wamp64/www/projet-technique-m1-web/configuration/entrainement/form.php",
-		"/C/wamp64/www/projet-technique-m1-web/configuration/entrainement/index.php",
 		"/C/wamp64/www/projet-technique-m1-web/index.php",
 		"/C/wamp64/www/projet-technique-m1-web/configuration/entrainement/data.php",
 		"/C/wamp64/www/projet-technique-m1-web/configuration/index.php",
-		"/C/wamp64/www/projet-technique-m1-web/moncompte.php",
 		"/C/wamp64/www/projet-technique-m1-web/configuration/utilisateur/index.php",
-		"/C/wamp64/www/projet-technique-m1-web/1-class/entrainement.class.php",
 		"/C/wamp64/www/projet-technique-m1-web/1-class/pubs.class.php",
 		"/C/wamp64/www/projet-technique-m1-web/1-class/ged.class.php",
 		"/C/wamp64/www/projet-technique-m1-web/configuration/entrainement/index.app.vue.js",
@@ -747,7 +724,6 @@
 		"/C/wamp64/www/projet-technique-m1-web/deconnexion.php",
 		"/C/wamp64/www/projet-annuel-m1/deconnexion.php",
 		"/C/wamp64/www/projet-annuel-m1/dashboard/connexion.php",
-		"/C/wamp64/www/projet-technique-m1-web/css/sass/_header.scss",
 		"/C/wamp64/www/projet-technique-m1-web/css/sass/_footer.scss",
 		"/C/wamp64/www/projet-technique-m1-web/css/sass/_connexion.scss",
 		"/C/wamp64/www/projet-technique-m1-web/css/sass/_dashboard.scss",
@@ -798,18 +774,11 @@
 		"/C/wamp64/www/projet-annuel-m1/3-functions/general.php",
 		"/C/wamp64/www/projet-annuel-m1/1-class/genos.class.php",
 		"/C/Users/Yvann/Google Drive/TRAVAIL/HITEMA/M1/SCRIPT/export-hitema/script-horizon/0-config/code-affichage.php",
-		"/C/wamp64/www/projet-annuel-m1/0-config/template.php",
-		"/C/wamp64/www/projet-annuel-m1/0-config/functions.php",
-		"/C/wamp64/www/projet-annuel-m1/index_old.php",
-		"/C/wamp64/www/projet-annuel-m1/0-config/fonctions.php",
-		"/C/wamp64/www/projet-annuel-m1/js/vue/index.vue.js",
-		"/C/wamp64/www/projet-annuel-m1/bdd/projet-annuel.sql",
-		"/C/Users/Yvann/AppData/Roaming/Sublime Text 3/Packages/User/ColorHighlighter.sublime-settings",
-		"/C/wamp64/www/projet-annuel/css/sass/style.scss"
+		"/C/wamp64/www/projet-annuel-m1/0-config/template.php"
 	],
 	"find":
 	{
-		"height": 41.0
+		"height": 45.0
 	},
 	"find_in_files":
 	{
@@ -828,6 +797,46 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"vendredi",
+			"Vendredi",
+			"entrainement",
+			"e",
+			"\t\t\t$",
+			"e",
+			"nom",
+			"id_entrainement",
+			"id_annee",
+			"id_entrainement",
+			"entrainement",
+			"annee",
+			"entrainement",
+			"entraine",
+			" \n",
+			"id_utilisateur",
+			"search_code",
+			"search",
+			"id_typeentrainement",
+			"participant",
+			"CheckPresence",
+			"id_participantentrainement",
+			"id_groupe",
+			"GetListeParticipantEntrainement",
+			"id_entrainement",
+			"id_hroupe",
+			"pe",
+			"id_entrainement",
+			"id_utilisateur",
+			"id_entrainement",
+			"div",
+			"pc",
+			"id_participantcompetition",
+			"GetListeParticipantEntrainement",
+			"code",
+			"GetListeParticipantEntrainement",
+			"pc",
+			"competition",
+			"GetEntrainement",
+			"search_utilisateur",
 			"code",
 			"CheckCode",
 			"entrainement",
@@ -915,47 +924,7 @@
 			"details",
 			"heureFinEnt",
 			"date",
-			"rech_entrainement",
-			"binds",
-			"rech_utilisateur_administrateur",
-			"details",
-			"id_categorie",
-			"id_typeentrainement",
-			"heureFinEntid_typeentrainement",
-			"heureDebEnt",
-			"dateEnt",
-			"details",
-			"type",
-			"nom_categorie",
-			"nom_type_arbitre",
-			"heureDebEnt",
-			"nom_type_arbitre",
-			"telephone",
-			"login",
-			"prenom",
-			"Mail",
-			"Catégorie",
-			"Arbitre",
-			"Téléhone",
-			"Login",
-			"utilisateur",
-			"id_typearbitre",
-			"id_categorie",
-			"commentaire",
-			"name",
-			"Ajout",
-			"tu",
-			"id_typeentrainement",
-			"typeutilisateur",
-			"();\n",
-			"typeutilisateur",
-			"class",
-			"mail",
-			"email",
-			"label",
-			"\">\n",
-			"prenomurgent",
-			"ari"
+			"rech_entrainement"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -991,24 +960,24 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "moncompte.php",
+					"file": "configuration/annee/form.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3010,
+						"buffer_size": 951,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2340,
-								2340
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1016,95 +985,6 @@
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 798.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "adherent-cemvs/index.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2475,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1974,
-								1996
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 456.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "adherent-cemvs/index.app.vue.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2289,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								254,
-								254
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"translate_tabs_to_spaces": false,
-							"use_tab_stops": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "adherent-cemvs/data.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 493,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								267,
-								267
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1114,20 +994,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "1-class/entrainement.class.php",
+					"buffer": 1,
+					"file": "configuration/entrainement/form.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8531,
+						"buffer_size": 972,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								695,
-								695
+								702,
+								711
 							]
 						],
 						"settings":
@@ -1140,37 +1020,37 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "1-class/connexion.class.php",
+					"buffer": 2,
+					"file": "1-class/entrainement.class.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3294,
+						"buffer_size": 8887,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								942,
-								647
+								3645,
+								3645
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1523.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -1178,7 +1058,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 28.0
+		"height": 32.0
 	},
 	"input":
 	{
@@ -1223,7 +1103,7 @@
 	"project": "WORKSPACE.sublime-project",
 	"replace":
 	{
-		"height": 52.0
+		"height": 60.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1233,16 +1113,36 @@
 		"selected_items":
 		[
 			[
+				"anne",
+				"1-class\\annee.class.php"
+			],
+			[
+				"utili",
+				"1-class\\utilisateur.class.php"
+			],
+			[
+				"entraine",
+				"1-class\\entrainement.class.php"
+			],
+			[
+				"parti",
+				"1-class\\participantentrainement.class.php"
+			],
+			[
+				"entain",
+				"1-class\\entrainement.class.php"
+			],
+			[
+				"entra",
+				"1-class\\entrainement.class.php"
+			],
+			[
 				"conn",
 				"1-class\\connexion.class.php"
 			],
 			[
 				"entran",
 				"1-class\\entrainement.class.php"
-			],
-			[
-				"utili",
-				"1-class\\utilisateur.class.php"
 			],
 			[
 				"competition",
@@ -1267,10 +1167,6 @@
 			[
 				"comp",
 				"php-mailer\\composer.json"
-			],
-			[
-				"entra",
-				"1-class\\entrainement.class.php"
 			],
 			[
 				"entr",
@@ -1727,22 +1623,6 @@
 			[
 				"societe",
 				"0-class\\societe.class.php"
-			],
-			[
-				"utilisate",
-				"0-class\\utilisateur.class.php"
-			],
-			[
-				"clientcla",
-				"0-class\\client.class.php"
-			],
-			[
-				"ass",
-				"0-css\\sass\\_assistant.scss"
-			],
-			[
-				"account",
-				"account-assist\\index.php"
 			]
 		],
 		"width": 0.0

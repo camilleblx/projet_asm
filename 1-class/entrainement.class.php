@@ -3,7 +3,7 @@ class entrainement extends config_genos {
     public $id;
     public $nom;
     public $details;
-    public $dateEnt;
+    public $jour;
     public $heureDebEnt;
     public $heureFinEnt;
     public $id_typeentrainement;
@@ -14,7 +14,7 @@ class entrainement extends config_genos {
       $this->id                  = 0;
       $this->nom                 = 0;
       $this->details             = "";
-      $this->dateEnt             = "";
+      $this->jour             = "";
       $this->heureDebEnt         = "";
       $this->heureFinEnt         = "";
       $this->id_typeentrainement = "";
@@ -61,10 +61,16 @@ class entrainement extends config_genos {
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <input type="text" class="form-control" name="nom" placeholder="nom"> 
-                  </div>                    
-                  <div class="form-group col-md-6">
-                    <input type="date" class="form-control" name="dateEnt" placeholder="date"> 
-                  </div>                    
+                  </div>              
+                <div class="form-group col-md-6">
+                  <select name="jour" class="form-control">
+                    <option value="1">Lundi</option>
+                    <option value="2">Mardi</option>
+                    <option value="3">Mercredi</option>
+                    <option value="4">Jeudi</option>
+                    <option value="5">Vendredi</option>
+                  </select>
+                </div>                    
                   <div class="form-group col-md-6">
                     <input type="time" class="form-control" name="heureDebEnt" placeholder="Heure de début"> 
                   </div>                      
@@ -75,6 +81,7 @@ class entrainement extends config_genos {
                     <textarea class="form-control" name="details" rows="3" placeholder="Détail..."></textarea> 
                   </div>                           
                 </div>
+                  
                 <div class="form-group">
                   <?php 
                     $te = new typeentrainement;

@@ -88,7 +88,6 @@ function TplHeader() {  ?>
                 </li>                    
                 <?php 
                   if(!empty($_SESSION['utilisateur'])){ ?>                           
-                    <?php if($_SESSION['utilisateur']['typeutilisateur'] != "administrateur") { ?><li class="nav-item"><a class="nav-link disabled mt-1"  href="<?php echo URL_HOME ?>entrainement.php" >Entrainements</a></li><?php } ?>                  
                     <?php if($_SESSION['utilisateur']['typeutilisateur'] == "administrateur") { ?><li class="nav-item"><a class="nav-link disabled mt-1"  href="<?php echo URL_HOME ?>configuration/index.php" target="_blank">Configuration</a></li><?php } ?>                  
                     <?php if($_SESSION['utilisateur']['typeutilisateur'] == "utilisateur") { ?><li class="nav-item"><a class="nav-link disabled mt-1"  href="<?php echo URL_HOME ?>moncompte.php" >Compétitions</a></li><?php } ?>                  
                     <?php if($_SESSION['utilisateur']['typeutilisateur'] == "maitrearme") { ?><li class="nav-item"><a class="nav-link disabled mt-1"  href="<?php echo URL_HOME ?>tireurs.php" >Tireurs</a></li><?php } ?>                  
@@ -171,6 +170,12 @@ function TplDashboardConfiguration($page) {
                 <a class="nav-link <?php if($page == "competition") echo 'active' ?>" href="<?php echo URL_HOME ?>configuration/competition/index.php">
                   <i class="material-icons">edit</i>
                   <span>Compétitions</span>
+                </a>
+              </li>               
+              <li class="nav-item">
+                <a class="nav-link <?php if($page == "annee") echo 'active' ?>" href="<?php echo URL_HOME ?>configuration/annee/index.php">
+                  <i class="material-icons">edit</i>
+                  <span>Annee</span>
                 </a>
               </li>                 
           </ul>
