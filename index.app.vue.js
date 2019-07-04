@@ -9,7 +9,6 @@ new Vue({
 		rech_objectif:'',
 	},
 	ready:function(){
-		alert();
 		this.GetListeCommentaire();
 		this.GetListeObjectif();
 		this.GetListeTireurs();
