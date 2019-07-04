@@ -21,3 +21,20 @@ CREATE TABLE IF NOT EXISTS `code` (
 
 INSERT INTO `code` (`id`, `code`) VALUES
 (1, '267592');
+
+DROP TABLE IF EXISTS `annee`;
+CREATE TABLE IF NOT EXISTS `annee` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `annee` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+INSERT INTO `annee` (`id`, `annee`) VALUES
+(1, '2019'),
+(2, '2020'),
+(3, '2021'),
+(4, '2018');
+
+ALTER TABLE `entrainement` ADD `jour` INT(1) NOT NULL DEFAULT '0' AFTER `nom`;
+
+ALTER TABLE `entrainement` DROP `dateEnt`;
