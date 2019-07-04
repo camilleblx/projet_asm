@@ -14,6 +14,7 @@ $tu->Load();
   <?php TplHead(); ?>
   <body id="page-top">
     <?php TplHeader() ?>
+    <main id="app">
 
     <div class="container">
       <div class="row">
@@ -106,12 +107,34 @@ $tu->Load();
     </div>
     <hr>
 
+      <div class="row">
+              <div class="col-12">
+                <div class="card card-small mb-4">
+                  <div class="card-body p-0 pb-3 text-center">
+                    <table class="table mb-0">
+                      <thead class="bg-light">
+                        <tr>
+                          <th scope="col" class="border-0">Tireurs</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr v-for="objectif in listeObjectifFiltre">
+                          <td>{{objectif.nom}} - {{objectif.details}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+         </div>
+          </div>
+        </div>
 
     
+      </main>
   </div>
     <?php TplBackTop() ?>
     <?php TplFooter() ?>
     <?php Script() ?>
+    <script src="index.app.vue.js"></script>
   </body>
 </html>
 

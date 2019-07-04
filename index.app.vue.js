@@ -9,6 +9,7 @@ new Vue({
 		rech_objectif:'',
 	},
 	ready:function(){
+		alert();
 		this.GetListeCommentaire();
 		this.GetListeObjectif();
 		this.GetListeTireurs();
@@ -22,12 +23,11 @@ new Vue({
 			});
 		},
 		listeObjectifFiltre:function(){
-			var elems = this.liste_objectif;
-			return elems.filter(elem =>{
-				return (elem.nom.toLowerCase().indexOf(this.rech_objectif.toLowerCase()) > -1) ||
-				(elem.details.toLowerCase().indexOf(this.rech_objectif.toLowerCase()) > -1)
-			});
-		},
+            var elems = this.liste_objectif;
+            return elems.filter(elem =>{
+                return (elem.nom.toLowerCase().indexOf(this.rech_objectif.toLowerCase()) > -1) 
+            });
+        },
 		listeTireursFiltre:function(){
 			var elems = this.liste_tireurs;
 			return elems.filter(elem =>{
@@ -51,19 +51,19 @@ new Vue({
 			});
 		},		
 		GetListeObjectif:function(){
-			var scope = this;
-			$.ajax({
-			    url:"data.php?cas=liste-objectif",
-			    type:"POST",
-			    data:{},
-			    success:function(res){
-					scope.liste_objectif = JSON.parse(res);
-			    },
-			    error:function(){
-			
-			    }
-			});
-		},
+            var scope = this;
+            $.ajax({
+                url:"data.php?cas=liste-objectif",
+                type:"POST",
+                data:{},
+                success:function(res){
+                    scope.liste_objectif = JSON.parse(res);
+                },
+                error:function(){
+
+                }
+            });
+        },
 		AjouterCommentaire:function(){
 			var scope = this;
 			var datas = $("#form-ajout-commentaire").serialize();
