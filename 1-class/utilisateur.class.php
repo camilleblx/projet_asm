@@ -81,6 +81,19 @@ class utilisateur extends config_genos {
       return $liste_utilisateur;
     }
 
+    public static function ListeTireurs(){
+      $u = new utilisateur;
+      $req = "SELECT u.* 
+              FROM utilisateur u
+              INNER JOIN typeutilisateur tu ON u.id_typeutilisateur = tu.id
+              WHERE tu.nom = :nom
+              ORDER BY u.nom ASC";
+      $champs            = $u->FieldList();
+      $binds             = array("nom" => "Tireur");
+      $liste_utilisateur = $u->StructList($req,$champs,$binds);
+      return $liste_utilisateur;
+    }
+
     public static function FormAjout(){ ?>
         <!-- Page Header -->
         <div class="page-header row no-gutters py-4">
