@@ -46,17 +46,18 @@ $tu->Load();
         </div>
 
       <!-- /////////////////////// OBJECTIFS /////////////////////// -->
+
           <div class="tab-pane" id="objectif">
-            <div class="accordion" id="accordionExample">
+            <div class="accordion" id="accordionExample" v-for="objectif in listeObjectifFiltre">
               <div class="card">
               <div class="card-header" id="headingThree">
                 <h5 class="mb-0">
-                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                    Travailler les jambes
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse{{ ($index + 1) }}" aria-expanded="false" aria-controls="collapse{{ ($index + 1) }}">
+                      <b>{{objectif.nom}} - {{objectif.details}}</b>
                   </button>
                 </h5>
               </div>
-              <div id="collapseOne" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+              <div id="collapse{{ ($index + 1) }}" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                 <div class="card-body">
                   Commentaire tireur : Difficultés sur l'équilibre.
                 </div>
@@ -65,71 +66,16 @@ $tu->Load();
                 </div>
               </div>
             </div>
-            <div class="card">
-              <div class="card-header" id="headingThree">
-                <h5 class="mb-0">
-                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    Podium au prochain tournois
-                  </button>
-                </h5>
-              </div>
-              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                <div class="card-body">
-                  Commentaire tireur : Rester sérieuse.
-                </div>
-                <div class="card-body">
-                  Commentaire maître d'arme : Objectif réalisable.
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header" id="headingThree">
-                <h5 class="mb-0">
-                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    Faire les championnats de France
-                  </button>
-                </h5>
-              </div>
-              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                <div class="card-body">
-                  Commentaire tireur : Garder une assuidité remarquable.
-                </div>
-                <div class="card-body">
-                  Commentaire maître d'arme : Souhait réalisable si Camille persevère aux entrainements.
-                </div>
-              </div>
-            </div>
         </div>
-        </div>
+      </div>
 
         <!-- /////////////////////// HISTORIQUE /////////////////////// -->
         <div class="tab-pane" id="historique">Tous l'historique</div>
     </div>
     <hr>
-
-      <div class="row">
-              <div class="col-12">
-                <div class="card card-small mb-4">
-                  <div class="card-body p-0 pb-3 text-center">
-                    <table class="table mb-0">
-                      <thead class="bg-light">
-                        <tr>
-                          <th scope="col" class="border-0">Tireurs</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr v-for="objectif in listeObjectifFiltre">
-                          <td>{{objectif.nom}} - {{objectif.details}}</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-         </div>
-          </div>
-        </div>
+    </main>
 
     
-      </main>
   </div>
     <?php TplBackTop() ?>
     <?php TplFooter() ?>
@@ -140,7 +86,7 @@ $tu->Load();
 
 <script type="text/javascript">
   $('#navigation-moncompte a').click(function (e) {
-	  e.preventDefault()
-	  $(this).tab('show')
-	})
+    e.preventDefault()
+    $(this).tab('show')
+  })
 </script>
