@@ -19,7 +19,7 @@ if(isset($_GET["cas"])){
 			$e->Load();
 			$e->LoadForm();
 			$e->Update();
-			header("location:index.php");
+			// header("location:index.php");
 			break;		
 
 		case 'supprimer-entrainement':

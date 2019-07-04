@@ -45,6 +45,24 @@ class entrainement extends config_genos {
         $date_debut = strtotime("+7 day", $date_debut);
       }
     }  
+    
+    public function Update(){
+      parent::Update();
+      $req = "UPDATE planningentrainement pe
+              SET pe.heure_debut = :heure_debut
+              AND pe.heure_fin = :heure_fin
+              AND pe.id_type_entrainement = :id_typeentrainement
+              WHERE pe.id_entrainement = :id_entrainement";
+      $binds = array(
+                      "id_entrainement" => $this->id,
+                      "heure_debut" => $this->heureDebEnt,
+                      "heure_fin" => $this->heureFinEnt,
+                      "id_typeentrainement" => $this->id_typeentrainement,
+                    );
+      var_dump($req);
+      var_dump($binds);
+      $this->Sql($req,$binds);
+    }
 
     public function Delete(){
       $req = "DELETE FROM planningentrainement WHERE id_entrainement = :id_entrainement";
@@ -173,10 +191,27 @@ class entrainement extends config_genos {
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <input type="text" class="form-control" name="nom" value="<?php echo $e->nom ?>" placeholder="nom"> 
-                  </div>                    
-                  <div class="form-group col-md-6">
-                    <input type="date" class="form-control" name="dateEnt" value="<?php echo $e->DateDatabase($e->dateEnt) ?>" placeholder="date"> 
-                  </div>                    
+                  </div>              
+                <div class="form-group col-md-6">
+                  <select name="jour" class="form-control">
+                    <option <?php if($e->jour == 'monday') echo 'selected'?> value="monday">Lundi</option>
+                    <option <?php if($e->jour == 'tuesday') echo 'selected'?> value="tuesday">Mardi</option>
+                    <option <?php if($e->jour == 'wednesday') echo 'selected'?> value="wednesday">Mercredi</option>
+                    <option <?php if($e->jour == 'thursday') echo 'selected'?> value="thursday">Jeudi</option>
+                    <option <?php if($e->jour == 'friday') echo 'selected'?> value="friday">Vendredi</option>
+                  </select>
+                </div>  
+                <div class="form-group col-md-6">
+                  <?php 
+                    $a = new annee;
+                    $conf = array();
+                    $conf["sql"] = "SELECT * FROM annee ";
+                    $conf["class"] = "form-control";
+                    $conf["preselect"] = "Sélectionnez une année";
+                    $conf["preselectval"] = 0;
+                    $a->SelectList("id_annee","id","annee",$conf,intval($e->id_annee)); 
+                  ?>
+                </div>                      
                   <div class="form-group col-md-6">
                     <input type="time" class="form-control" name="heureDebEnt" value="<?php echo $e->heureDebEnt ?>" placeholder="Heure de début"> 
                   </div>                      
@@ -187,6 +222,7 @@ class entrainement extends config_genos {
                     <textarea class="form-control" name="details" rows="3" placeholder="Détail..."><?php echo $e->details ?></textarea> 
                   </div>                           
                 </div>
+                                
                 <div class="form-group">
                   <?php 
                     $te = new typeentrainement;
