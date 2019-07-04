@@ -13,29 +13,29 @@ class participantcompetition extends config_genos {
 		$this->presence = 0;
     } 
 
-    public static function ListeCompetitionParticipant(){
-      $c = new competition;
-      $req = "SELECT c.*
-              FROM competition c
-              ORDER BY c.nom ASC";
-      $champs = $c->FieldList();
-      $liste_competition = $c->StructList($req,$champs);
-      foreach ($liste_competition as $key => $ligne) {
-      	$liste_competition[$key]["liste_participant"] = array();
-  	      $pc = new participantcompetition;
-	      $req = "SELECT pc.*,u.nom,u.prenom
-	              FROM participantcompetition pc
-	              INNER JOIN utilisateur u ON u.id = pc.id_utilisateur
-	              WHERE pc.id_competition = :id_competition";
-	      $champs = $pc->FieldList();
-	      $champs[] = "nom";
-	      $champs[] = "prenom";
-	      $binds = array("id_competition" => $ligne["id"]);
-	      $liste_participant = $pc->StructList($req,$champs,$binds);
-	      $liste_competition[$key]["liste_participant"] = $liste_participant;
-      }
-      return $liste_competition;
-    }  
+    // public static function ListeCompetitionParticipant(){
+    //   $c = new competition;
+    //   $req = "SELECT c.*
+    //           FROM competition c
+    //           ORDER BY c.nom ASC";
+    //   $champs = $c->FieldList();
+    //   $liste_competition = $c->StructList($req,$champs);
+    //   foreach ($liste_competition as $key => $ligne) {
+    //   	$liste_competition[$key]["liste_participant"] = array();
+  	 //      $pc = new participantcompetition;
+	   //    $req = "SELECT pc.*,u.nom,u.prenom
+	   //            FROM participantcompetition pc
+	   //            INNER JOIN utilisateur u ON u.id = pc.id_utilisateur
+	   //            WHERE pc.id_competition = :id_competition";
+	   //    $champs = $pc->FieldList();
+	   //    $champs[] = "nom";
+	   //    $champs[] = "prenom";
+	   //    $binds = array("id_competition" => $ligne["id"]);
+	   //    $liste_participant = $pc->StructList($req,$champs,$binds);
+	   //    $liste_competition[$key]["liste_participant"] = $liste_participant;
+    //   }
+    //   return $liste_competition;
+    // }  
 
     public static function CheckPresence($id_participantcompetition){
     	$pc = new participantcompetition;

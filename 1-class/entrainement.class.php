@@ -21,6 +21,13 @@ class entrainement extends config_genos {
       $this->id_groupe           = "";
     } 
 
+    public static function GetEntrainementDuJour(){
+      $e = new entrainement;
+      $search_entrainement            = array();
+      $search_entrainement["dateEnt"] = date("Y-m-d");
+      return $e->Find($search_entrainement);
+    }   
+
     public static function ListeEntrainement(){
       $e = new entrainement;
       $req = "SELECT e.*, te.nom AS nom_type_entrainement, g.nom AS nom_groupe

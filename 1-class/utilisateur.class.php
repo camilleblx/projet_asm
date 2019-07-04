@@ -22,12 +22,29 @@ class utilisateur extends config_genos {
         $this->login               = "";
         $this->mdp                 = "";
         $this->img                 = "";
-        $this->id_groupe        = 0;
+        $this->id_groupe           = 0;
         $this->id_typeutilisateur  = 0;
         $this->id_typearbitre      = 0;
         $this->id_typeentrainement = 0;
         $this->commentaire         = "";
     } 
+
+    public static function ListeUtilisateurEntrainement($id_entrainement,$id_typeentrainement){
+      // Liste participant
+      $u = new utilisateur;
+      $req = "SELECT u.*, COALESCE(pe.presence,0) AS presence
+              FROM utilisateur u
+              INNER JOIN typeentrainement te ON u.id_typeentrainement = te.id
+              LEFT JOIN participantentrainement pe ON pe.id_utilisateur = u.id AND pe.id_entrainement = :id_entrainement
+              WHERE te.id = :id_typeentrainement";
+      $champs = $u->FieldList();
+      $champs[] = "nom";
+      $champs[] = "prenom";
+      $champs[] = "presence";
+      $binds = array("id_entrainement" => $id_entrainement, "id_typeentrainement" => $id_typeentrainement);
+      $liste_participant = $u->StructList($req,$champs,$binds);
+      return $liste_participant;
+    }  
 
 
     public static function ListeUtilisateurAdministrateur(){

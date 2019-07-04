@@ -520,69 +520,6 @@
 	"buffers":
 	[
 		{
-			"file": "adherent-cemvs/index.php",
-			"settings":
-			{
-				"buffer_size": 2810,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "adherent-cemvs/index.app.vue.js",
-			"settings":
-			{
-				"buffer_size": 1928,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "adherent-cemvs/valid.php",
-			"settings":
-			{
-				"buffer_size": 406,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "1-class/participantcompetition.class.php",
-			"settings":
-			{
-				"buffer_size": 3240,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "1-class/objectif.class.php",
-			"settings":
-			{
-				"buffer_size": 684,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "0-config/config-genos.php",
-			"settings":
-			{
-				"buffer_size": 2491,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "index.app.vue.js",
-			"settings":
-			{
-				"buffer_size": 3027,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "moncompte.php",
 			"settings":
 			{
@@ -592,46 +529,49 @@
 			}
 		},
 		{
-			"file": "0-config/structure_html.php",
+			"file": "adherent-cemvs/index.php",
 			"settings":
 			{
-				"buffer_size": 21886,
+				"buffer_size": 2475,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "data.php",
+			"file": "adherent-cemvs/index.app.vue.js",
 			"settings":
 			{
-				"buffer_size": 580,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "bdd/modification ymarivint.sql",
-			"settings":
-			{
-				"buffer_size": 703,
+				"buffer_size": 2289,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "bdd/bddmelun.sql",
+			"file": "adherent-cemvs/data.php",
 			"settings":
 			{
-				"buffer_size": 9479,
+				"buffer_size": 493,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
+				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "1-class/utilisateur.class.php",
+			"contents": "<?php\nclass entrainement extends config_genos {\n    public $id;\n    public $nom;\n    public $details;\n    public $dateEnt;\n    public $heureDebEnt;\n    public $heureFinEnt;\n    public $id_typeentrainement;\n    public $id_groupe;\n \n    public function __construct (){\n      parent::__construct();\n      $this->id                  = 0;\n      $this->nom                 = 0;\n      $this->details             = \"\";\n      $this->dateEnt             = \"\";\n      $this->heureDebEnt         = \"\";\n      $this->heureFinEnt         = \"\";\n      $this->id_typeentrainement = \"\";\n      $this->id_groupe           = \"\";\n    } \n\n    public static function GetEntrainement(){\n              $u = new utilisateur;\n            $search_utilisateur          = array();\n            $search_utilisateur[\"login\"] = $_POST[\"login\"];\n            $search_utilisateur[\"mdp\"]   = sha1($_POST[\"mdp\"]);\n            $search_utilisateur = $u->Find($search_utilisateur);\n\n    }   \n    public static function ListeEntrainement(){\n      $e = new entrainement;\n      $req = \"SELECT e.*, te.nom AS nom_type_entrainement, g.nom AS nom_groupe\n              FROM entrainement e\n              LEFT JOIN typeentrainement te ON e.id_typeentrainement = te.id\n              LEFT JOIN groupe g ON e.id_groupe = g.id\n              ORDER BY e.nom ASC\";\n      $champs            = $e->FieldList();\n      $champs[]          = \"nom_type_entrainement\";\n      $champs[]          = \"nom_groupe\";\n      return $e->StructList($req,$champs);\n    }   \n\n    public static function FormAjout(){ ?>\n        <!-- Page Header -->\n        <div class=\"page-header row no-gutters py-4\">\n          <div class=\"col-12 col-sm-4 text-center text-sm-left mb-0\">\n            <span class=\"text-uppercase page-subtitle\">Entrainement</span>\n            <h3 class=\"page-title\">Ajouter un entrainement</h3>\n          </div>\n        </div>\n        <!-- End Page Header -->            \n        <div class=\"card card-small mb-4 col-md-6 \">\n          <div class=\"card-header border-bottom\">\n            <h6 class=\"m-0\">Formulaire <span class=\"badge badge-success text-right\">Ajout</span></h6>\n          </div>\n          <ul class=\"list-group list-group-flush\">\n            <li class=\"list-group-item p-3\">\n              <strong class=\"text-muted d-block mb-2\">Informations</strong>\n              <form id=\"form-ajout-entrainement\" action=\"valid.php?cas=ajouter-entrainement\" method=\"POST\">\n                <div class=\"form-row\">\n                  <div class=\"form-group col-md-6\">\n                    <input type=\"text\" class=\"form-control\" name=\"nom\" placeholder=\"nom\"> \n                  </div>                    \n                  <div class=\"form-group col-md-6\">\n                    <input type=\"date\" class=\"form-control\" name=\"dateEnt\" placeholder=\"date\"> \n                  </div>                    \n                  <div class=\"form-group col-md-6\">\n                    <input type=\"time\" class=\"form-control\" name=\"heureDebEnt\" placeholder=\"Heure de début\"> \n                  </div>                      \n                  <div class=\"form-group col-md-6\">\n                    <input type=\"time\" class=\"form-control\" name=\"heureFinEnt\" placeholder=\"Heure de fin\"> \n                  </div>                           \n                  <div class=\"form-group col-md-6\">\n                    <textarea class=\"form-control\" name=\"details\" rows=\"3\" placeholder=\"Détail...\"></textarea> \n                  </div>                           \n                </div>\n                <div class=\"form-group\">\n                  <?php \n                    $te = new typeentrainement;\n                    $conf = array();\n                    $conf[\"sql\"] = \"SELECT * FROM typeentrainement \";\n                    $conf[\"class\"] = \"form-control col-6\";\n                    $conf[\"preselect\"] = \"Sélectionnez un type d'entrainement\";\n                    $conf[\"preselectval\"] = 0;\n                    $te->SelectList(\"id_typeentrainement\",\"id\",\"nom\",$conf); \n                  ?>\n                </div>                            \n                <div class=\"form-group\">\n                  <?php \n                    $g = new groupe;\n                    $conf = array();\n                    $conf[\"sql\"] = \"SELECT * FROM groupe \";\n                    $conf[\"class\"] = \"form-control col-6\";\n                    $conf[\"preselect\"] = \"Sélectionnez un groupe\";\n                    $conf[\"preselectval\"] = 0;\n                    $g->SelectList(\"id_groupe\",\"id\",\"nom\",$conf); \n                  ?>\n                </div>\n                <br>\n                <button type=\"submit\" class=\"btn bg-success rounded text-white text-center\" style=\"box-shadow: inset 0 0 5px rgba(0,0,0,.2);\">Ajouter</button>\n              </form>\n            </li>\n          </ul>\n        </div>\n    <?php }    \n\n    public static function FormModif(){ \n      $e = new entrainement;\n      $e->id = $_GET[\"id\"];\n      $e->Load();\n      ?>\n        <!-- Page Header -->\n        <div class=\"page-header row no-gutters py-4\">\n          <div class=\"col-12 col-sm-4 text-center text-sm-left mb-0\">\n            <span class=\"text-uppercase page-subtitle\">Entrainement</span>\n            <h3 class=\"page-title\">Modifier un entrainement</h3>\n          </div>\n        </div>\n        <!-- End Page Header -->            \n        <div class=\"card card-small mb-4 col-md-6 \">\n          <div class=\"card-header border-bottom\">\n            <h6 class=\"m-0\">Formulaire <span class=\"badge badge-info text-right\">Modifier</span></h6>\n          </div>\n          <ul class=\"list-group list-group-flush\">\n            <li class=\"list-group-item p-3\">\n              <strong class=\"text-muted d-block mb-2\">Informations</strong>\n              <form id=\"form-modifier-entrainement\" action=\"valid.php?cas=modifier-entrainement\" method=\"POST\">\n                <input type=\"hidden\" class=\"form-control\" name=\"id_entrainement\" value=\"<?php echo $e->id ?>\"> \n                <div class=\"form-row\">\n                  <div class=\"form-group col-md-6\">\n                    <input type=\"text\" class=\"form-control\" name=\"nom\" value=\"<?php echo $e->nom ?>\" placeholder=\"nom\"> \n                  </div>                    \n                  <div class=\"form-group col-md-6\">\n                    <input type=\"date\" class=\"form-control\" name=\"dateEnt\" value=\"<?php echo $e->DateDatabase($e->dateEnt) ?>\" placeholder=\"date\"> \n                  </div>                    \n                  <div class=\"form-group col-md-6\">\n                    <input type=\"time\" class=\"form-control\" name=\"heureDebEnt\" value=\"<?php echo $e->heureDebEnt ?>\" placeholder=\"Heure de début\"> \n                  </div>                      \n                  <div class=\"form-group col-md-6\">\n                    <input type=\"time\" class=\"form-control\" name=\"heureFinEnt\" value=\"<?php echo $e->heureFinEnt ?>\" placeholder=\"Heure de fin\"> \n                  </div>                           \n                  <div class=\"form-group col-md-6\">\n                    <textarea class=\"form-control\" name=\"details\" rows=\"3\" placeholder=\"Détail...\"><?php echo $e->details ?></textarea> \n                  </div>                           \n                </div>\n                <div class=\"form-group\">\n                  <?php \n                    $te = new typeentrainement;\n                    $conf = array();\n                    $conf[\"sql\"] = \"SELECT * FROM typeentrainement \";\n                    $conf[\"class\"] = \"form-control col-6\";\n                    $conf[\"preselect\"] = \"Sélectionnez un type d'entrainement\";\n                    $conf[\"preselectval\"] = 0;\n                    $te->SelectList(\"id_typeentrainement\",\"id\",\"nom\",$conf,intval($e->id_typeentrainement)); \n                  ?>\n                </div>                            \n                <div class=\"form-group\">\n                  <?php \n                    $g = new groupe;\n                    $conf = array();\n                    $conf[\"sql\"] = \"SELECT * FROM groupe \";\n                    $conf[\"class\"] = \"form-control col-6\";\n                    $conf[\"preselect\"] = \"Sélectionnez un groupe\";\n                    $conf[\"preselectval\"] = 0;\n                    $g->SelectList(\"id_groupe\",\"id\",\"nom\",$conf,intval($e->id_groupe)); \n                  ?>\n                </div>\n                <br>\n                <button type=\"submit\" class=\"btn bg-info rounded text-white text-center\" style=\"box-shadow: inset 0 0 5px rgba(0,0,0,.2);\">Modifier</button>\n              </form>\n            </li>\n          </ul>\n        </div>\n    <?php }\n\n}",
+			"file": "1-class/entrainement.class.php",
+			"file_size": 8441,
+			"file_write_time": 132067143895295450,
 			"settings":
 			{
-				"buffer_size": 13527,
+				"buffer_size": 8531,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "1-class/connexion.class.php",
+			"settings":
+			{
+				"buffer_size": 3294,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -738,18 +678,22 @@
 	],
 	"file_history":
 	[
+		"/C/wamp64/www/projet-technique-m1-web/1-class/participantcompetition.class.php",
+		"/C/wamp64/www/projet-technique-m1-web/adherent-cemvs/index.php",
 		"/C/wamp64/www/projet-technique-m1-web/adherent-cemvs/index.app.vue.js",
+		"/C/wamp64/www/projet-technique-m1-web/adherent-cemvs/valid.php",
+		"/C/wamp64/www/projet-technique-m1-web/1-class/objectif.class.php",
+		"/C/wamp64/www/projet-technique-m1-web/0-config/config-genos.php",
+		"/C/wamp64/www/projet-technique-m1-web/index.app.vue.js",
+		"/C/wamp64/www/projet-technique-m1-web/0-config/structure_html.php",
+		"/C/wamp64/www/projet-technique-m1-web/data.php",
+		"/C/wamp64/www/projet-technique-m1-web/bdd/modification ymarivint.sql",
+		"/C/wamp64/www/projet-technique-m1-web/1-class/utilisateur.class.php",
 		"/C/wamp64/www/projet-technique-m1-web/adherent-cemvs/data.php",
 		"/C/wamp64/www/projet-technique-m1-web/1-class/code.class.php",
-		"/C/wamp64/www/projet-technique-m1-web/1-class/participantcompetition.class.php",
 		"/C/wamp64/www/projet-technique-m1-web/1-class/competition.class.php",
-		"/C/wamp64/www/projet-technique-m1-web/0-config/config-genos.php",
-		"/C/wamp64/www/projet-technique-m1-web/adherent-cemvs/index.php",
-		"/C/wamp64/www/projet-technique-m1-web/adherent-cemvs/valid.php",
 		"/C/wamp64/www/projet-technique-m1-web/1-class/connexion.class.php",
 		"/C/wamp64/www/projet-technique-m1-web/connexion.php",
-		"/C/wamp64/www/projet-technique-m1-web/1-class/utilisateur.class.php",
-		"/C/wamp64/www/projet-technique-m1-web/0-config/structure_html.php",
 		"/C/wamp64/www/projet-technique-m1-web/configuration/entrainement/form.php",
 		"/C/wamp64/www/projet-technique-m1-web/configuration/entrainement/index.php",
 		"/C/wamp64/www/projet-technique-m1-web/index.php",
@@ -772,7 +716,6 @@
 		"/C/wamp64/www/projet-technique-m1-web/configuration/competition/valid.php",
 		"/C/wamp64/www/projet-technique-m1-web/configuration/competition/data.php",
 		"/C/wamp64/www/projet-technique-m1-web/bdd/bddmelun.sql",
-		"/C/wamp64/www/projet-technique-m1-web/bdd/modification ymarivint.sql",
 		"/C/wamp64/www/projet-technique-m1-web/bdd/projet-technique.sql",
 		"/C/wamp64/www/projet-technique-m1-web/1-class/typeentrainement.class.php",
 		"/C/wamp64/www/projet-technique-m1-web/configuration/utilisateur/valid.php",
@@ -862,10 +805,7 @@
 		"/C/wamp64/www/projet-annuel-m1/js/vue/index.vue.js",
 		"/C/wamp64/www/projet-annuel-m1/bdd/projet-annuel.sql",
 		"/C/Users/Yvann/AppData/Roaming/Sublime Text 3/Packages/User/ColorHighlighter.sublime-settings",
-		"/C/wamp64/www/projet-annuel/css/sass/style.scss",
-		"/C/wamp64/www/projet-annuel/1-class/utilisateur.class.php",
-		"/C/wamp64/www/projet-annuel/css/sass/_index.scss",
-		"/C/Users/Yvann/AppData/Roaming/Sublime Text 3/Packages/Color Highlighter/ColorHighlighter.sublime-settings"
+		"/C/wamp64/www/projet-annuel/css/sass/style.scss"
 	],
 	"find":
 	{
@@ -888,6 +828,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"code",
+			"CheckCode",
+			"entrainement",
+			"listeParticipantFiltre",
 			"code",
 			"app",
 			"liste_objectif",
@@ -1011,11 +955,7 @@
 			"label",
 			"\">\n",
 			"prenomurgent",
-			"ari",
-			"label",
-			"describe",
-			"addon1",
-			"basic"
+			"ari"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1051,146 +991,24 @@
 	"groups":
 	[
 		{
-			"selected": 7,
+			"selected": 4,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "adherent-cemvs/index.php",
+					"file": "moncompte.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2810,
+						"buffer_size": 3010,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								532,
-								532
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true,
-							"typescript_plugin_format_options":
-							{
-								"convertTabsToSpaces": true,
-								"indentSize": 2,
-								"tabSize": 2
-							}
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 12,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "adherent-cemvs/index.app.vue.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1928,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1513,
-								1513
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"translate_tabs_to_spaces": false,
-							"use_tab_stops": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 570.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 11,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "adherent-cemvs/valid.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 406,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								347,
-								360
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "1-class/participantcompetition.class.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3240,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2956,
-								2956
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 934.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "1-class/objectif.class.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 684,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								684,
-								684
+								2340,
+								2340
 							]
 						],
 						"settings":
@@ -1200,56 +1018,57 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "0-config/config-genos.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2491,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2299,
-								2299
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 687.0,
+						"translation.y": 798.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "index.app.vue.js",
+					"buffer": 1,
+					"file": "adherent-cemvs/index.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3027,
+						"buffer_size": 2475,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								180,
-								180
+								1974,
+								1996
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 456.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "adherent-cemvs/index.app.vue.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2289,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								254,
+								254
 							]
 						],
 						"settings":
@@ -1266,166 +1085,49 @@
 					"type": "text"
 				},
 				{
-					"buffer": 7,
-					"file": "moncompte.php",
+					"buffer": 3,
+					"file": "adherent-cemvs/data.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3010,
+						"buffer_size": 493,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3010,
-								3010
+								267,
+								267
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1729.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "0-config/structure_html.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 21886,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5157,
-								5157
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1311.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "data.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 580,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								460,
-								460
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "bdd/modification ymarivint.sql",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 703,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								703,
-								703
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/SQL/SQL.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "bdd/bddmelun.sql",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 9479,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1394,
-								1069
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/SQL/SQL.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 342.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 12,
-					"file": "1-class/utilisateur.class.php",
+					"buffer": 4,
+					"file": "1-class/entrainement.class.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 13527,
+						"buffer_size": 8531,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3436,
-								3249
+								695,
+								695
 							]
 						],
 						"settings":
@@ -1435,10 +1137,40 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1013.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "1-class/connexion.class.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3294,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								942,
+								647
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -1501,6 +1233,14 @@
 		"selected_items":
 		[
 			[
+				"conn",
+				"1-class\\connexion.class.php"
+			],
+			[
+				"entran",
+				"1-class\\entrainement.class.php"
+			],
+			[
 				"utili",
 				"1-class\\utilisateur.class.php"
 			],
@@ -1511,10 +1251,6 @@
 			[
 				"code",
 				"1-class\\code.class.php"
-			],
-			[
-				"conn",
-				"1-class\\connexion.class.php"
 			],
 			[
 				"util",
@@ -2007,10 +1743,6 @@
 			[
 				"account",
 				"account-assist\\index.php"
-			],
-			[
-				"ventefiche",
-				"vente\\fiche.app.js"
 			]
 		],
 		"width": 0.0

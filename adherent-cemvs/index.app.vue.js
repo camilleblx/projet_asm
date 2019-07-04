@@ -1,23 +1,17 @@
 new Vue({
 	el:"#app",
 	data:{
-		liste_competition:[],
-		liste_participant:[],
+		entrainement:[],
+		// liste_competition:[],
+		liste_utilisateur:[],
 		code:"",
 		check_code: 0,
 		rech_competition: "",
 		rech_participant: "",
 	},
-	computed:{
-		listeCompetitionFiltre:function(){
-			var elems = this.liste_competition;
-			return elems.filter(elem =>{
-				return (elem.nom.toLowerCase().indexOf(this.rech_competition.toLowerCase()) > -1) ||
-				(elem.lieux.toLowerCase().indexOf(this.rech_competition.toLowerCase()) > -1)
-			});
-		},		
-		listeParticipantFiltre:function(){
-			var elems = this.liste_participant;
+	computed:{	
+		listeUtilisateurFiltre:function(){
+			var elems = this.liste_utilisateur;
 			return elems.filter(elem =>{
 				return (elem.nom.toLowerCase().indexOf(this.rech_participant.toLowerCase()) > -1) ||
 				(elem.prenom.toLowerCase().indexOf(this.rech_participant.toLowerCase()) > -1)
@@ -25,16 +19,33 @@ new Vue({
 		},
 	},
 	ready:function(){
+		this.GetEntrainement();
 	},
 	methods:{
-		GetListeCompetition:function(){
+		GetListeParticipantEntrainement:function(){
 			var scope = this;
 			$.ajax({
-			    url:"data.php?cas=liste-competition",
+			    url:"data.php?cas=liste-participant-entrainement",
+			    type:"POST",
+			    data:{id_entrainement:scope.entrainement.id,id_typeentrainement:scope.entrainement.id_typeentrainement},
+			    success:function(res){
+					scope.liste_utilisateur = JSON.parse(res);
+			    },
+			    error:function(){
+			
+			    }
+			});
+		},		
+		GetEntrainement:function(){
+			var scope = this;
+			$.ajax({
+			    url:"data.php?cas=entrainement-jour",
 			    type:"POST",
 			    data:{},
 			    success:function(res){
-					scope.liste_competition = JSON.parse(res);
+					var res = JSON.parse(res);
+					scope.entrainement = res[0];
+					scope.GetListeParticipantEntrainement();
 			    },
 			    error:function(){
 			
@@ -54,19 +65,15 @@ new Vue({
 			
 			    }
 			});
-		},			
-		ModalParticipant:function(liste_participant){
-			var scope = this;
-			this.liste_participant = liste_participant;
-		},			
-		CheckPresence:function(id_participantcompetition){
+		},				
+		CheckPresence:function(id_utilisateur){
 			var scope = this;
 			$.ajax({
 			    url:"valid.php?cas=check-presence",
 			    type:"POST",
-			    data:{id_participantcompetition:id_participantcompetition},
+			    data:{id_entrainement:scope.entrainement.id,id_utilisateur:id_utilisateur},
 			    success:function(res){
-					scope.GetListeCompetition();
+					scope.GetEntrainement();
 			    },
 			    error:function(){
 			
