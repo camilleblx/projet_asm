@@ -65,11 +65,10 @@
 	include(__DIR__."/../1-class/code.class.php");
 	include(__DIR__."/../1-class/participantcompetition.class.php");
 	include(__DIR__."/../1-class/participantentrainement.class.php");
-	include(__DIR__."/../1-class/objectif.class.php");
 	include(__DIR__."/../1-class/annee.class.php");
-    include(DIR."/../1-class/objectif.class.php");
-    include(DIR."/../1-class/commentaire.class.php");
-    include(DIR."/../1-class/news.class.php");
+    include(__DIR__."/../1-class/objectif.class.php");
+    include(__DIR__."/../1-class/commentaire.class.php");
+    include(__DIR__."/../1-class/news.class.php");
 
 	// include(__DIR__."/../1-class/ged.class.php");
 	// include(__DIR__."/../1-class/ged_categorie.class.php");
