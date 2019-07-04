@@ -30,8 +30,9 @@ class entrainement extends config_genos {
       $a->id = $this->id_annee;
       $a->Load();
       // Créer les entrainements du planing
-      $date_debut = strtotime($a->annee.'-01-01');
-      $date_fin = strtotime(date('Y') . '-12-31');
+      // $date_debut = strtotime($a->annee.'-01-01');
+      $date_debut = strtotime("first ".$this->jour." of ".$a->annee);
+      $date_fin = strtotime($a->annee.'-12-31');
       while($date_debut <= $date_fin)
       {
         $pe                       = new planningentrainement;
@@ -41,8 +42,15 @@ class entrainement extends config_genos {
         $pe->heure_fin            = $this->heureFinEnt;
         $pe->id_type_entrainement = $this->id_typeentrainement;
         $pe->Add();
-        $date_debut          = strtotime("+1 day", $date_debut);
+        $date_debut = strtotime("+7 day", $date_debut);
       }
+    }  
+
+    public function Delete(){
+      $req = "DELETE FROM planningentrainement WHERE id_entrainement = :id_entrainement";
+      $binds = array("id_entrainement" => $this->id);
+      $this->Sql($req,$binds);
+      parent::Delete();
     }  
 
     public static function ListeEntrainement(){
@@ -81,11 +89,11 @@ class entrainement extends config_genos {
                   </div>              
                 <div class="form-group col-md-6">
                   <select name="jour" class="form-control">
-                    <option value="1">Lundi</option>
-                    <option value="2">Mardi</option>
-                    <option value="3">Mercredi</option>
-                    <option value="4">Jeudi</option>
-                    <option value="5">Vendredi</option>
+                    <option value="monday">Lundi</option>
+                    <option value="tuesday">Mardi</option>
+                    <option value="wednesday">Mercredi</option>
+                    <option value="thursday">Jeudi</option>
+                    <option value="friday">Vendredi</option>
                   </select>
                 </div>  
                 <div class="form-group col-md-6">

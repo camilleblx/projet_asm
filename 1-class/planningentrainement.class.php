@@ -27,11 +27,11 @@ class planningentrainement extends config_genos {
       $req = "SELECT pe.*, e.nom AS nom, e.details AS details
               FROM planningentrainement pe
               INNER JOIN entrainement e ON e.id = pe.id_entrainement
-              WHERE pe.date = :date";
+              WHERE pe.date = :datee";
       $champs   = $pe->FieldList();
       $champs[] = "nom";
       $champs[] = "details";
-      $binds    = array("date" => date("Y-m-d"));
+      $binds    = array("datee" => date("Y-m-d"));
       return $pe->StructList($req,$champs,$binds);
     }  
 }
