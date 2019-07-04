@@ -1,4 +1,4 @@
-<?php include("../0-config/config-genos.php"); 
+<?php include("../0-config/config-genos.php");
 
 if(isset($_GET["code"])) $code = $_GET["code"];
 
@@ -9,10 +9,13 @@ if(isset($_GET["code"])) $code = $_GET["code"];
   <?php TplHead(); ?>
   <body id="page-top">
     <main id="app">
+      <?php 
+        participantcompetition::TplModalListeParticipant(); 
+      ?>
       <div class="container">
         <div class="row justify-content-center">
-          <div class="col-12 text-center" style="margin-top: 2em; ">
-              <h1>Escrime Melun</h1> <br />
+          <div class="col-12 text-center" style="margin-top: 2em;">
+              <h1>Escrime Melun</h1><br/>
               <h3>Espace adhérent CEMVS</h3>
           </div>
           <div class="col-12 text-center">
@@ -55,7 +58,7 @@ if(isset($_GET["code"])) $code = $_GET["code"];
                   <td>{{competition.datecompete}}</td>
                   <td>{{competition.heurecompete}}</td>
                   <td>{{competition.lieux}}</td>
-                  <td><a href="" class="btn btn-info btn-sm"><i class="fa fa-edit text-white"></i></a></td>
+                  <td><a @click="ModalParticipant(competition.liste_participant)" data-toggle="modal" data-target="#modal-liste-participant" class="btn btn-info btn-sm"><i class="fa fa-edit text-white"></i></a></td>
                 </tr>
               </tbody>
             </table>

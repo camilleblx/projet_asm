@@ -10,7 +10,7 @@ if(isset($_GET["cas"])){
 			break;	
 			
 		case 'liste-competition':
-			echo json_encode(competition::ListeCompetition());
+			echo json_encode(participantcompetition::ListeCompetitionParticipant());
 			break;				
 	}
 }

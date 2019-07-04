@@ -21,7 +21,7 @@ class competition extends config_genos {
               ORDER BY c.nom ASC";
       $champs = $c->FieldList();
       return $c->StructList($req,$champs);
-    }   
+    }       
 
     public static function FormAjout(){ ?>
         <!-- Page Header -->
