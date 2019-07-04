@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 	<?php TplHead(); ?>
+	<?php TplHeaderConnection(); ?>
 	<div id="h-connexion">
 	<body id="page-top">
 		<div id="bloc_page">

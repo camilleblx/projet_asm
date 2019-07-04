@@ -7,6 +7,24 @@ function TplLoader(){ ?>
 
 <?php }
 
+function TplHeaderConnection() {  ?>
+    <!-- Navigation -->
+    <nav id="menu" class="navbar navbar-default fixed-top intro-animated after hidden">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+            </div>
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link active mt-1" href="<?php echo URL_HOME ?>index.php">Accueil</a>
+                </li>   
+                <li class="nav-item">
+                    <a class="nav-link active mt-1" target="_blank" href="<?php echo URL_HOME ?>adherent-cemvs/index.php">Adhérent CEMVS</a>
+                </li>                       
+            </ul>
+        </div>
+    </nav>
+<?php }
+
 function TplHead() {  ?>
 
     <head>
