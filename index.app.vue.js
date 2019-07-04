@@ -9,7 +9,6 @@ new Vue({
 		rech_objectif:'',
 	},
 	ready:function(){
-		alert();
 		this.GetListeCommentaire();
 		this.GetListeObjectif();
 		this.GetListeTireurs();
@@ -28,6 +27,12 @@ new Vue({
                 return (elem.nom.toLowerCase().indexOf(this.rech_objectif.toLowerCase()) > -1) 
             });
         },
+		listeTireursFiltre:function(){
+			var elems = this.liste_tireurs;
+			return elems.filter(elem =>{
+				return (elem.nom.toLowerCase().indexOf(this.rech_tireurs.toLowerCase()) > -1) 
+			});
+		},
 		listeTireursFiltre:function(){
 			var elems = this.liste_tireurs;
 			return elems.filter(elem =>{

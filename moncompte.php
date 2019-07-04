@@ -19,7 +19,7 @@ $tu->Load();
     <div class="container">
       <div class="row">
         <div class="col-md-3">
-          <?php echo "<img src='".URL_HOME.$_SESSION['utilisateur']['img']."' />";?>
+          <?php echo "<img src='".URL_HOME.$u->img."' />";?>
         </div>
         <div class="col-md-9">
           <center><h1>Bienvenue sur votre compte</h1></center>
@@ -48,11 +48,11 @@ $tu->Load();
       <!-- /////////////////////// OBJECTIFS /////////////////////// -->
           <div class="tab-pane" id="objectif">
             <div class="accordion" id="accordionExample">
-              <div class="card">
+              <div class="card" v-for="objectif in listeObjectif">
               <div class="card-header" id="headingThree">
                 <h5 class="mb-0">
                   <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                    Travailler les jambes
+                   {{objectif.nom}}
                   </button>
                 </h5>
               </div>
@@ -65,46 +65,21 @@ $tu->Load();
                 </div>
               </div>
             </div>
-            <div class="card">
-              <div class="card-header" id="headingThree">
-                <h5 class="mb-0">
-                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    Podium au prochain tournois
-                  </button>
-                </h5>
-              </div>
-              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                <div class="card-body">
-                  Commentaire tireur : Rester sérieuse.
-                </div>
-                <div class="card-body">
-                  Commentaire maître d'arme : Objectif réalisable.
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header" id="headingThree">
-                <h5 class="mb-0">
-                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    Faire les championnats de France
-                  </button>
-                </h5>
-              </div>
-              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                <div class="card-body">
-                  Commentaire tireur : Garder une assuidité remarquable.
-                </div>
-                <div class="card-body">
-                  Commentaire maître d'arme : Souhait réalisable si Camille persevère aux entrainements.
-                </div>
-              </div>
-            </div>
-        </div>
+        	</div>
         </div>
 
         <!-- /////////////////////// HISTORIQUE /////////////////////// -->
         <div class="tab-pane" id="historique">Tous l'historique</div>
+        <div class="accordion" id="accordionExample">
+              <div class="card" v-for="entrainements in listeEntrainementFiltre">
+              	<div class="card" v-for="competition in listeCompetitionFiltre">
+              <div class="card-header" id="headingThree">
+                <h5 class="mb-0">
+
+
     </div>
+</h5>
+</div>
     <hr>
 
       <div class="row">
@@ -131,16 +106,16 @@ $tu->Load();
     
       </main>
   </div>
+</main>
     <?php TplBackTop() ?>
     <?php TplFooter() ?>
     <?php Script() ?>
     <script src="index.app.vue.js"></script>
+	<script type="text/javascript">
+	  $('#navigation-moncompte a').click(function (e) {
+		  e.preventDefault()
+		  $(this).tab('show')
+		})
+	</script>
   </body>
 </html>
-
-<script type="text/javascript">
-  $('#navigation-moncompte a').click(function (e) {
-	  e.preventDefault()
-	  $(this).tab('show')
-	})
-</script>

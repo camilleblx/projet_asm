@@ -4,12 +4,12 @@
 <!DOCTYPE html>
 <html lang="fr">
 	<?php TplHead(); ?>
-	<body id="page-top">
+	<body id="page-top"><img src="img/escrime.jpg" alt="img_escrime" height="100%" width="130%" title="Accueil2"/>
 		<div id="bloc_page">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-4">
-						<img src="img/logo/logo-mvds.jpeg" style="float: left;"alt="Logo_page" width="30%" title="Accueil" id="logo"/>	
+						<img src="img/logo/logo-mvds.jpeg" style="float: left;"alt="Logo_page" width="30%" title="Accueil" id="logo"/>
 					</div>
 					<div class="col-md-8" style="margin-top: 2em; ">
 						<center>
@@ -18,6 +18,7 @@
 						</center>
 					</div>
 				</div>
+				
 			</div>
 		
 		<div class="container-fluid">
@@ -38,6 +39,8 @@
 						</form>
 				    </div>
 				</div>
+					
+				
 				<div class="col-md-4"></div>
 			</div>
 		</div>
