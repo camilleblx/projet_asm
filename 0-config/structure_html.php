@@ -142,7 +142,7 @@ function TplHeader() {  ?>
 
 
 function TplDashboardConfiguration($page) { 
-  $traduction = unserialize(TRADUCTION);
+  // $traduction = unserialize(TRADUCTION);
   ?>
 
     <aside class="main-sidebar col-12 col-md-3 col-lg-2 px-0">
@@ -204,7 +204,7 @@ function TplDashboardConfiguration($page) {
 
 function TplDashboardSideBar($id_magasin = 0) { 
     $page = GetPage(); 
-    $traduction = unserialize(TRADUCTION);
+    // $traduction = unserialize(TRADUCTION);
     ?>
 
     <aside class="main-sidebar col-12 col-md-3 col-lg-2 px-0">
@@ -297,7 +297,7 @@ function TplDashboardSideBar($id_magasin = 0) {
 
 
 function TplDashboardNavbar($id_magasin = 0) { 
-  $traduction = unserialize(TRADUCTION);
+  // $traduction = unserialize(TRADUCTION);
   ?>
 
   <div class="main-navbar sticky-top bg-white">
