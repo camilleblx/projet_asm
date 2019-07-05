@@ -65,3 +65,13 @@
 -- ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 ALTER TABLE `objectif` ADD `id_utilisateur_crea` INT(11) NOT NULL DEFAULT '0' AFTER `id_utilisateur`;
+
+DROP TABLE IF EXISTS `lecon`;
+CREATE TABLE IF NOT EXISTS `lecon` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` int(11) NOT NULL,
+  `details` int(11) NOT NULL,
+  `id_utilisateur` int(11) NOT NULL DEFAULT '0',
+  `id_utilisateur_crea` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;

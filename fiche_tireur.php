@@ -20,7 +20,36 @@ $u->Load();
         <br>
         <br>
         <br>
+        <br>
         <div class="row">
+          <div class="col-md-12">
+            <h3>Liste des leçons de l'utilisateur : <?php echo $u->nom ?></h3>
+          </div>
+          <div class="col-md-12">
+
+<div class="card text-white bg-info mb-3">
+  <div class="card-header"><h3 class="text-white">Liste des leçons de l'utilisateur : <?php echo $u->nom ?></h3></div>
+  <div class="card-body">
+    <table class="table mb-0">
+      <thead class="bg-light">
+        <tr>
+          <th scope="col" class="border-0">#</th>
+          <th scope="col" class="border-0">Nom</th>
+          <th scope="col" class="border-0">Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="lecon in listeLeconUtilisateurFiltre">
+          <td>{{ ($index + 1) }}</td>
+          <td>{{lecon.nom}}</td>  
+          <td>{{lecon.details}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+            
+          </div>
           <div class="col-md-12">
             <h3>Liste des objectifs de l'utilisateur : <?php echo $u->nom ?></h3>
           </div>
@@ -42,12 +71,18 @@ $u->Load();
               </tbody>
             </table>
           </div>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
         </div>
       </div>
     </main>
     
     <?php TplBackTop() ?>
-    <?php TplFooter() ?>
+    <?php //TplFooter() ?>
     <?php Script() ?>
     <script src="index.app.vue.js"></script>
   </body>
