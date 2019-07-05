@@ -70,7 +70,7 @@
 	include(__DIR__."/../1-class/utilisateur.class.php");
     include(__DIR__."/../1-class/statistique.class.php");
     include(__DIR__."/../1-class/news.class.php");
-    include(__DIR__."/../1-class/commentaire.class.php");
+    include(__DIR__."/../1-class/commentaires.class.php");
 	// include(__DIR__."/../1-class/ged.class.php");
 	// include(__DIR__."/../1-class/ged_categorie.class.php");
 

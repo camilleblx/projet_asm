@@ -14,7 +14,7 @@ new Vue({
         rech_objectifs_commentaires:'',
         rech_news:'',
         rech_compet:'',
-        rech_presence'',
+        rech_presence:'',
     },
     ready:function(){
         this.GetListeCommentaires();
