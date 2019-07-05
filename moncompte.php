@@ -18,11 +18,11 @@ $tu->Load();
  
     <div class="container">
       <div class="row">
-        <div class="col-md-3">
-          <?php echo "<img src='".URL_HOME.$_SESSION['utilisateur']['img']."' />";?>
-        </div>
-        <div class="col-md-9">
-          <center><h1>Bienvenue sur votre compte</h1></center>
+        <div class="col-md-12" style="margin-top: 2em; margin-bottom: 2em;">
+          <center>
+            <?php echo "<img src='".URL_HOME.$_SESSION['utilisateur']['img']."' width='20%' /> ";?><br />
+            <center><h2>Bienvenue sur votre compte</h2></center>
+          </center>
         </div>
       </div>
  

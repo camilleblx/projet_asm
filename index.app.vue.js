@@ -32,6 +32,7 @@ new Vue({
         this.GetListeObjectifUtilisateur();
         this.GetListeTireurs();
         this.GetStatistiqueCountPrescence();
+        this.GetListePresence();
         var scope = this;
     },
     computed:{
@@ -84,10 +85,10 @@ new Vue({
                 return (elem.nom.toLowerCase().indexOf(this.rech_compet.toLowerCase()) > -1)
             });
         },
-        listePresence:function(){
+        listePresenceFiltre:function(){
             var elems = this.liste_presence;
             return elems.filter(elem =>{
-                return (elem.nom.toLowerCase().indexOf(this.rech_presence.toLowerCase()) > -1)
+                return (elem.presence.toLowerCase().indexOf(this.rech_presence.toLowerCase()) > -1)
             });
         },
     },

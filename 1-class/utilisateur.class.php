@@ -106,7 +106,7 @@ class utilisateur extends config_genos {
               WHERE tu.nom = :nom
               ORDER BY u.nom ASC";
       $champs            = $u->FieldList();
-      $binds             = array("nom" => "Tireur");
+      $binds             = array("nom" => "tireur");
       $liste_utilisateur = $u->StructList($req,$champs,$binds);
       return $liste_utilisateur;
     }
