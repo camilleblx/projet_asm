@@ -43,8 +43,9 @@
                           <th scope="col" class="border-0">#</th>
                           <th scope="col" class="border-0">Nom</th>
                           <th scope="col" class="border-0">Date</th>
-                          <th scope="col" class="border-0">Heure</th>
-                          <th scope="col" class="border-0">Lieux</th>
+                          <th scope="col" class="border-0">Date de début d'engagement</th>
+                          <th scope="col" class="border-0">Date de fin d'engagement</th>
+                          <th scope="col" class="border-0">Lieu</th>
                           <th scope="col" class="border-0">Modifier</th>
                           <th scope="col" class="border-0">Supprimer</th>
                         </tr>
@@ -53,9 +54,10 @@
                         <tr v-for="competition in listeCompetitionFiltre">
                           <td>{{ ($index + 1) }}</td>
                           <td>{{competition.nom}}</td>  
-                          <td>{{competition.datecompete}}</td>
-                          <td>{{competition.heurecompete}}</td>
-                          <td>{{competition.lieux}}</td>
+                          <td>{{competition.datecompete}}</td>                          
+                          <td>{{competition.date_debut_engagement}}</td>
+                          <td>{{competition.date_fin_engagement}}</td>
+                          <td>{{competition.lieu}}</td>
                           <td><a href="form.php?action=2&id={{competition.id}}" class="btn btn-info btn-sm"><i class="fa fa-edit text-white"></i></a></td>
                           <td><button href="#" @click="SupprimerCompetition(competition)" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button></td>
                         </tr>

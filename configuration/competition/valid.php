@@ -2,6 +2,7 @@
 
 $id_competition = (isset($_POST['id_competition']) && !empty($_POST['id_competition'])) ? $_POST['id_competition'] : 0;
 
+
 if(isset($_GET["cas"])){
 	$cas = $_GET["cas"];
 	switch ($cas) {
