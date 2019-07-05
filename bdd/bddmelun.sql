@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 04 juil. 2019 à 18:21
+-- Généré le :  ven. 05 juil. 2019 à 08:05
 -- Version du serveur :  5.7.19
--- Version de PHP :  7.2.3
+-- Version de PHP :  7.1.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -93,7 +93,14 @@ CREATE TABLE IF NOT EXISTS `commentaires` (
   `id_utilisateur` int(11) NOT NULL,
   `id_objectif` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `commentaires`
+--
+
+INSERT INTO `commentaires` (`id`, `commentaires`, `id_utilisateur`, `id_objectif`) VALUES
+(1, 'Je dois persévérer sur les entraînements physique. ', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -134,16 +141,8 @@ CREATE TABLE IF NOT EXISTS `entrainement` (
   `heureFinEnt` time NOT NULL,
   `id_typeentrainement` int(11) NOT NULL,
   `id_groupe` int(11) NOT NULL,
-  `id_utilisateur` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `entrainement`
---
-
-INSERT INTO `entrainement` (`id`, `nom`, `jour`, `details`, `heureDebEnt`, `heureFinEnt`, `id_typeentrainement`, `id_groupe`, `id_utilisateur`) VALUES
-(1, 'Entrainement M7-1', 0, 'Entrainement du Mardi soir pour la catégorie M7-1 en Loisir', '18:30:00', '20:00:00', 2, 2, 3);
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -220,17 +219,21 @@ DROP TABLE IF EXISTS `news`;
 CREATE TABLE IF NOT EXISTS `news` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `objet` varchar(555) NOT NULL,
-  `texte` varchar(5555) NOT NULL,
   `date_creation` date NOT NULL,
+  `img` varchar(500) DEFAULT NULL,
+  `lien` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `news`
 --
 
-INSERT INTO `news` (`id`, `objet`, `texte`, `date_creation`) VALUES
-(1, 'Clap de fin sur la Fête des Jeunes', 'Les équipes étaient à l’honneur de cette deuxième journée de la Fête des Jeunes à Hénin-Beaumont.\r\nA l’épée dames l’équipe Hauts-de-France 1 est la première à se qualifier pour la finale après sa victoire 36-21 contre Occitanie 1. De l’autre côté du tableau c’est Grand-Est 1 qui a tiré son épingle du jeu face à Normandie 1 (33-28). La finale tournait à l’avantage de l’équipe locale, maîtrisant mieux les temps forts de la rencontre. Hauts-de-France 1 (Geniez, Larbi, Monsterleet, Vergnes) remportait la finale sur le score de 36-30.\r\n\r\nChez les garçons, après sa victoire en demi-finale face à l’équipe de La Réunion 1 (36-22), Hauts-de-France 1 avait l’opportunité de disputer la victoire finale à Auvergne Rhône Alpes 1 qui s’était défait quelques minutes plus tôt de l’équipe Occitanie 1 35-34. Dans cette finale ultra serrée, c’est à nouveau d’une seule touche que Auvergne Rhône Alpes 1 (Alzaix, Archambeaud, Gorzegno, Pauvarel) s’adjugeait la victoire, au terme d’une dernière attaque qui allumait alors que le score était à égalité 35-35.\r\nChez les filles du fleuret la finale opposait Ile-de-France 1 et Région Sud 1 après leurs victoires respectives contre Ile-de-France 3 (36-14) et Auvergne Rhône Alpes 1 (36-36). La finale était très serrée et chaque équipe semblait pouvoir l’emporter. C’est finalement Ile-de-France 1 (Audibert, Ediri, Georgi, Roger) qui remportait le dernier match de la compétition au terme d’un finish haletant (33-32) face à Région Sud 1.\r\n\r\nDu côté des garçons Ile-de-France 1, après être venu à bout de l’équipe 1 venue de la région Auvergne Rhône Alpes sur le score de 36-32, retrouvait en finale l’équipe 2 de de la même région. Cette fois la victoire choisissait le camp francilien et l’équipe Ile-de-France 1 (Anane, Andriamasinarivo, Besnault, Bibron) remportait la finale 36-30.', '2019-06-23');
+INSERT INTO `news` (`id`, `objet`, `date_creation`, `img`, `lien`) VALUES
+(1, 'Clap de fin sur la Fête des Jeunes', '2019-06-23', 'img/news/news1.jpg', 'http://www.escrime-ffe.fr/competitions-france/clap-de-fin-sur-la-fete-des-jeunes'),
+(2, 'Stage de Vichy/ Épreuve du brevet ', '2019-07-17', 'img/news/news2.jpg', 'http://www.escrime-ffe.fr/trouver-un-stage-d-escrime/important-stage-national-m15-a-vichy'),
+(3, 'Tireurs français à Naples pour les Universiades', '2019-07-24', 'img/news/news3.jpg', 'http://www.escrime-ffe.fr/competitons-monde/les-tireurs-francais-a-naples-pour-les-universiades'),
+(4, 'Camille à la plage de mauriceeee', '2019-07-05', 'bddmelun.sql', 'https://www.ffe.com/');
 
 -- --------------------------------------------------------
 
@@ -253,7 +256,7 @@ CREATE TABLE IF NOT EXISTS `objectif` (
 
 INSERT INTO `objectif` (`id`, `nom`, `details`, `id_utilisateur`) VALUES
 (1, 'Amélioration Débordement', 'Amélioration de l\'action de débordement', 2),
-(2, 'Amélioration Débordement', 'mélioration de l\'action de débordement', 1),
+(2, 'Amélioration Débordement', 'Amélioration de l\'action de débordement', 1),
 (3, 'Accéder aux championnat de France ', 'Accéder aux championnat de France', 1);
 
 -- --------------------------------------------------------
@@ -272,6 +275,29 @@ CREATE TABLE IF NOT EXISTS `participantcompetition` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `participantentrainement`
+--
+
+DROP TABLE IF EXISTS `participantentrainement`;
+CREATE TABLE IF NOT EXISTS `participantentrainement` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_utilisateur` int(11) NOT NULL DEFAULT '0',
+  `id_planningentrainement` int(11) NOT NULL DEFAULT '0',
+  `presence` tinyint(4) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `participantentrainement`
+--
+
+INSERT INTO `participantentrainement` (`id`, `id_utilisateur`, `id_planningentrainement`, `presence`) VALUES
+(1, 8, 1, 1),
+(2, 9, 1, 1);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `planningentrainement`
 --
 
@@ -282,8 +308,9 @@ CREATE TABLE IF NOT EXISTS `planningentrainement` (
   `date` date NOT NULL DEFAULT '0000-00-00',
   `heure_debut` time NOT NULL DEFAULT '00:00:00',
   `heure_fin` time NOT NULL DEFAULT '00:00:00',
+  `id_type_entrainement` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -351,7 +378,7 @@ CREATE TABLE IF NOT EXISTS `typeutilisateur` (
 
 INSERT INTO `typeutilisateur` (`id`, `nom`, `details`) VALUES
 (1, 'Administrateur', 'Administrateur du site / Gérant club / secrétaire'),
-(2, 'Utilisateur', 'Tireur'),
+(2, 'Tireur', 'Tireur'),
 (3, 'MaitreArme', 'Maître d\'arme');
 
 -- --------------------------------------------------------
