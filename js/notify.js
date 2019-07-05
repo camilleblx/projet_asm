@@ -49,10 +49,10 @@ function Notify(type,description){
     </div>\
   " ).prependTo("body").delay(3000).queue(function(){ // Apres le FadeIn (slideInRight) de la structure.
        $(this).removeClass("slideInRight").dequeue();
-       // $(this).addClass("fadeOutRight").dequeue(); // FadeOut (fadeOutRight) de la structure.
+       $(this).addClass("fadeOutRight").dequeue(); // FadeOut (fadeOutRight) de la structure.
        var elem = $(this);
        setTimeout(function(){ // Supprime la structure html du DOM.
-          // elem.remove();
+          elem.remove();
       }, 2000);
       });
 }

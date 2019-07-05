@@ -1,7 +1,7 @@
 new Vue({
 	el:"#app",
 	data:{
-		entrainement:[],
+		planningentrainement:[],
 		// liste_competition:[],
 		liste_utilisateur:[],
 		code:"",
@@ -27,7 +27,7 @@ new Vue({
 			$.ajax({
 			    url:"data.php?cas=liste-participant-entrainement",
 			    type:"POST",
-			    data:{id_entrainement:scope.entrainement.id,id_typeentrainement:scope.entrainement.id_typeentrainement},
+			    data:{id_planningentrainement:scope.planningentrainement.id,id_typeentrainement:scope.planningentrainement.id_type_entrainement},
 			    success:function(res){
 					scope.liste_utilisateur = JSON.parse(res);
 			    },
@@ -44,8 +44,7 @@ new Vue({
 			    data:{},
 			    success:function(res){
 					var res = JSON.parse(res);
-					scope.entrainement = res[0];
-					scope.GetListeParticipantEntrainement();
+					scope.planningentrainement = res[0];
 			    },
 			    error:function(){
 			
@@ -71,7 +70,7 @@ new Vue({
 			$.ajax({
 			    url:"valid.php?cas=check-presence",
 			    type:"POST",
-			    data:{id_entrainement:scope.entrainement.id,id_utilisateur:id_utilisateur},
+			    data:{id_planningentrainement:scope.planningentrainement.id,id_utilisateur:id_utilisateur},
 			    success:function(res){
 					scope.GetEntrainement();
 			    },
@@ -83,7 +82,7 @@ new Vue({
 	},
 	watch:{
 		check_code:function(){
-			if(this.check_code == 1) this.GetListeCompetition();
+			if(this.check_code == 1) this.GetListeParticipantEntrainement();
 		}
 	},
 });

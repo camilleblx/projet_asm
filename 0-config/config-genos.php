@@ -54,19 +54,20 @@
 	include(__DIR__."/structure_html.php");
 
 	// Class
-	include(__DIR__."/../1-class/groupe.class.php");
+	include(__DIR__."/../1-class/annee.class.php");
+	include(__DIR__."/../1-class/code.class.php");
+	include(__DIR__."/../1-class/competition.class.php");
 	include(__DIR__."/../1-class/connexion.class.php");
 	include(__DIR__."/../1-class/entrainement.class.php");
+	include(__DIR__."/../1-class/groupe.class.php");
+	include(__DIR__."/../1-class/objectif.class.php");
+	include(__DIR__."/../1-class/participantcompetition.class.php");
+	include(__DIR__."/../1-class/participantentrainement.class.php");
+	include(__DIR__."/../1-class/planningentrainement.class.php");
 	include(__DIR__."/../1-class/typearbitre.class.php");
 	include(__DIR__."/../1-class/typeentrainement.class.php");
 	include(__DIR__."/../1-class/typeutilisateur.class.php");
 	include(__DIR__."/../1-class/utilisateur.class.php");
-	include(__DIR__."/../1-class/competition.class.php");
-	include(__DIR__."/../1-class/code.class.php");
-	include(__DIR__."/../1-class/participantcompetition.class.php");
-	include(__DIR__."/../1-class/participantentrainement.class.php");
-	include(__DIR__."/../1-class/objectif.class.php");
-	include(__DIR__."/../1-class/annee.class.php");
 	// include(__DIR__."/../1-class/ged.class.php");
 	// include(__DIR__."/../1-class/ged_categorie.class.php");
 

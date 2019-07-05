@@ -34,7 +34,7 @@
                   <div class="card-header border-bottom">
                     <h6 class="m-0">Liste des annee</h6>
                     <br>
-                    <input type="text" class="form-control form-control-sm col-4" v-model="rech_entrainement" placeholder="Rechercher une annee..." aria-describedby="basic-addon1">
+                    <input type="text" class="form-control form-control-sm col-4" v-model="rech_annee" placeholder="Rechercher une annee..." aria-describedby="basic-addon1">
                   </div>
                   <div class="card-body p-0 pb-3 text-center">
                     <table class="table mb-0">

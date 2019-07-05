@@ -19,14 +19,14 @@ if(isset($_GET["cas"])){
 			$e->Load();
 			$e->LoadForm();
 			$e->Update();
-			header("location:index.php");
+			// header("location:index.php");
 			break;		
 
 		case 'supprimer-entrainement':
 			$u = new entrainement;
 			$u->id = $id_entrainement;
-			if($u->Delete() > 0) echo "1";
-			else echo "0";
+			$u->Delete();
+			echo "1";
 			break;		
 	}
 }
