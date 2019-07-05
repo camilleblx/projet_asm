@@ -17,7 +17,7 @@ public static function StatistiquesCountPresence(){
         $p = new entrainement;
         $req = "SELECT COUNT(*) AS count
                 FROM entrainement e
-                INNER JOIN id_utilisateur u ON u.id = e.id_utilisateur
+                INNER JOIN utilisateur u ON u.id = e.id_utilisateur
                 WHERE id_entrainement";
         $champs = array("count");
         $liste_count = $p->StructList($req,$champs);
