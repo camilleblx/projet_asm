@@ -3,14 +3,16 @@ class objectif extends config_genos {
     public $id;
     public $nom;
     public $details;
+    public $id_utilisateur;
+    public $id_utilisateur_crea;
 
-
-    public function __construct () {
+    public function __construct (){
         parent::__construct();
-        $this->id                      = 0;
-        $this->nom                     = 0;
-        $this->details                 = 0;
-
+        $this->id                  = 0;
+        $this->nom                 = 0;
+        $this->details             = 0;
+        $this->id_utilisateur      = 0;
+        $this->id_utilisateur_crea = 0;
     }
 
     public static function ListeObjectif(){

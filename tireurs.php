@@ -22,7 +22,7 @@
                 <tbody>
                   <tr v-for="tireur in listeTireursFiltre">
                     <td>
-                      <a href="objectifs.php?id_utilisateur={{tireur.id}}">
+                      <a href="<?php echo URL_HOME ?>fiche_tireur.php?id_utilisateur={{tireur.id}}">
                         {{tireur.nom}} {{tireur.prenom}}
                       </a> 
                     </td>

@@ -17,6 +17,10 @@ if(isset($_GET["cas"])){
             echo json_encode(objectif::ListeObjectif());
             break;
 
+        case 'liste-objectif-utilisateur':
+            echo json_encode(objectif::ListeObjectifsCommentairesUtilisateur($id_utilisateur));
+            break;
+
         case 'liste-objectifs-commentaires':
             echo json_encode(objectif::ListeObjectifsCommentaires());
             break;
