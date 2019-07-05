@@ -26,6 +26,7 @@ class participantentrainement extends config_genos {
                 LEFT JOIN entrainement e ON e.id = p.id_entrainement
                 WHERE id_utilisateur = 1";
         $champs = $p->FieldList();
+        $champs[] = "nom";
         $liste_presence = $p->StructList($req,$champs);
         return $liste_presence;
     }

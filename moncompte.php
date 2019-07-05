@@ -72,7 +72,7 @@ $tu->Load();
               <div class="accordion" id="accordionExample" v-for="presence in listePresenceFiltre">
                 <div class="card">
                     <div class="card-header" id="headingThree">
-                      {{presence.presence}}
+                      {{presence.nom}}
                     </div>
                   </div>
               </div>

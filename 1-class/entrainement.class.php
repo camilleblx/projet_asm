@@ -101,9 +101,13 @@ class entrainement extends config_genos {
               <form id="form-ajout-entrainement" action="valid.php?cas=ajouter-entrainement" method="POST">
                 <div class="form-row">
                   <div class="form-group col-md-6">
+                    <label>Nom</label>
                     <input type="text" class="form-control" name="nom" placeholder="nom"> 
                   </div>              
                 <div class="form-group col-md-6">
+                </div>
+                <div class="form-group col-md-6">
+                  <label>Jour</label>
                   <select name="jour" class="form-control">
                     <option value="monday">Lundi</option>
                     <option value="tuesday">Mardi</option>
@@ -113,6 +117,7 @@ class entrainement extends config_genos {
                   </select>
                 </div>  
                 <div class="form-group col-md-6">
+                  <label>Année</label>
                   <?php 
                     $a = new annee;
                     $conf = array();
@@ -124,17 +129,21 @@ class entrainement extends config_genos {
                   ?>
                 </div>                      
                   <div class="form-group col-md-6">
+                    <label>Heure début</label>
                     <input type="time" class="form-control" name="heureDebEnt" placeholder="Heure de début"> 
                   </div>                      
                   <div class="form-group col-md-6">
+                    <label>Heure fin</label>
                     <input type="time" class="form-control" name="heureFinEnt" placeholder="Heure de fin"> 
                   </div>                           
                   <div class="form-group col-md-6">
+                    <label>Détails</label>
                     <textarea class="form-control" name="details" rows="3" placeholder="Détail..."></textarea> 
                   </div>                           
                 </div>
                                 
                 <div class="form-group">
+                  <label>Type entrainement</label>
                   <?php 
                     $te = new typeentrainement;
                     $conf = array();
@@ -145,17 +154,6 @@ class entrainement extends config_genos {
                     $te->SelectList("id_typeentrainement","id","nom",$conf); 
                   ?>
                 </div>                            
-                <div class="form-group">
-                  <?php 
-                    $g = new groupe;
-                    $conf = array();
-                    $conf["sql"] = "SELECT * FROM groupe ";
-                    $conf["class"] = "form-control col-6";
-                    $conf["preselect"] = "Sélectionnez un groupe";
-                    $conf["preselectval"] = 0;
-                    $g->SelectList("id_groupe","id","nom",$conf); 
-                  ?>
-                </div>
                 <br>
                 <button type="submit" class="btn bg-success rounded text-white text-center" style="box-shadow: inset 0 0 5px rgba(0,0,0,.2);">Ajouter</button>
               </form>
