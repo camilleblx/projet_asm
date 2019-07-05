@@ -24,7 +24,7 @@ new Vue({
         this.GetListeObjectifsCommentaires();
         this.GetListeNews();
         this.GetListeCompet();
-        this.GetListePrescence();
+        // this.GetListePrescence();
         this.GetStatistiqueCountPrescence();
         var scope = this;
     },

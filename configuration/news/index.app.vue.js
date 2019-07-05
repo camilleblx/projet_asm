@@ -62,13 +62,14 @@ new Vue({
 				    	res = JSON.parse(res);
 				    	if(res == "1") Notify("success","L'actualité à été supprimé");
 				    	else Notify("danger","L'actualité n'a pas été supprimé");
+		    			scope.GetListeNews();
 				    },
 				    error:function(){
 						Notify("danger","Erreur Ajax");
 				    }
 				});
 			}
-		},
+		},	
 	},
 	watch:{
 

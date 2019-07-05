@@ -170,12 +170,6 @@ function TplDashboardConfiguration($page) {
           </div>
           <input class="navbar-search form-control" type="text" placeholder="<?php echo $traduction["dashboard"]["recherche"] ?>" aria-label="Search"> </div>
       </form>
-      <li class="nav-item">
-                <a class="nav-link <?php if($page == "news") echo 'active' ?>" href="<?php echo URL_HOME ?>configuration/news/index.php">
-                  <i class="material-icons">edit</i>
-                  <span>News - Actualités</span>
-                </a>
-              </li> 
 
         <div class="nav-wrapper">
           <ul class="nav flex-column">
@@ -203,6 +197,12 @@ function TplDashboardConfiguration($page) {
                   <span>Annee</span>
                 </a>
               </li>                 
+              <li class="nav-item">
+                <a class="nav-link <?php if($page == "news") echo 'active' ?>" href="<?php echo URL_HOME ?>configuration/news/index.php">
+                  <i class="material-icons">edit</i>
+                  <span>News - Actualités</span>
+                </a>
+              </li> 
           </ul>
         </div>
     </aside>

@@ -1,11 +1,11 @@
 <?php include("../../0-config/config-genos.php"); 
 
 $id_utilisateur = (isset($_POST['id_utilisateur']) && !empty($_POST['id_utilisateur'])) ? $_POST['id_utilisateur'] : 0;
+$id_news = (isset($_POST['id_news']) && !empty($_POST['id_news'])) ? $_POST['id_news'] : 0;
 
 if(isset($_GET["cas"])){
 	$cas = $_GET["cas"];
 	switch ($cas) {
-
 		case 'ajouter-news':
 			$n = new news;
 			$n->LoadForm();
@@ -25,7 +25,7 @@ if(isset($_GET["cas"])){
 		case 'supprimer-news':
 			$n = new news;
 			$n->id = $id_news;
-			if($n->Delete() > 0) echo "1";
+			if$n->Delete() > 0) echo "1";
 			else echo "0";
 			break;		
 	}
