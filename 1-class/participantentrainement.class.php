@@ -4,33 +4,31 @@ class participantentrainement extends config_genos {
     public $id_utilisateur;
     public $id_planningentrainement;
     public $presence;
+    public $id_entrainement;
  
     public function __construct (){
         parent::__construct();
-		$this->id             = 0;
-		$this->id_utilisateur = 0;
-		$this->id_planningentrainement = 0;
-		$this->presence = 0;
+  		$this->id             = 0;
+  		$this->id_utilisateur = 0;
+  		$this->id_planningentrainement = 0;
+      $this->presence = 0;
+  		$this->id_entrainement = 0;
     } 
 
-  //   public static function ListeParticipantEntrainement($id_planningentrainement){
-  //   	// Load entrainement
-  //   	// $e = new planningentrainement;
-  //   	// $e->id = $id_planningentrainement;
-  //   	// $e->Load();
-  //   	// Liste participant
-		// $pe = new participantentrainement;
-  //   	$req = "SELECT pe.*,u.nom,u.prenom
-  //               FROM participantentrainement pe
-  //               INNER JOIN utilisateur u ON u.id = pe.id_utilisateur
-  //               WHERE pe.id_planningentrainement = :id_planningentrainement";
-	 //    $champs = $pe->FieldList();
-	 //    $champs[] = "nom";
-	 //    $champs[] = "prenom";
-	 //    $binds = array("id_planningentrainement" => $id_planningentrainement);
-	 //    $liste_participant = $pe->StructList($req,$champs,$binds);
-	 //    return $liste_participant;
-  //   }  
+    public static function ListePresence(){
+        $p = new participantentrainement;
+        $u = new utilisateur;
+        $e = new entrainement;
+
+        $req = "SELECT p.*, e.nom
+                FROM participantentrainement p
+                LEFT JOIN utilisateur u ON u.id = p.id_utilisateur
+                LEFT JOIN entrainement e ON e.id = p.id_entrainement
+                WHERE id_utilisateur = 1";
+        $champs = $p->FieldList();
+        $liste_presence = $p->StructList($req,$champs);
+        return $liste_presence;
+    }
 
     public static function CheckPresence($id_planningentrainement,$id_utilisateur){
     	$pe = new participantentrainement;

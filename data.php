@@ -38,7 +38,7 @@ if(isset($_GET["cas"])){
             break ;
 
         case 'liste-presence' : 
-            echo json_encode(statistique::ListePresence());
+            echo json_encode(participantentrainement::ListePresence());
             break ;
             
         case 'liste-count' : 

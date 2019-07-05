@@ -69,14 +69,14 @@ $tu->Load();
  
         <!-- /////////////////////// HISTORIQUE /////////////////////// -->
         <div class="tab-pane" id="historique">Tous l'historique
-        <div class="accordion" id="accordionExample" v-for="entrainement in listePresence">
-          <div class="card">
-              <div class="card-header" id="headingThree">
-                {{entrainement.nom}}
+              <div class="accordion" id="accordionExample" v-for="presence in listePresenceFiltre">
+                <div class="card">
+                    <div class="card-header" id="headingThree">
+                      {{presence.presence}}
+                    </div>
+                  </div>
               </div>
-            </div>
-        </div>
-   </div>
+         </div>
     
 
   <!-- /////////////////////// PERFORMANCE /////////////////////// -->

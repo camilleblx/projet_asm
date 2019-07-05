@@ -9,7 +9,7 @@ new Vue({
         liste_lecon_utilisateur:[],
         liste_news:[],
         liste_compet:[],
-        liste_prescence:[],
+        liste_presence:[],
         liste_count:[],
         rech_commentaires:'',
         rech_tireurs:'',
@@ -84,14 +84,28 @@ new Vue({
                 return (elem.nom.toLowerCase().indexOf(this.rech_compet.toLowerCase()) > -1)
             });
         },
-        listePrescence:function(){
-            var elems = this.liste_prescence;
+        listePresence:function(){
+            var elems = this.liste_presence;
             return elems.filter(elem =>{
                 return (elem.nom.toLowerCase().indexOf(this.rech_presence.toLowerCase()) > -1)
             });
         },
     },
     methods:{
+        GetListePresence:function(){
+            var scope = this;
+            $.ajax({
+                url:"data.php?cas=liste-presence",
+                type:"POST",
+                data:{},
+                success:function(res){
+                    scope.liste_presence = JSON.parse(res);
+                },
+                error:function(){
+
+                }
+            });
+        },
         GetListeCommentaires:function(){
             var scope = this;
             $.ajax({
@@ -222,20 +236,6 @@ new Vue({
                 }
             });
         },
-        // GetListeCompet:function(){
-        //     var scope = this;
-        //     $.ajax({
-        //         url:"data.php?cas=liste-presence",
-        //         type:"POST",
-        //         data:{},
-        //         success:function(res){
-        //             scope.liste_prescence = JSON.parse(res);
-        //         },
-        //         error:function(){
-           
-        //         }
-        //     });
-        // },
         AjouterCommentaire:function(){
             var scope = this;
             var datas = $("#form-ajout-commentaire").serialize();
