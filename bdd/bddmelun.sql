@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  ven. 05 juil. 2019 à 08:05
+-- Généré le :  ven. 05 juil. 2019 à 08:20
 -- Version du serveur :  5.7.19
 -- Version de PHP :  7.1.9
 
@@ -142,7 +142,14 @@ CREATE TABLE IF NOT EXISTS `entrainement` (
   `id_typeentrainement` int(11) NOT NULL,
   `id_groupe` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `entrainement`
+--
+
+INSERT INTO `entrainement` (`id`, `nom`, `jour`, `details`, `heureDebEnt`, `heureFinEnt`, `id_typeentrainement`, `id_groupe`) VALUES
+(3, 'test', 0, 'dwf', '18:00:00', '20:00:00', 2, 2);
 
 -- --------------------------------------------------------
 
@@ -310,7 +317,39 @@ CREATE TABLE IF NOT EXISTS `planningentrainement` (
   `heure_fin` time NOT NULL DEFAULT '00:00:00',
   `id_type_entrainement` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=53 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `planningentrainement`
+--
+
+INSERT INTO `planningentrainement` (`id`, `id_entrainement`, `date`, `heure_debut`, `heure_fin`, `id_type_entrainement`) VALUES
+(52, 3, '2019-12-27', '18:00:00', '20:00:00', 2),
+(51, 3, '2019-12-20', '18:00:00', '20:00:00', 2),
+(50, 3, '2019-12-13', '18:00:00', '20:00:00', 2),
+(49, 3, '2019-12-06', '18:00:00', '20:00:00', 2),
+(48, 3, '2019-11-29', '18:00:00', '20:00:00', 2),
+(47, 3, '2019-11-22', '18:00:00', '20:00:00', 2),
+(46, 3, '2019-11-15', '18:00:00', '20:00:00', 2),
+(45, 3, '2019-11-08', '18:00:00', '20:00:00', 2),
+(44, 3, '2019-11-01', '18:00:00', '20:00:00', 2),
+(43, 3, '2019-10-25', '18:00:00', '20:00:00', 2),
+(42, 3, '2019-10-18', '18:00:00', '20:00:00', 2),
+(41, 3, '2019-10-11', '18:00:00', '20:00:00', 2),
+(40, 3, '2019-10-04', '18:00:00', '20:00:00', 2),
+(39, 3, '2019-09-27', '18:00:00', '20:00:00', 2),
+(38, 3, '2019-09-20', '18:00:00', '20:00:00', 2),
+(37, 3, '2019-09-13', '18:00:00', '20:00:00', 2),
+(36, 3, '2019-09-06', '18:00:00', '20:00:00', 2),
+(35, 3, '2019-08-30', '18:00:00', '20:00:00', 2),
+(34, 3, '2019-08-23', '18:00:00', '20:00:00', 2),
+(33, 3, '2019-08-16', '18:00:00', '20:00:00', 2),
+(32, 3, '2019-08-09', '18:00:00', '20:00:00', 2),
+(31, 3, '2019-08-02', '18:00:00', '20:00:00', 2),
+(30, 3, '2019-07-26', '18:00:00', '20:00:00', 2),
+(29, 3, '2019-07-19', '18:00:00', '20:00:00', 2),
+(28, 3, '2019-07-12', '18:00:00', '20:00:00', 2),
+(27, 3, '2019-07-05', '18:00:00', '20:00:00', 2);
 
 -- --------------------------------------------------------
 
