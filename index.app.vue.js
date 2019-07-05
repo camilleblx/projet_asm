@@ -8,6 +8,7 @@ new Vue({
         liste_news:[],
         liste_compet:[],
         liste_prescence:[],
+        liste_count:[],
         rech_commentaires:'',
         rech_tireurs:'',
         rech_objectif:'',
@@ -24,6 +25,7 @@ new Vue({
         this.GetListeNews();
         this.GetListeCompet();
         this.GetListePrescence();
+        this.GetStatistiqueCountPrescence();
         var scope = this;
     },
     computed:{
@@ -75,6 +77,20 @@ new Vue({
         GetListeCommentaires:function(){
             var scope = this;
             $.ajax({
+                url:"data.php?cas=liste-count",
+                type:"POST",
+                data:{},
+                success:function(res){
+                    scope.liste_count = JSON.parse(res);
+                },
+                error:function(){
+           
+                }
+            });
+        }, 
+         GetStatistiqueCountPrescence:function(){
+            var scope = this;
+            $.ajax({
                 url:"data.php?cas=liste-commentaires",
                 type:"POST",
                 data:{},
@@ -85,7 +101,7 @@ new Vue({
            
                 }
             });
-        },     
+        },         
         GetListeObjectif:function(){
             var scope = this;
             $.ajax({

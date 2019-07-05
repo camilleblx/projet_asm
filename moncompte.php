@@ -94,15 +94,15 @@ $tu->Load();
     
     </div>
   
-   
+   </main>
+   </div></div>
+  </div>
+ 
     <?php TplBackTop() ?>
     <?php TplFooter() ?>
     <?php Script() ?>
     <script src="index.app.vue.js"></script>
-    </main>
-   </div></div>
-  </div>
-  </body>
+  </body>   
 </html>
  
 <script type="text/javascript">
