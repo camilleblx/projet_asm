@@ -4,7 +4,9 @@ new Vue({
         liste_commentaires:[],
         liste_tireurs:[],
         liste_objectif:[],
+        liste_objectif_utilisateur:[],
         liste_objectifs_commentaires:[],
+        liste_lecon_utilisateur:[],
         liste_news:[],
         liste_compet:[],
         liste_prescence:[],
@@ -12,19 +14,23 @@ new Vue({
         rech_commentaires:'',
         rech_tireurs:'',
         rech_objectif:'',
+        rech_objectif_utilisateur:'',
+        rech_lecon_utilisateur:'',
         rech_objectifs_commentaires:'',
         rech_news:'',
         rech_compet:'',
         rech_presence:'',
     },
     ready:function(){
-        this.GetListeCommentaires();
-        this.GetListeObjectif();
-        this.GetListeTireurs();
-        this.GetListeObjectifsCommentaires();
-        this.GetListeNews();
-        this.GetListeCompet();
         // this.GetListePrescence();
+        this.GetListeCommentaires();
+        this.GetListeCompet();
+        this.GetListeLeconUtilisateur();
+        this.GetListeNews();
+        this.GetListeObjectif();
+        this.GetListeObjectifsCommentaires();
+        this.GetListeObjectifUtilisateur();
+        this.GetListeTireurs();
         this.GetStatistiqueCountPrescence();
         var scope = this;
     },
@@ -39,6 +45,18 @@ new Vue({
             var elems = this.liste_objectif;
             return elems.filter(elem =>{
                 return (elem.nom.toLowerCase().indexOf(this.rech_objectif.toLowerCase()) > -1)
+            });
+        },           
+        listeLeconUtilisateurFiltre:function(){
+            var elems = this.liste_lecon_utilisateur;
+            return elems.filter(elem =>{
+                return (elem.nom.toLowerCase().indexOf(this.rech_objectif.toLowerCase()) > -1)
+            });
+        },        
+        listeObjectifsUtilisateurFiltre:function(){
+            var elems = this.liste_objectif_utilisateur;
+            return elems.filter(elem =>{
+                return (elem.nom.toLowerCase().indexOf(this.rech_objectif_utilisateur.toLowerCase()) > -1)
             });
         },
         listeObjectifsCommentairesFiltre:function(){
@@ -115,6 +133,38 @@ new Vue({
            
                 }
             });
+        },       
+        GetListeObjectifUtilisateur:function(){
+            var scope = this;
+            var id_utilisateur = $("#id_utilisateur").val();
+            if(id_utilisateur == undefined) return;
+            $.ajax({
+                url:"data.php?cas=liste-objectif-utilisateur",
+                type:"POST",
+                data:{id_utilisateur:id_utilisateur},
+                success:function(res){
+                    scope.liste_objectif_utilisateur = JSON.parse(res);
+                },
+                error:function(){
+           
+                }
+            });
+        },        
+        GetListeLeconUtilisateur:function(){
+            var scope = this;
+            var id_utilisateur = $("#id_utilisateur").val();
+            if(id_utilisateur == undefined) return;
+            $.ajax({
+                url:"data.php?cas=liste-lecon-utilisateur",
+                type:"POST",
+                data:{id_utilisateur:id_utilisateur},
+                success:function(res){
+                    scope.liste_lecon_utilisateur = JSON.parse(res);
+                },
+                error:function(){
+           
+                }
+            });
         },
         GetListeObjectifsCommentaires:function(){
             var scope = this;
@@ -172,20 +222,20 @@ new Vue({
                 }
             });
         },
-        GetListeCompet:function(){
-            var scope = this;
-            $.ajax({
-                url:"data.php?cas=liste-presence",
-                type:"POST",
-                data:{},
-                success:function(res){
-                    scope.liste_prescence = JSON.parse(res);
-                },
-                error:function(){
+        // GetListeCompet:function(){
+        //     var scope = this;
+        //     $.ajax({
+        //         url:"data.php?cas=liste-presence",
+        //         type:"POST",
+        //         data:{},
+        //         success:function(res){
+        //             scope.liste_prescence = JSON.parse(res);
+        //         },
+        //         error:function(){
            
-                }
-            });
-        },
+        //         }
+        //     });
+        // },
         AjouterCommentaire:function(){
             var scope = this;
             var datas = $("#form-ajout-commentaire").serialize();
@@ -224,7 +274,27 @@ new Vue({
                 }
             });
         },
-       
+       SupprimerObjectifUtilisateur:function(elem){
+            var scope = this;
+            var rep = confirm("Etes-vous sur de vouloir supprimer l'objectif ?");
+            if(rep === true){
+                var id_objectif = elem.id;
+                $.ajax({
+                    url:"valid.php?cas=supprimer-objectif",
+                    type:"POST",
+                    data:{id_objectif:id_objectif},
+                    success:function(res){
+                        res = JSON.parse(res);
+                        if(res == "1") Notify("success","L'objectif à été supprimé");
+                        else Notify("danger","L'objectif n'a pas été supprimé");
+                        scope.GetListeObjectif();
+                    },
+                    error:function(){
+                        Notify("danger","Erreur Ajax");
+                    }
+                });
+            }
+        },    
     },
     watch:{
  

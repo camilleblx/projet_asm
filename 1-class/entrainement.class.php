@@ -59,8 +59,6 @@ class entrainement extends config_genos {
                       "heure_fin" => $this->heureFinEnt,
                       "id_typeentrainement" => $this->id_typeentrainement,
                     );
-      var_dump($req);
-      var_dump($binds);
       $this->Sql($req,$binds);
     }
 
