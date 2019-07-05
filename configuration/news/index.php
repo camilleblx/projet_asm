@@ -7,7 +7,7 @@
     <div class="container-fluid">
       <div class="row">
         <!-- Main Sidebar -->
-        <?php TplDashboardConfiguration("utilisateur") ?>
+        <?php TplDashboardConfiguration("news") ?>
         <!-- End Main Sidebar -->
         <main id="app" class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
           <?php TplDashboardAlert() ?>
@@ -34,7 +34,6 @@
                   <div class="card-header border-bottom">
                     <h6 class="m-0">Actualités</h6>
                     <br>
-                    <input type="text" class="form-control form-control-sm col-4" v-model="rech_utilisateur_administrateur" placeholder="Rechercher un utilisateur..." aria-describedby="basic-addon1">
                   </div>
                   <div class="card-body p-0 pb-3 text-center">
                     <table class="table mb-0">
@@ -45,6 +44,8 @@
                           <th scope="col" class="border-0">Date de création</th>
                           <th scope="col" class="border-0">Image</th>
                           <th scope="col" class="border-0">Lien</th>
+                          <th scope="col" class="border-0">Modifier</th>
+                          <th scope="col" class="border-0">Supprimer</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -54,6 +55,8 @@
                           <td>{{new.date_creation}}</td>
                           <td>{{new.img}}</td>
                           <td>{{new.lien}}</td>
+                          <td><a href="form.php?action=2&id={{new.id}}" class="btn btn-info btn-sm"><i class="fa fa-edit text-white"></i></a></td>
+                          <td><button href="#" @click="SupprimerNews(news)" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button></td>
                         </tr>
                       </tbody>
                     </table>

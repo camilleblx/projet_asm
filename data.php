@@ -34,7 +34,7 @@ if(isset($_GET["cas"])){
             break ;
             
         case 'liste-count' : 
-            echo json_encode(statistique::ListeCount());
+            echo json_encode(statistique::StatistiqueCountPresence());
             break ;
     }
 }

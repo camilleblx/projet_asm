@@ -5,8 +5,8 @@ class objectif extends config_genos {
     public $details;
 
 
-    public function construct (){
-        parent::construct();
+    public function __construct () {
+        parent::__construct();
         $this->id                      = 0;
         $this->nom                     = 0;
         $this->details                 = 0;
