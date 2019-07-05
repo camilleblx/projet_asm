@@ -5,34 +5,27 @@
 
 <!DOCTYPE html>
 <html lang="fr">
-	<?php TplHead(); ?>
-	<body id="page-top">
-		<?php TplHeader() ?>
-		<section>
-			<div class="row">
-              <div class="col-12">
-                <div class="card card-small mb-4">
-                  <div class="card-body p-0 pb-3 text-center">
-                    <table class="table mb-0">
-                      <thead class="bg-light">
-                        <tr>
-                          <th scope="col" class="border-0">Actualité</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr v-for="news in listeNewsFiltre">
-                          <td>{{new.objet}} - {{new.texte}} - {{new.img}}</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-         </div>
-          </div>
+    <?php TplHead(); ?>
+    <body id="page-top">
+        <?php TplHeader() ?>
+        <main id="app">
+
+            <div class="container" style="margin-top: 3em;">
+                <div class="row">
+                       <div class="col-md-4" v-for="new in listeNewsFiltre">
+                           <h3><a href="{{ new.lien }}" target="_blank">{{new.objet}}</a></h3>
+                           <img src="{{ new.img }}" width="100%">
+
+
+                    </div>  <!-- Fin col-md-12 -->
+                </div> <!-- row -->
+            </div> <!-- Fin container-fluid -->
         </div>
-		</section>
-		
-		<?php TplBackTop() ?>
-		<?php TplFooter() ?>
-		<?php Script() ?>
-	</body>
+    </main>
+
+        <?php TplBackTop() ?>
+        <?php TplFooter() ?>
+        <?php Script() ?>
+        <script src="index.app.vue.js"></script>
+    </body>
 </html>
