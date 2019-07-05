@@ -31,8 +31,6 @@ $u->Load();
                   <th scope="col" class="border-0">#</th>
                   <th scope="col" class="border-0">Nom</th>
                   <th scope="col" class="border-0">Details</th>
-                  <th scope="col" class="border-0">Modifier</th>
-                  <th scope="col" class="border-0">Supprimer</th>
                 </tr>
               </thead>
               <tbody>
@@ -40,8 +38,6 @@ $u->Load();
                   <td>{{ ($index + 1) }}</td>
                   <td>{{objectif.nom}}</td>  
                   <td>{{objectif.details}}</td>
-                  <td><a href="form.php?action=2&id={{objectif.id}}" class="btn btn-info btn-sm"><i class="fa fa-edit text-white"></i></a></td>
-                  <td><button href="#" @click="SupprimerObjectif(objectif)" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button></td>
                 </tr>
               </tbody>
             </table>

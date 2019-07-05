@@ -249,15 +249,15 @@ new Vue({
                 }
             });
         },
-       SupprimerObjectif:function(elem){
+       SupprimerObjectifUtilisateur:function(elem){
             var scope = this;
             var rep = confirm("Etes-vous sur de vouloir supprimer l'objectif ?");
             if(rep === true){
-                var id_entrainement = elem.id;
+                var id_objectif = elem.id;
                 $.ajax({
                     url:"valid.php?cas=supprimer-objectif",
                     type:"POST",
-                    data:{id_entrainement:id_entrainement},
+                    data:{id_objectif:id_objectif},
                     success:function(res){
                         res = JSON.parse(res);
                         if(res == "1") Notify("success","L'objectif à été supprimé");
